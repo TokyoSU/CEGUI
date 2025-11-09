@@ -46,7 +46,7 @@
 	(Define CEGUIBASE_EXPORTS to export symbols, else they are imported)
 *************************************************************************/
 #if (defined( __WIN32__ ) || defined( _WIN32 )) && !defined(CEGUI_STATIC)
-#   ifdef CEGUIBASE_EXPORTS
+#   if defined(CEGUIBASE_EXPORTS)
 #       define CEGUIEXPORT __declspec(dllexport)
 #   else
 #       define CEGUIEXPORT __declspec(dllimport)

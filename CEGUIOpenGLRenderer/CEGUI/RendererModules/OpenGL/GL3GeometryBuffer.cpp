@@ -121,7 +121,7 @@ void OpenGL3GeometryBuffer::draw() const
 
             // draw the geometry
             const unsigned int numVertices = currentBatch.vertexCount;
-            glDrawArrays(GL_TRIANGLES, pos, numVertices);
+            glDrawArrays(GL_TRIANGLES, (GLint)pos, numVertices);
 
             pos += numVertices;
         }
@@ -201,7 +201,7 @@ void OpenGL3GeometryBuffer::deinitialiseOpenGLBuffers()
 void OpenGL3GeometryBuffer::updateOpenGLBuffers()
 {
     bool needNewBuffer = false;
-    unsigned int vertexCount = d_vertices.size();
+    uint vertexCount = (uint)d_vertices.size();
 
     if(d_bufferSize < vertexCount)
     {

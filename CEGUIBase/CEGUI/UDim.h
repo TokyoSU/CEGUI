@@ -230,8 +230,8 @@ public:
         return UDim(0.0f, 1.0f);
     }
     
-    float d_scale;
-    float d_offset;
+    float d_scale = 0.0f;
+    float d_offset = 0.0f;
 };
 
 /*!

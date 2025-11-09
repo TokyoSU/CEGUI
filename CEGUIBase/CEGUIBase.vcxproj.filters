@@ -15,717 +15,1131 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Affector.cpp">
+    <ClCompile Include="CEGUI\Affector.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Animation.cpp">
+    <ClCompile Include="CEGUI\Animation.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Animation_xmlHandler.cpp">
+    <ClCompile Include="CEGUI\AnimationInstance.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="AnimationInstance.cpp">
+    <ClCompile Include="CEGUI\AnimationManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="AnimationManager.cpp">
+    <ClCompile Include="CEGUI\Animation_xmlHandler.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Base.cpp">
+    <ClCompile Include="CEGUI\Base.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="BasicImage.cpp">
+    <ClCompile Include="CEGUI\BasicImage.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="BasicRenderedStringParser.cpp">
+    <ClCompile Include="CEGUI\BasicRenderedStringParser.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="BidiVisualMapping.cpp">
+    <ClCompile Include="CEGUI\BidiVisualMapping.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="BoundSlot.cpp">
+    <ClCompile Include="CEGUI\BoundSlot.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="CentredRenderedString.cpp">
+    <ClCompile Include="CEGUI\CentredRenderedString.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="ChainedXMLHandler.cpp">
+    <ClCompile Include="CEGUI\ChainedXMLHandler.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Clipboard.cpp">
+    <ClCompile Include="CEGUI\Clipboard.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Colour.cpp">
+    <ClCompile Include="CEGUI\Colour.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="ColourRect.cpp">
+    <ClCompile Include="CEGUI\ColourRect.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="CompositeResourceProvider.cpp">
+    <ClCompile Include="CEGUI\CompositeResourceProvider.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Config_xmlHandler.cpp">
+    <ClCompile Include="CEGUI\Config_xmlHandler.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="CoordConverter.cpp">
+    <ClCompile Include="CEGUI\CoordConverter.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="DataContainer.cpp">
+    <ClCompile Include="CEGUI\DataContainer.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="DefaultLogger.cpp">
+    <ClCompile Include="CEGUI\DefaultLogger.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="DefaultRenderedStringParser.cpp">
+    <ClCompile Include="CEGUI\DefaultRenderedStringParser.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="DefaultResourceProvider.cpp">
+    <ClCompile Include="CEGUI\DefaultResourceProvider.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="DynamicModule.cpp">
+    <ClCompile Include="CEGUI\DynamicModule.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Element.cpp">
+    <ClCompile Include="CEGUI\Element.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Event.cpp">
+    <ClCompile Include="CEGUI\Event.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="EventArgs.cpp">
+    <ClCompile Include="CEGUI\EventArgs.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="EventSet.cpp">
+    <ClCompile Include="CEGUI\EventSet.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Exceptions.cpp">
+    <ClCompile Include="CEGUI\Exceptions.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="FactoryModule.cpp">
+    <ClCompile Include="CEGUI\FactoryModule.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="FactoryRegisterer.cpp">
+    <ClCompile Include="CEGUI\FactoryRegisterer.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Font.cpp">
+    <ClCompile Include="CEGUI\Falagard\ComponentBase.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Font_xmlHandler.cpp">
+    <ClCompile Include="CEGUI\Falagard\Dimensions.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="FontManager.cpp">
+    <ClCompile Include="CEGUI\Falagard\EventAction.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="FormattedRenderedString.cpp">
+    <ClCompile Include="CEGUI\Falagard\EventLinkDefinition.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="FreeTypeFont.cpp">
+    <ClCompile Include="CEGUI\Falagard\FormattingSetting.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="FribidiVisualMapping.cpp">
+    <ClCompile Include="CEGUI\Falagard\FrameComponent.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="GeometryBuffer.cpp">
+    <ClCompile Include="CEGUI\Falagard\ImageryComponent.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="GlobalEventSet.cpp">
+    <ClCompile Include="CEGUI\Falagard\ImagerySection.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="GUIContext.cpp">
+    <ClCompile Include="CEGUI\Falagard\LayerSpecification.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="GUILayout_xmlHandler.cpp">
+    <ClCompile Include="CEGUI\Falagard\NamedArea.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="IconvStringTranscoder.cpp">
+    <ClCompile Include="CEGUI\Falagard\PropertyDefinitionBase.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Image.cpp">
+    <ClCompile Include="CEGUI\Falagard\PropertyInitialiser.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="ImageCodec.cpp">
+    <ClCompile Include="CEGUI\Falagard\SectionSpecification.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="ImageManager.cpp">
+    <ClCompile Include="CEGUI\Falagard\StateImagery.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="JustifiedRenderedString.cpp">
+    <ClCompile Include="CEGUI\Falagard\TextComponent.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="JustifiedRenderedStringWordWrapper.cpp">
+    <ClCompile Include="CEGUI\Falagard\WidgetComponent.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="KeyFrame.cpp">
+    <ClCompile Include="CEGUI\Falagard\WidgetLookFeel.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="LeftAlignedRenderedString.cpp">
+    <ClCompile Include="CEGUI\Falagard\WidgetLookManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="LinkedEvent.cpp">
+    <ClCompile Include="CEGUI\Falagard\XMLEnumHelper.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Logger.cpp">
+    <ClCompile Include="CEGUI\Falagard\FalagardXMLHandler.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="minibidi.cpp">
+    <ClCompile Include="CEGUI\Font.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="MinibidiVisualMapping.cpp">
+    <ClCompile Include="CEGUI\FontManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="MinizipResourceProvider.cpp">
+    <ClCompile Include="CEGUI\Font_xmlHandler.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="MouseCursor.cpp">
+    <ClCompile Include="CEGUI\FormattedRenderedString.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="NamedElement.cpp">
+    <ClCompile Include="CEGUI\FreeTypeFont.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="NamedXMLResourceManager.cpp">
+    <ClCompile Include="CEGUI\FribidiVisualMapping.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="PCRERegexMatcher.cpp">
+    <ClCompile Include="CEGUI\GeometryBuffer.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="PixmapFont.cpp">
+    <ClCompile Include="CEGUI\GlobalEventSet.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Property.cpp">
+    <ClCompile Include="CEGUI\GUIContext.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="PropertyHelper.cpp">
+    <ClCompile Include="CEGUI\GUILayout_xmlHandler.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="PropertySet.cpp">
+    <ClCompile Include="CEGUI\IconvStringTranscoder.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Quaternion.cpp">
+    <ClCompile Include="CEGUI\Image.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Rect.cpp">
+    <ClCompile Include="CEGUI\ImageCodec.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="RenderedString.cpp">
+    <ClCompile Include="CEGUI\ImageManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="RenderedStringComponent.cpp">
+    <ClCompile Include="CEGUI\JustifiedRenderedString.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="RenderedStringImageComponent.cpp">
+    <ClCompile Include="CEGUI\JustifiedRenderedStringWordWrapper.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="RenderedStringTextComponent.cpp">
+    <ClCompile Include="CEGUI\KeyFrame.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="RenderedStringWidgetComponent.cpp">
+    <ClCompile Include="CEGUI\LeftAlignedRenderedString.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="RenderEffectManager.cpp">
+    <ClCompile Include="CEGUI\LinkedEvent.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="RenderingSurface.cpp">
+    <ClCompile Include="CEGUI\Logger.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="RenderingWindow.cpp">
+    <ClCompile Include="CEGUI\minibidi.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="RenderQueue.cpp">
+    <ClCompile Include="CEGUI\MinibidiVisualMapping.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="RenderTarget.cpp">
+    <ClCompile Include="CEGUI\MinizipResourceProvider.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="RightAlignedRenderedString.cpp">
+    <ClCompile Include="CEGUI\MouseCursor.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Scheme.cpp">
+    <ClCompile Include="CEGUI\NamedElement.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Scheme_xmlHandler.cpp">
+    <ClCompile Include="CEGUI\NamedXMLResourceManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="SchemeManager.cpp">
+    <ClCompile Include="CEGUI\PCRERegexMatcher.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="ScriptModule.cpp">
+    <ClCompile Include="CEGUI\PixmapFont.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleTimer.cpp">
+    <ClCompile Include="CEGUI\Property.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="String.cpp">
+    <ClCompile Include="CEGUI\PropertyHelper.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="SubscriberSlot.cpp">
+    <ClCompile Include="CEGUI\PropertySet.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="System.cpp">
+    <ClCompile Include="CEGUI\Quaternion.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="SystemKeys.cpp">
+    <ClCompile Include="CEGUI\Rect.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="TextUtils.cpp">
+    <ClCompile Include="CEGUI\RenderedString.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Win32StringTranscoder.cpp">
+    <ClCompile Include="CEGUI\RenderedStringComponent.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
+    <ClCompile Include="CEGUI\RenderedStringImageComponent.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="WindowFactory.cpp">
+    <ClCompile Include="CEGUI\RenderedStringTextComponent.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="WindowFactoryManager.cpp">
+    <ClCompile Include="CEGUI\RenderedStringWidgetComponent.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="WindowManager.cpp">
+    <ClCompile Include="CEGUI\RenderEffectManager.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="WindowRenderer.cpp">
+    <ClCompile Include="CEGUI\RenderingSurface.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="WindowRendererManager.cpp">
+    <ClCompile Include="CEGUI\RenderingWindow.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="XMLAttributes.cpp">
+    <ClCompile Include="CEGUI\RenderQueue.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="XMLHandler.cpp">
+    <ClCompile Include="CEGUI\RenderTarget.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="XMLParser.cpp">
+    <ClCompile Include="CEGUI\RightAlignedRenderedString.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="XMLSerializer.cpp">
+    <ClCompile Include="CEGUI\Scheme.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\SchemeManager.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Scheme_xmlHandler.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\ScriptModule.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\SimpleTimer.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\String.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\SubscriberSlot.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\System.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\SystemKeys.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\TextUtils.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\ButtonBase.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\ClippedContainer.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\Combobox.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\ComboDropList.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\DefaultWindow.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\DragContainer.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\Editbox.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\FrameWindow.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\GridLayoutContainer.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\GroupBox.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\HorizontalLayoutContainer.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\ItemEntry.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\ItemListBase.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\ItemListbox.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\LayoutCell.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\LayoutContainer.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\Listbox.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\ListboxItem.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\ListboxTextItem.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\ListHeader.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\ListHeaderSegment.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\Menubar.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\MenuBase.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\MenuItem.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\MultiColumnList.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\MultiLineEditbox.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\PopupMenu.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\ProgressBar.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\PushButton.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\RadioButton.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\ScrollablePane.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\Scrollbar.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\ScrolledContainer.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\ScrolledItemListBase.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\SequentialLayoutContainer.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\Slider.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\Spinner.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\TabButton.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\TabControl.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\Thumb.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\Titlebar.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\ToggleButton.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\Tooltip.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\Tree.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\TreeItem.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Widgets\VerticalLayoutContainer.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Win32StringTranscoder.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\Window.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\WindowFactory.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\WindowFactoryManager.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\WindowManager.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\WindowRenderer.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\WindowRendererManager.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\XMLAttributes.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\XMLHandler.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\XMLParser.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\XMLSerializer.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Affector.h">
+    <ClInclude Include="CEGUI\Affector.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Animation.h">
+    <ClInclude Include="CEGUI\Animation.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Animation_xmlHandler.h">
+    <ClInclude Include="CEGUI\AnimationInstance.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="AnimationInstance.h">
+    <ClInclude Include="CEGUI\AnimationManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="AnimationManager.h">
+    <ClInclude Include="CEGUI\Animation_xmlHandler.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Base.h">
+    <ClInclude Include="CEGUI\Base.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="BasicImage.h">
+    <ClInclude Include="CEGUI\BasicImage.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="BasicRenderedStringParser.h">
+    <ClInclude Include="CEGUI\BasicRenderedStringParser.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="BidiVisualMapping.h">
+    <ClInclude Include="CEGUI\BidiVisualMapping.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="BoundSlot.h">
+    <ClInclude Include="CEGUI\BoundSlot.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="CEGUI.h">
+    <ClInclude Include="CEGUI\CEGUI.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="CentredRenderedString.h">
+    <ClInclude Include="CEGUI\CentredRenderedString.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="ChainedXMLHandler.h">
+    <ClInclude Include="CEGUI\ChainedXMLHandler.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Clipboard.h">
+    <ClInclude Include="CEGUI\Clipboard.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Colour.h">
+    <ClInclude Include="CEGUI\Colour.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="ColourRect.h">
+    <ClInclude Include="CEGUI\ColourRect.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="CompositeResourceProvider.h">
+    <ClInclude Include="CEGUI\CompositeResourceProvider.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Config.h">
+    <ClInclude Include="CEGUI\Config.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Config_xmlHandler.h">
+    <ClInclude Include="CEGUI\Config_xmlHandler.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="CoordConverter.h">
+    <ClInclude Include="CEGUI\CoordConverter.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="DataContainer.h">
+    <ClInclude Include="CEGUI\DataContainer.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="DefaultLogger.h">
+    <ClInclude Include="CEGUI\DefaultLogger.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="DefaultRenderedStringParser.h">
+    <ClInclude Include="CEGUI\DefaultRenderedStringParser.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="DefaultResourceProvider.h">
+    <ClInclude Include="CEGUI\DefaultResourceProvider.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="DynamicModule.h">
+    <ClInclude Include="CEGUI\DynamicModule.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Element.h">
+    <ClInclude Include="CEGUI\Element.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Event.h">
+    <ClInclude Include="CEGUI\Event.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="EventArgs.h">
+    <ClInclude Include="CEGUI\EventArgs.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="EventSet.h">
+    <ClInclude Include="CEGUI\EventSet.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Exceptions.h">
+    <ClInclude Include="CEGUI\Exceptions.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="FactoryModule.h">
+    <ClInclude Include="CEGUI\FactoryModule.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="FactoryRegisterer.h">
+    <ClInclude Include="CEGUI\FactoryRegisterer.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Font.h">
+    <ClInclude Include="CEGUI\Falagard\ComponentBase.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Font_xmlHandler.h">
+    <ClInclude Include="CEGUI\Falagard\Dimensions.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="FontGlyph.h">
+    <ClInclude Include="CEGUI\Falagard\Enums.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="FontManager.h">
+    <ClInclude Include="CEGUI\Falagard\EventAction.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="FormattedRenderedString.h">
+    <ClInclude Include="CEGUI\Falagard\EventLinkDefinition.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="ForwardRefs.h">
+    <ClInclude Include="CEGUI\Falagard\FalagardPropertyBase.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="FreeFunctionSlot.h">
+    <ClInclude Include="CEGUI\Falagard\FormattingSetting.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="FreeTypeFont.h">
+    <ClInclude Include="CEGUI\Falagard\FrameComponent.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="FribidiVisualMapping.h">
+    <ClInclude Include="CEGUI\Falagard\ImageryComponent.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="FunctorCopySlot.h">
+    <ClInclude Include="CEGUI\Falagard\ImagerySection.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="FunctorPointerSlot.h">
+    <ClInclude Include="CEGUI\Falagard\LayerSpecification.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="FunctorReferenceBinder.h">
+    <ClInclude Include="CEGUI\Falagard\NamedArea.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="FunctorReferenceSlot.h">
+    <ClInclude Include="CEGUI\Falagard\NamedDefinitionCollator.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="GeometryBuffer.h">
+    <ClInclude Include="CEGUI\Falagard\PropertyDefinition.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="GlobalEventSet.h">
+    <ClInclude Include="CEGUI\Falagard\PropertyDefinitionBase.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="GUIContext.h">
+    <ClInclude Include="CEGUI\Falagard\PropertyInitialiser.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="GUILayout_xmlHandler.h">
+    <ClInclude Include="CEGUI\Falagard\PropertyLinkDefinition.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="IconvStringTranscoder.h">
+    <ClInclude Include="CEGUI\Falagard\SectionSpecification.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Image.h">
+    <ClInclude Include="CEGUI\Falagard\StateImagery.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="ImageCodec.h">
+    <ClInclude Include="CEGUI\Falagard\TextComponent.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="ImageFactory.h">
+    <ClInclude Include="CEGUI\Falagard\WidgetComponent.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="ImageManager.h">
+    <ClInclude Include="CEGUI\Falagard\WidgetLookFeel.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="InjectedInputReceiver.h">
+    <ClInclude Include="CEGUI\Falagard\WidgetLookManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="InputEvent.h">
+    <ClInclude Include="CEGUI\Falagard\XMLEnumHelper.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Interpolator.h">
+    <ClInclude Include="CEGUI\Falagard\FalagardXMLHandler.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="IteratorBase.h">
+    <ClInclude Include="CEGUI\Font.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="JustifiedRenderedString.h">
+    <ClInclude Include="CEGUI\FontGlyph.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="KeyFrame.h">
+    <ClInclude Include="CEGUI\FontManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="LeftAlignedRenderedString.h">
+    <ClInclude Include="CEGUI\Font_xmlHandler.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="LinkedEvent.h">
+    <ClInclude Include="CEGUI\FormattedRenderedString.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Logger.h">
+    <ClInclude Include="CEGUI\ForwardRefs.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="MemberFunctionSlot.h">
+    <ClInclude Include="CEGUI\FreeFunctionSlot.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="MemoryAllocatedObject.h">
+    <ClInclude Include="CEGUI\FreeTypeFont.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="MemoryAllocation.h">
+    <ClInclude Include="CEGUI\FribidiVisualMapping.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="MemoryOgreAllocator.h">
+    <ClInclude Include="CEGUI\FunctorCopySlot.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="MemoryStdAllocator.h">
+    <ClInclude Include="CEGUI\FunctorPointerSlot.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="MemorySTLWrapper.h">
+    <ClInclude Include="CEGUI\FunctorReferenceBinder.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="MinibidiVisualMapping.h">
+    <ClInclude Include="CEGUI\FunctorReferenceSlot.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="MinizipResourceProvider.h">
+    <ClInclude Include="CEGUI\GeometryBuffer.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleConfig.h">
+    <ClInclude Include="CEGUI\GlobalEventSet.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="MouseCursor.h">
+    <ClInclude Include="CEGUI\GUIContext.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="NamedElement.h">
+    <ClInclude Include="CEGUI\GUILayout_xmlHandler.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="NamedXMLResourceManager.h">
+    <ClInclude Include="CEGUI\IconvStringTranscoder.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="PCRERegexMatcher.h">
+    <ClInclude Include="CEGUI\Image.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="PixmapFont.h">
+    <ClInclude Include="CEGUI\ImageCodec.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Property.h">
+    <ClInclude Include="CEGUI\ImageFactory.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="PropertyHelper.h">
+    <ClInclude Include="CEGUI\ImageManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="PropertySet.h">
+    <ClInclude Include="CEGUI\InjectedInputReceiver.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Quaternion.h">
+    <ClInclude Include="CEGUI\InputEvent.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Rect.h">
+    <ClInclude Include="CEGUI\Interpolator.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RefCounted.h">
+    <ClInclude Include="CEGUI\IteratorBase.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RegexMatcher.h">
+    <ClInclude Include="CEGUI\JustifiedRenderedString.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RenderedString.h">
+    <ClInclude Include="CEGUI\KeyFrame.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RenderedStringComponent.h">
+    <ClInclude Include="CEGUI\LeftAlignedRenderedString.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RenderedStringImageComponent.h">
+    <ClInclude Include="CEGUI\LinkedEvent.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RenderedStringParser.h">
+    <ClInclude Include="CEGUI\Logger.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RenderedStringTextComponent.h">
+    <ClInclude Include="CEGUI\MemberFunctionSlot.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RenderedStringWidgetComponent.h">
+    <ClInclude Include="CEGUI\MemoryAllocatedObject.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RenderedStringWordWrapper.h">
+    <ClInclude Include="CEGUI\MemoryAllocation.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RenderEffect.h">
+    <ClInclude Include="CEGUI\MemoryOgreAllocator.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RenderEffectFactory.h">
+    <ClInclude Include="CEGUI\MemoryStdAllocator.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RenderEffectManager.h">
+    <ClInclude Include="CEGUI\MemorySTLWrapper.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer.h">
+    <ClInclude Include="CEGUI\MinibidiVisualMapping.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RenderingContext.h">
+    <ClInclude Include="CEGUI\MinizipResourceProvider.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RenderingSurface.h">
+    <ClInclude Include="CEGUI\ModuleConfig.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RenderingWindow.h">
+    <ClInclude Include="CEGUI\MouseCursor.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RenderQueue.h">
+    <ClInclude Include="CEGUI\NamedElement.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RenderTarget.h">
+    <ClInclude Include="CEGUI\NamedXMLResourceManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="ResourceProvider.h">
+    <ClInclude Include="CEGUI\PCRERegexMatcher.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="RightAlignedRenderedString.h">
+    <ClInclude Include="CEGUI\PixmapFont.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Scheme.h">
+    <ClInclude Include="CEGUI\Property.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Scheme_xmlHandler.h">
+    <ClInclude Include="CEGUI\PropertyHelper.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="SchemeManager.h">
+    <ClInclude Include="CEGUI\PropertySet.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="ScriptModule.h">
+    <ClInclude Include="CEGUI\Quaternion.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="SimpleTimer.h">
+    <ClInclude Include="CEGUI\Rect.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Singleton.h">
+    <ClInclude Include="CEGUI\RefCounted.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Size.h">
+    <ClInclude Include="CEGUI\RegexMatcher.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="SlotFunctorBase.h">
+    <ClInclude Include="CEGUI\RenderedString.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="String.h">
+    <ClInclude Include="CEGUI\RenderedStringComponent.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="StringTranscoder.h">
+    <ClInclude Include="CEGUI\RenderedStringImageComponent.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="SubscriberSlot.h">
+    <ClInclude Include="CEGUI\RenderedStringParser.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="System.h">
+    <ClInclude Include="CEGUI\RenderedStringTextComponent.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="SystemKeys.h">
+    <ClInclude Include="CEGUI\RenderedStringWidgetComponent.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Texture.h">
+    <ClInclude Include="CEGUI\RenderedStringWordWrapper.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="TextureTarget.h">
+    <ClInclude Include="CEGUI\RenderEffect.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="TextUtils.h">
+    <ClInclude Include="CEGUI\RenderEffectFactory.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="TplInterpolators.h">
+    <ClInclude Include="CEGUI\RenderEffectManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="TplProperty.h">
+    <ClInclude Include="CEGUI\Renderer.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="TplWindowFactory.h">
+    <ClInclude Include="CEGUI\RenderingContext.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="TplWindowFactoryRegisterer.h">
+    <ClInclude Include="CEGUI\RenderingSurface.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="TplWindowProperty.h">
+    <ClInclude Include="CEGUI\RenderingWindow.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="TplWindowRendererFactory.h">
+    <ClInclude Include="CEGUI\RenderQueue.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="TplWindowRendererProperty.h">
+    <ClInclude Include="CEGUI\RenderTarget.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="TplWRFactoryRegisterer.h">
+    <ClInclude Include="CEGUI\ResourceProvider.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="TypedProperty.h">
+    <ClInclude Include="CEGUI\RightAlignedRenderedString.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="UDim.h">
+    <ClInclude Include="CEGUI\Scheme.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Vector.h">
+    <ClInclude Include="CEGUI\SchemeManager.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Version.h">
+    <ClInclude Include="CEGUI\Scheme_xmlHandler.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Vertex.h">
+    <ClInclude Include="CEGUI\ScriptModule.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Win32StringTranscoder.h">
+    <ClInclude Include="CEGUI\SimpleTimer.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="Window.h">
+    <ClInclude Include="CEGUI\Singleton.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="WindowFactory.h">
+    <ClInclude Include="CEGUI\Size.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="WindowFactoryManager.h">
+    <ClInclude Include="CEGUI\SlotFunctorBase.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="WindowManager.h">
+    <ClInclude Include="CEGUI\String.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="WindowRenderer.h">
+    <ClInclude Include="CEGUI\StringTranscoder.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="WindowRendererManager.h">
+    <ClInclude Include="CEGUI\SubscriberSlot.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="XMLAttributes.h">
+    <ClInclude Include="CEGUI\System.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="XMLHandler.h">
+    <ClInclude Include="CEGUI\SystemKeys.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="XMLParser.h">
+    <ClInclude Include="CEGUI\Texture.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
-    <ClInclude Include="XMLSerializer.h">
+    <ClInclude Include="CEGUI\TextureTarget.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\TextUtils.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\TplInterpolators.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\TplProperty.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\TplWindowFactory.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\TplWindowFactoryRegisterer.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\TplWindowProperty.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\TplWindowRendererFactory.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\TplWindowRendererProperty.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\TplWRFactoryRegisterer.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\TypedProperty.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\UDim.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Vector.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Version.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Vertex.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\All.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\ButtonBase.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\ClippedContainer.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\Combobox.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\ComboDropList.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\DefaultWindow.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\DragContainer.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\Editbox.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\FrameWindow.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\GridLayoutContainer.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\GroupBox.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\HorizontalLayoutContainer.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\ItemEntry.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\ItemListBase.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\ItemListbox.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\LayoutCell.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\LayoutContainer.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\Listbox.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\ListboxItem.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\ListboxTextItem.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\ListHeader.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\ListHeaderSegment.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\Menubar.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\MenuBase.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\MenuItem.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\MultiColumnList.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\MultiLineEditbox.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\PopupMenu.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\ProgressBar.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\PushButton.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\RadioButton.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\ScrollablePane.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\Scrollbar.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\ScrolledContainer.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\ScrolledItemListBase.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\SequentialLayoutContainer.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\Slider.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\Spinner.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\TabButton.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\TabControl.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\Thumb.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\Titlebar.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\ToggleButton.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\Tooltip.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\Tree.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\TreeItem.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Widgets\VerticalLayoutContainer.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Win32StringTranscoder.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\Window.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\WindowFactory.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\WindowFactoryManager.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\WindowManager.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\WindowRenderer.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\WindowRendererManager.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\XMLAttributes.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\XMLHandler.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\XMLParser.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\XMLSerializer.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>

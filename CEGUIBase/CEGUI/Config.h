@@ -51,6 +51,8 @@ setting CMake options and regenerating, rather than editing directly.
 #   endif
 #endif
 
+#define NOMINMAX // to prevent windows.h messing with std::min/max
+
 //////////////////////////////////////////////////////////////////////////
 // CEGUI supports custom memory allocation (optional)
 //////////////////////////////////////////////////////////////////////////

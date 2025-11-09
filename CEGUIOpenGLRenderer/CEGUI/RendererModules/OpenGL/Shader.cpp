@@ -140,7 +140,7 @@ GLuint OpenGL3Shader::compile(GLuint type, const std::string &source)
     // Define shader source and compile
 
     const char* src = source.data();
-    int len = source.size();
+    int len = (int)source.size();
 
     glShaderSource(shader, 1, &src, &len);
 

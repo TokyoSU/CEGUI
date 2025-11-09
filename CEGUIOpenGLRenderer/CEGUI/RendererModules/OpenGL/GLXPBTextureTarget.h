@@ -27,6 +27,7 @@
 #ifndef _CEGUIOpenGLGLXPBTextureTarget_h_
 #define _CEGUIOpenGLGLXPBTextureTarget_h_
 
+#if defined(__linux__)
 #include <GL/glxew.h>
 #include "CEGUI/RendererModules/OpenGL/TextureTarget.h"
 
@@ -96,4 +97,5 @@ protected:
 
 } // End of  CEGUI namespace section
 
+#endif
 #endif  // end of guard _CEGUIOpenGLGLXPBTextureTarget_h_

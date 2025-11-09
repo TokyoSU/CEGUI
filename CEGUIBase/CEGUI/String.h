@@ -1233,15 +1233,11 @@ public:
 
 	\exception std::out_of_range	Thrown if \a idx was invalid for this String.
 	*/
-	size_type	utf8_stream_len(size_type num = npos, size_type idx = 0) const
+	size_type utf8_stream_len(size_type num = npos, size_type idx = 0) const
 	{
-		using namespace std;
-
 		if (d_cplength < idx)
-			CEGUI_THROW(out_of_range("Index was out of range for CEGUI::String object"));
-
-		size_type	maxlen = d_cplength - idx;
-
+			CEGUI_THROW(std::out_of_range("Index was out of range for CEGUI::String object"));
+		size_type maxlen = d_cplength - idx;
 		return encoded_size(&ptr()[idx], ceguimin(num, maxlen));
 	}
 

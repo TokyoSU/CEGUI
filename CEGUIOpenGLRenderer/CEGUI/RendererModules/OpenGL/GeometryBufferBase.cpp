@@ -147,13 +147,13 @@ Texture* OpenGLGeometryBufferBase::getActiveTexture() const
 //----------------------------------------------------------------------------//
 uint OpenGLGeometryBufferBase::getVertexCount() const
 {
-    return d_vertices.size();
+    return (uint)d_vertices.size();
 }
 
 //----------------------------------------------------------------------------//
 uint OpenGLGeometryBufferBase::getBatchCount() const
 {
-    return d_batches.size();
+    return (uint)d_batches.size();
 }
 
 //----------------------------------------------------------------------------//

@@ -156,6 +156,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(TargetDir)\*" "$(SolutionDir)Install\bin\$(Platform)\$(Configuration)\*"
+xcopy /Y "$(ProjectDir)CEGUI\RendererModules\OpenGL\*.h" "$(SolutionDir)Install\include\CEGUI\RendererModules\OpenGL\*"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -176,6 +180,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(TargetDir)\*" "$(SolutionDir)Install\bin\$(Platform)\$(Configuration)\*"
+xcopy /Y "$(ProjectDir)CEGUI\RendererModules\OpenGL\*.h" "$(SolutionDir)Install\include\CEGUI\RendererModules\OpenGL\*"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -194,6 +202,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(TargetDir)\*" "$(SolutionDir)Install\bin\$(Platform)\$(Configuration)\*"
+xcopy /Y "$(ProjectDir)CEGUI\RendererModules\OpenGL\*.h" "$(SolutionDir)Install\include\CEGUI\RendererModules\OpenGL\*"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -214,6 +226,10 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(TargetDir)\*" "$(SolutionDir)Install\bin\$(Platform)\$(Configuration)\*"
+xcopy /Y "$(ProjectDir)CEGUI\RendererModules\OpenGL\*.h" "$(SolutionDir)Install\include\CEGUI\RendererModules\OpenGL\*"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

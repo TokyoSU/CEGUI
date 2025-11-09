@@ -24,14 +24,14 @@
  *   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  *   OTHER DEALINGS IN THE SOFTWARE.
  ***************************************************************************/
+#if defined(__linux__)
+#include "GLXPBTextureTarget.h"
 #include "CEGUI/RendererModules/OpenGL/GLXPBTextureTarget.h"
 #include "CEGUI/Exceptions.h"
 #include "CEGUI/RenderQueue.h"
 #include "CEGUI/GeometryBuffer.h"
-
 #include "CEGUI/RendererModules/OpenGL/RendererBase.h"
 #include "CEGUI/RendererModules/OpenGL/Texture.h"
-
 #include <iostream>
 
 // Start of CEGUI namespace section
@@ -266,3 +266,4 @@ void OpenGLGLXPBTextureTarget::restoreTexture()
 //----------------------------------------------------------------------------//
 
 } // End of  CEGUI namespace section
+#endif

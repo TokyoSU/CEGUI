@@ -473,7 +473,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;CEGUIBASE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_WIN32;_DEBUG;CEGUIBASE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <PrecompiledHeaderFile>
@@ -488,6 +488,12 @@
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>winmm.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(TargetDir)\*" "$(SolutionDir)Install\bin\$(Platform)\$(Configuration)\*"
+xcopy /Y "$(ProjectDir)CEGUI\*.h" "$(SolutionDir)Install\include\CEGUI\*"
+xcopy /Y "$(ProjectDir)CEGUI\Falagard\*.h" "$(SolutionDir)Install\include\CEGUI\Falagard\*"
+xcopy /Y "$(ProjectDir)CEGUI\Widgets\*.h" "$(SolutionDir)Install\include\CEGUI\Widgets\*"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -510,6 +516,12 @@
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>winmm.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(TargetDir)\*" "$(SolutionDir)Install\bin\$(Platform)\$(Configuration)\*"
+xcopy /Y "$(ProjectDir)CEGUI\*.h" "$(SolutionDir)Install\include\CEGUI\*"
+xcopy /Y "$(ProjectDir)CEGUI\Falagard\*.h" "$(SolutionDir)Install\include\CEGUI\Falagard\*"
+xcopy /Y "$(ProjectDir)CEGUI\Widgets\*.h" "$(SolutionDir)Install\include\CEGUI\Widgets\*"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -530,6 +542,12 @@
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>winmm.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(TargetDir)\*" "$(SolutionDir)Install\bin\$(Platform)\$(Configuration)\*"
+xcopy /Y "$(ProjectDir)CEGUI\*.h" "$(SolutionDir)Install\include\CEGUI\*"
+xcopy /Y "$(ProjectDir)CEGUI\Falagard\*.h" "$(SolutionDir)Install\include\CEGUI\Falagard\*"
+xcopy /Y "$(ProjectDir)CEGUI\Widgets\*.h" "$(SolutionDir)Install\include\CEGUI\Widgets\*"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -552,6 +570,12 @@
       <EnableUAC>false</EnableUAC>
       <AdditionalDependencies>winmm.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(TargetDir)\*" "$(SolutionDir)Install\bin\$(Platform)\$(Configuration)\*"
+xcopy /Y "$(ProjectDir)CEGUI\*.h" "$(SolutionDir)Install\include\CEGUI\*"
+xcopy /Y "$(ProjectDir)CEGUI\Falagard\*.h" "$(SolutionDir)Install\include\CEGUI\Falagard\*"
+xcopy /Y "$(ProjectDir)CEGUI\Widgets\*.h" "$(SolutionDir)Install\include\CEGUI\Widgets\*"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

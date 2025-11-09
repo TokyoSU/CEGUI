@@ -253,7 +253,7 @@ class CEGUIEXPORT WindowEventArgs : public EventArgs
 public:
 	WindowEventArgs(Window* wnd) : window(wnd) {}
 
-	Window*	window;		//!< pointer to a Window object of relevance to the event.
+	Window*	window = nullptr;		//!< pointer to a Window object of relevance to the event.
 };
 
 /*!
@@ -268,7 +268,7 @@ public:
         d_timeSinceLastFrame(tslf)
     {}
 
-	float d_timeSinceLastFrame; //!< Time since the last frame update
+	float d_timeSinceLastFrame = 0.0f; //!< Time since the last frame update
 };
 
 
@@ -282,12 +282,12 @@ class CEGUIEXPORT MouseEventArgs : public WindowEventArgs
 public:
 	MouseEventArgs(Window* wnd) : WindowEventArgs(wnd) {}
 
-	Vector2f	position;		//!< holds current mouse position.
-	Vector2f	moveDelta;		//!< holds variation of mouse position from last mouse input
-	MouseButton	button;			//!< one of the MouseButton enumerated values describing the mouse button causing the event (for button inputs only)
-	uint		sysKeys;		//!< current state of the system keys and mouse buttons.
-	float		wheelChange;	//!< Holds the amount the scroll wheel has changed.
-	uint        clickCount;     //!< Holds number of mouse button down events currently counted in a multi-click sequence (for button inputs only).
+    Vector2f	position = {};		//!< holds current mouse position.
+    Vector2f	moveDelta = {};		//!< holds variation of mouse position from last mouse input
+	MouseButton	button = MouseButton::NoButton;			//!< one of the MouseButton enumerated values describing the mouse button causing the event (for button inputs only)
+	uint		sysKeys = 0;		//!< current state of the system keys and mouse buttons.
+	float		wheelChange = 0.0f;	//!< Holds the amount the scroll wheel has changed.
+	uint        clickCount = 0;     //!< Holds number of mouse button down events currently counted in a multi-click sequence (for button inputs only).
 };
 
 
@@ -301,8 +301,8 @@ class CEGUIEXPORT MouseCursorEventArgs : public EventArgs
 public:
 	MouseCursorEventArgs(MouseCursor* cursor) : mouseCursor(cursor) {}
 
-	MouseCursor* mouseCursor;	//!< pointer to a MouseCursor object of relevance to the event.
-	const Image* image;			//!< pointer to an Image object of relevance to the event.
+	MouseCursor* mouseCursor = nullptr;	//!< pointer to a MouseCursor object of relevance to the event.
+	const Image* image = nullptr;			//!< pointer to an Image object of relevance to the event.
 };
 
 
@@ -316,9 +316,9 @@ class CEGUIEXPORT KeyEventArgs : public WindowEventArgs
 public:
 	KeyEventArgs(Window* wnd) : WindowEventArgs(wnd) {}
 
-	String::value_type codepoint; //!< utf32 or char (depends on used String class) codepoint for the key (only used for Character inputs).
-	Key::Scan          scancode;  //!< Scan code of key that caused event (only used for key up & down inputs.
-	uint               sysKeys;   //!< current state of the system keys and mouse buttons.
+	String::value_type codepoint = 0; //!< utf32 or char (depends on used String class) codepoint for the key (only used for Character inputs).
+	Key::Scan          scancode = Key::Scan::Unknown;  //!< Scan code of key that caused event (only used for key up & down inputs.
+	uint               sysKeys = 0;   //!< current state of the system keys and mouse buttons.
 };
 
 
@@ -331,7 +331,7 @@ class CEGUIEXPORT ActivationEventArgs : public WindowEventArgs
 public:
 	ActivationEventArgs(Window* wnd) : WindowEventArgs(wnd) {}
 
-	Window*	otherWindow;	//!< Pointer to the other window involved in the activation change.
+	Window*	otherWindow = nullptr;	//!< Pointer to the other window involved in the activation change.
 };
 
 /*!
@@ -342,7 +342,7 @@ class CEGUIEXPORT DragDropEventArgs : public WindowEventArgs
 {
 public:
 	DragDropEventArgs(Window* wnd) : WindowEventArgs(wnd) {}
-	DragContainer*	dragDropItem; //!< pointer to the DragContainer window being dragged / dropped.
+	DragContainer*	dragDropItem = nullptr; //!< pointer to the DragContainer window being dragged / dropped.
 };
 
 /*!
@@ -358,7 +358,7 @@ public:
     {}
 
     //! current / new size of the display.
-    Sizef size;
+    Sizef size = Sizef(0.0f, 0.0f);
 };
 
 //! EventArgs based class that is used for notifications regarding resources.
@@ -385,7 +385,7 @@ public:
     {}
 
     //! Pointer to the font object related to the event notification.
-    Font* font;
+    Font* font = nullptr;
 };
 
 } // End of  CEGUI namespace section
