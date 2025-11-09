@@ -181,7 +181,7 @@ setting CMake options and regenerating, rather than editing directly.
 //#define CEGUI_USE_FRIBIDI
 
 // Controls whether to use GLEW as an OpenGL loading library.
-//#define CEGUI_USE_GLEW
+#define CEGUI_USE_GLEW
 
 // Controls whether to use Epoxy as an OpenGL loading library.
 //#define CEGUI_USE_EPOXY

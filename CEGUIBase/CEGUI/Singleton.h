@@ -69,9 +69,10 @@ public:
     Singleton( void ) { assert(!ms_Singleton); ms_Singleton = reinterpret_cast<T*>(this); }
    ~Singleton( void ) { assert(ms_Singleton);  ms_Singleton = 0; }
     static T& getSingleton( void ) { assert(ms_Singleton); return *ms_Singleton; }
-    static T* getSingletonPtr( void ) { assert(ms_Singleton); return ms_Singleton; }
-    static void setSingleton( T& newSingleton ) { ms_Singleton = &newSingleton; }
-    static void setSingletonPtr(T* newSingleton) { ms_Singleton = newSingleton; }
+	static T* getSingletonPtr(void) { assert(ms_Singleton); return ms_Singleton; } // Fixed: assert was using !ms_Singleton which would fail when the singleton existed.
+private:
+    Singleton(const Singleton<T>&) {}
+    Singleton<T>& operator=(const Singleton<T>&) { return *this; }
 };
 
 } // End of  CEGUI namespace section

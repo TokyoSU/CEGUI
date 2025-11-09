@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CEGUIBase", "CEGUIBase\CEGU
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CEGUICommonDialogs", "CEGUICommonDialogs\CEGUICommonDialogs.vcxproj", "{26FE2CBE-9276-42BC-946D-7F1901D712E6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CEGUIOpenGLRenderer", "CEGUIOpenGLRenderer\CEGUIOpenGLRenderer.vcxproj", "{E0BFD996-3655-4C01-A7CB-17AF0B8DDEDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{26FE2CBE-9276-42BC-946D-7F1901D712E6}.Release|x64.Build.0 = Release|x64
 		{26FE2CBE-9276-42BC-946D-7F1901D712E6}.Release|x86.ActiveCfg = Release|Win32
 		{26FE2CBE-9276-42BC-946D-7F1901D712E6}.Release|x86.Build.0 = Release|Win32
+		{E0BFD996-3655-4C01-A7CB-17AF0B8DDEDE}.Debug|x64.ActiveCfg = Debug|x64
+		{E0BFD996-3655-4C01-A7CB-17AF0B8DDEDE}.Debug|x64.Build.0 = Debug|x64
+		{E0BFD996-3655-4C01-A7CB-17AF0B8DDEDE}.Debug|x86.ActiveCfg = Debug|Win32
+		{E0BFD996-3655-4C01-A7CB-17AF0B8DDEDE}.Debug|x86.Build.0 = Debug|Win32
+		{E0BFD996-3655-4C01-A7CB-17AF0B8DDEDE}.Release|x64.ActiveCfg = Release|x64
+		{E0BFD996-3655-4C01-A7CB-17AF0B8DDEDE}.Release|x64.Build.0 = Release|x64
+		{E0BFD996-3655-4C01-A7CB-17AF0B8DDEDE}.Release|x86.ActiveCfg = Release|Win32
+		{E0BFD996-3655-4C01-A7CB-17AF0B8DDEDE}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
