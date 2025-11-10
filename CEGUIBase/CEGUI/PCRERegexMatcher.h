@@ -27,6 +27,8 @@
 #ifndef _CEGUIPCRERegexMatcher_h_
 #define _CEGUIPCRERegexMatcher_h_
 
+#include "CEGUI/Config.h"
+
 #if defined(CEGUI_HAS_PCRE_REGEX)
 #include "CEGUI/RegexMatcher.h"
 #include "CEGUI/String.h"

@@ -29,7 +29,7 @@
 
 #include "CEGUI/FreeTypeFont.h"
 
-#if !defined(__APPLE__) && defined(CEGUI_HAS_FREETYPE)
+#if defined(CEGUI_HAS_FREETYPE)
 #include "CEGUI/Exceptions.h"
 #include "CEGUI/Texture.h"
 #include "CEGUI/ImageManager.h"
@@ -89,7 +89,7 @@ FreeTypeFont::FreeTypeFont(const String& font_name, const float point_size,
     updateFont();
 
     char tmp[50];
-    snprintf(tmp, sizeof(tmp), "Successfully loaded %d glyphs",
+    _snprintf_s(tmp, sizeof(tmp), "Successfully loaded %d glyphs",
              static_cast<int>(d_cp_map.size()));
     Logger::getSingleton().logEvent(tmp, Informative);
 }
@@ -441,7 +441,7 @@ void FreeTypeFont::updateFont()
                 FT_Set_Char_Size(d_fontFace, 0, FT_F26Dot6(best_size * 64), 0, 0))
         {
             char size [20];
-            snprintf(size, sizeof(size), "%g", d_ptSize);
+            _snprintf_s(size, sizeof(size), "%g", d_ptSize);
             CEGUI_THROW(GenericException("The font '" + d_name + "' cannot be "
                 "rasterised at a size of " + size + " points, and cannot be "
                 "used."));

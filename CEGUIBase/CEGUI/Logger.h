@@ -144,7 +144,7 @@ public:
     virtual void setLogFilename(const String& filename, bool append = false) = 0;
 
 protected:
-	LoggingLevel d_level = LoggingLevel::Standard;		//!< Holds current logging level
+	LoggingLevel d_level;		//!< Holds current logging level
 
 private:
 	/*************************************************************************

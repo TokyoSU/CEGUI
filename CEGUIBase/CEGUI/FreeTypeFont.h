@@ -29,11 +29,12 @@
 #ifndef _CEGUIFreeTypeFont_h_
 #define _CEGUIFreeTypeFont_h_
 
-#if !defined(__APPLE__) && defined(CEGUI_HAS_FREETYPE)
+#include "CEGUI/Config.h"
+
+#if defined(CEGUI_HAS_FREETYPE)
 #include "CEGUI/Font.h"
 #include "CEGUI/DataContainer.h"
 #include "CEGUI/BasicImage.h"
-
 #include <ft2build.h>
 #include FT_FREETYPE_H
 

@@ -91,6 +91,7 @@ const String Window::TooltipTextPropertyName("TooltipText");
 const String Window::InheritsTooltipTextPropertyName("InheritsTooltipText");
 const String Window::RiseOnClickEnabledPropertyName("RiseOnClickEnabled");
 const String Window::MousePassThroughEnabledPropertyName("MousePassThroughEnabled");
+const String Window::CursorPassThroughEnabledPropertyName("CursorPassThroughEnabled");
 const String Window::DragDropTargetPropertyName("DragDropTarget");
 const String Window::AutoRenderingSurfacePropertyName("AutoRenderingSurface");
 const String Window::TextParsingEnabledPropertyName("TextParsingEnabled");
@@ -1158,7 +1159,7 @@ void Window::bufferGeometry(const RenderingContext&)
 }
 
 //----------------------------------------------------------------------------//
-void Window::queueGeometry(const RenderingContext& ctx)
+void Window::queueGeometry(const RenderingContext& ctx) const
 {
     // add geometry so that it gets drawn to the target surface.
     ctx.surface->addGeometryBuffer(ctx.queue, *d_geometry);
@@ -1467,6 +1468,11 @@ void Window::addWindowProperties(void)
 
     CEGUI_DEFINE_PROPERTY(Window, bool,
         MousePassThroughEnabledPropertyName, "Property to get/set whether the window ignores mouse events and pass them through to any windows behind it. Value is either \"true\" or \"false\".",
+        &Window::setMousePassThroughEnabled, &Window::isMousePassThroughEnabled, false
+    );
+
+    CEGUI_DEFINE_PROPERTY(Window, bool,
+        CursorPassThroughEnabledPropertyName, "Old property to get/set whether the window ignores mouse events and pass them through to any windows behind it. Value is either \"true\" or \"false\", use MousePassThroughEnabled instead !",
         &Window::setMousePassThroughEnabled, &Window::isMousePassThroughEnabled, false
     );
     

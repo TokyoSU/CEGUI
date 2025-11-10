@@ -130,7 +130,7 @@ Texture* NullGeometryBuffer::getActiveTexture() const
 //----------------------------------------------------------------------------//
 uint NullGeometryBuffer::getVertexCount() const
 {
-    return d_vertices.size();
+    return (uint)d_vertices.size();
 }
 
 //----------------------------------------------------------------------------//

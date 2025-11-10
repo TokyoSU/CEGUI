@@ -41,7 +41,8 @@ namespace CEGUI
     /*************************************************************************
         Constructor
     *************************************************************************/
-    Logger::Logger(void)
+    Logger::Logger(void) :
+        d_level(LoggingLevel::Standard)
     {
     }
 

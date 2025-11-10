@@ -75,7 +75,7 @@ public:
     static const String EventColourAccepted;
     static const String EventClosed;
 
-    RGB_Colour getSelectedColourRGB();
+    RGB_Colour getSelectedColourRGB() const;
 
     /*!
     \brief
@@ -169,16 +169,16 @@ protected:
 
     void reloadColourPickerControlsTexture();
 
-    Lab_Colour getColourSliderPositionColourLAB(float value);
-    Lab_Colour getColourPickingPositionColourLAB(float xAbs, float yAbs);
+    Lab_Colour getColourSliderPositionColourLAB(float value) const;
+    Lab_Colour getColourPickingPositionColourLAB(float xAbs, float yAbs) const;
 
-    HSV_Colour getColourSliderPositionColourHSV(float value);
-    HSV_Colour getColourPickingPositionColourHSV(float xAbs, float yAbs);
+    HSV_Colour getColourSliderPositionColourHSV(float value) const;
+    HSV_Colour getColourPickingPositionColourHSV(float xAbs, float yAbs) const;
 
     RGB_Colour getAlphaSliderPositionColour(int x, int y);
 
     Vector2f getColourPickingColourPosition();
-    void getColourPickingColourPositionHSV(float& x, float& y);
+    void getColourPickingColourPositionHSV(float& x, float& y) const;
 
     // Handlers to relay child widget events so they appear to come from us
     bool handleCancelButtonClicked(const EventArgs& e);

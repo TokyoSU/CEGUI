@@ -199,6 +199,8 @@ public:
     static const String RiseOnClickEnabledPropertyName;
     //! Name of property to access for the window ignores mouse events and pass them through to any windows behind it.
     static const String MousePassThroughEnabledPropertyName;
+    //! Old name of property to access for the window ignores mouse events and pass them through to any windows behind it.
+    static const String CursorPassThroughEnabledPropertyName; // Old name, kept for backwards compatibility
     //! Name of property to access for the Window will receive drag and drop related notifications.
     static const String DragDropTargetPropertyName;
     //! Name of property to access for the Window will automatically attempt to use a full imagery caching RenderingSurface (if supported by the renderer).
@@ -3394,7 +3396,7 @@ protected:
         easier to override drawSelf without needing to duplicate large sections
         of the code from the default implementation.
     */
-    void queueGeometry(const RenderingContext& ctx);
+    void queueGeometry(const RenderingContext& ctx) const;
 
     /*!
     \brief

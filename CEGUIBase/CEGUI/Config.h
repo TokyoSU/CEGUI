@@ -44,7 +44,7 @@ setting CMake options and regenerating, rather than editing directly.
 #ifdef CEGUI_HAS_BUILD_SUFFIX
 #   ifndef CEGUI_BUILD_SUFFIX
 #       if defined(DEBUG) || defined(_DEBUG)
-#           define CEGUI_BUILD_SUFFIX "_d"
+#           define CEGUI_BUILD_SUFFIX ""
 #       else
 #           define CEGUI_BUILD_SUFFIX ""
 #       endif
@@ -62,19 +62,20 @@ setting CMake options and regenerating, rather than editing directly.
 /* #undef CEGUI_CUSTOM_ALLOCATORS_DEBUG */
 // the file that contains allocators and allocation config
 // (not used if CEGUI_CUSTOM_ALLOCATORS isn't defined)
-#define CEGUI_CUSTOM_ALLOCATORS_INCLUDE "CEGUI/MemoryStdAllocator.h"
+constexpr auto CEGUI_CUSTOM_ALLOCATORS_INCLUDE = "CEGUI/MemoryStdAllocator.h";
 
 //////////////////////////////////////////////////////////////////////////
 // CEGUI allows 3 different string class configurations
 //////////////////////////////////////////////////////////////////////////
-// Inbuilt Unicode (utf8 and utf32 aware)
-#define CEGUI_STRING_CLASS_UNICODE 1
-// plain std::string without allocators (makes pass by reference easy)
-#define CEGUI_STRING_CLASS_STD 2
-// std::basic_string allocated according to allocator config
-#define CEGUI_STRING_CLASS_STD_AO 3
 
-#define CEGUI_STRING_CLASS 1
+// Inbuilt Unicode (utf8 and utf32 aware)
+constexpr auto CEGUI_STRING_CLASS_UNICODE = 1;
+// plain std::string without allocators (makes pass by reference easy)
+constexpr auto CEGUI_STRING_CLASS_STD = 2;
+// std::basic_string allocated according to allocator config
+constexpr auto CEGUI_STRING_CLASS_STD_AO = 3;
+
+#define CEGUI_STRING_CLASS CEGUI_STRING_CLASS_UNICODE
 
 //////////////////////////////////////////////////////////////////////////
 // Set this to the default XMLParser to be used.
@@ -131,7 +132,7 @@ setting CMake options and regenerating, rather than editing directly.
 // compiled in (default).  If you want to build CEGUI /without/ freetype
 // support, comment the following line.
 //////////////////////////////////////////////////////////////////////////
-//#define CEGUI_HAS_FREETYPE
+#define CEGUI_HAS_FREETYPE
 
 //////////////////////////////////////////////////////////////////////////
 // PCRE library
@@ -140,7 +141,7 @@ setting CMake options and regenerating, rather than editing directly.
 // To disable the use of PCRE (and therefore the validation factilities),
 // comment the following line.  (Attempts to set validation string will throw).
 //////////////////////////////////////////////////////////////////////////
-//#define CEGUI_HAS_PCRE_REGEX
+#define CEGUI_HAS_PCRE_REGEX
 
 //////////////////////////////////////////////////////////////////////////
 // The following controls whether iconv based string transcoding support
@@ -158,7 +159,7 @@ setting CMake options and regenerating, rather than editing directly.
 // CEGUI::Logger based class and instantiate it before creating the main
 // CEGUI::System object.
 //////////////////////////////////////////////////////////////////////////
-//#define CEGUI_HAS_DEFAULT_LOGGER
+#define CEGUI_HAS_DEFAULT_LOGGER
 
 //////////////////////////////////////////////////////////////////////////
 // The following defines control bidirectional text support.

@@ -159,7 +159,7 @@ ColourPickerControls::~ColourPickerControls()
 
 //----------------------------------------------------------------------------//
 Lab_Colour ColourPickerControls::getColourPickingPositionColourLAB(float xAbs,
-                                                                   float yAbs)
+                                                                   float yAbs) const
 {
     float L = 0.0f;
     float a = 0.0f;
@@ -195,7 +195,7 @@ Lab_Colour ColourPickerControls::getColourPickingPositionColourLAB(float xAbs,
 
 //----------------------------------------------------------------------------//
 HSV_Colour ColourPickerControls::getColourPickingPositionColourHSV(float xAbs,
-                                                                   float yAbs)
+                                                                   float yAbs) const
 {
     HSV_Colour colour;
 
@@ -283,7 +283,7 @@ Vector2f ColourPickerControls::getColourPickingColourPosition()
 }
 
 //----------------------------------------------------------------------------//
-void ColourPickerControls::getColourPickingColourPositionHSV(float& x, float& y)
+void ColourPickerControls::getColourPickingColourPositionHSV(float& x, float& y) const
 {
     float radius;
 
@@ -310,7 +310,7 @@ void ColourPickerControls::getColourPickingColourPositionHSV(float& x, float& y)
 }
 
 //----------------------------------------------------------------------------//
-Lab_Colour ColourPickerControls::getColourSliderPositionColourLAB(float value)
+Lab_Colour ColourPickerControls::getColourSliderPositionColourLAB(float value) const
 {
     Lab_Colour colour = d_selectedColourLAB;
 
@@ -336,7 +336,7 @@ Lab_Colour ColourPickerControls::getColourSliderPositionColourLAB(float value)
 }
 
 //----------------------------------------------------------------------------//
-HSV_Colour ColourPickerControls::getColourSliderPositionColourHSV(float value)
+HSV_Colour ColourPickerControls::getColourSliderPositionColourHSV(float value) const
 {
     HSV_Colour colour = d_selectedColourHSV;
 
@@ -1388,7 +1388,7 @@ void ColourPickerControls::positionColourPickerCursorAbsolute(float x, float y)
 }
 
 //----------------------------------------------------------------------------//
-RGB_Colour ColourPickerControls::getSelectedColourRGB()
+RGB_Colour ColourPickerControls::getSelectedColourRGB() const
 {
     return d_selectedColourRGB;
 }
