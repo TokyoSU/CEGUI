@@ -1,0 +1,599 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CEGUI\Affector.cpp" />
+    <ClCompile Include="CEGUI\Animation.cpp" />
+    <ClCompile Include="CEGUI\AnimationInstance.cpp" />
+    <ClCompile Include="CEGUI\AnimationManager.cpp" />
+    <ClCompile Include="CEGUI\Animation_xmlHandler.cpp" />
+    <ClCompile Include="CEGUI\Base.cpp" />
+    <ClCompile Include="CEGUI\BasicImage.cpp" />
+    <ClCompile Include="CEGUI\BasicRenderedStringParser.cpp" />
+    <ClCompile Include="CEGUI\BidiVisualMapping.cpp" />
+    <ClCompile Include="CEGUI\BoundSlot.cpp" />
+    <ClCompile Include="CEGUI\CentredRenderedString.cpp" />
+    <ClCompile Include="CEGUI\ChainedXMLHandler.cpp" />
+    <ClCompile Include="CEGUI\Clipboard.cpp" />
+    <ClCompile Include="CEGUI\Colour.cpp" />
+    <ClCompile Include="CEGUI\ColourRect.cpp" />
+    <ClCompile Include="CEGUI\CompositeResourceProvider.cpp" />
+    <ClCompile Include="CEGUI\Config_xmlHandler.cpp" />
+    <ClCompile Include="CEGUI\CoordConverter.cpp" />
+    <ClCompile Include="CEGUI\DataContainer.cpp" />
+    <ClCompile Include="CEGUI\DefaultLogger.cpp" />
+    <ClCompile Include="CEGUI\DefaultRenderedStringParser.cpp" />
+    <ClCompile Include="CEGUI\DefaultResourceProvider.cpp" />
+    <ClCompile Include="CEGUI\DynamicModule.cpp" />
+    <ClCompile Include="CEGUI\Element.cpp" />
+    <ClCompile Include="CEGUI\Event.cpp" />
+    <ClCompile Include="CEGUI\EventArgs.cpp" />
+    <ClCompile Include="CEGUI\EventSet.cpp" />
+    <ClCompile Include="CEGUI\Exceptions.cpp" />
+    <ClCompile Include="CEGUI\FactoryModule.cpp" />
+    <ClCompile Include="CEGUI\FactoryRegisterer.cpp" />
+    <ClCompile Include="CEGUI\Falagard\ComponentBase.cpp" />
+    <ClCompile Include="CEGUI\Falagard\Dimensions.cpp" />
+    <ClCompile Include="CEGUI\Falagard\EventAction.cpp" />
+    <ClCompile Include="CEGUI\Falagard\EventLinkDefinition.cpp" />
+    <ClCompile Include="CEGUI\Falagard\FormattingSetting.cpp" />
+    <ClCompile Include="CEGUI\Falagard\FrameComponent.cpp" />
+    <ClCompile Include="CEGUI\Falagard\ImageryComponent.cpp" />
+    <ClCompile Include="CEGUI\Falagard\ImagerySection.cpp" />
+    <ClCompile Include="CEGUI\Falagard\LayerSpecification.cpp" />
+    <ClCompile Include="CEGUI\Falagard\NamedArea.cpp" />
+    <ClCompile Include="CEGUI\Falagard\PropertyDefinitionBase.cpp" />
+    <ClCompile Include="CEGUI\Falagard\PropertyInitialiser.cpp" />
+    <ClCompile Include="CEGUI\Falagard\SectionSpecification.cpp" />
+    <ClCompile Include="CEGUI\Falagard\StateImagery.cpp" />
+    <ClCompile Include="CEGUI\Falagard\TextComponent.cpp" />
+    <ClCompile Include="CEGUI\Falagard\WidgetComponent.cpp" />
+    <ClCompile Include="CEGUI\Falagard\WidgetLookFeel.cpp" />
+    <ClCompile Include="CEGUI\Falagard\WidgetLookManager.cpp" />
+    <ClCompile Include="CEGUI\Falagard\XMLEnumHelper.cpp" />
+    <ClCompile Include="CEGUI\Falagard\FalagardXMLHandler.cpp" />
+    <ClCompile Include="CEGUI\Font.cpp" />
+    <ClCompile Include="CEGUI\FontManager.cpp" />
+    <ClCompile Include="CEGUI\Font_xmlHandler.cpp" />
+    <ClCompile Include="CEGUI\FormattedRenderedString.cpp" />
+    <ClCompile Include="CEGUI\FreeTypeFont.cpp" />
+    <ClCompile Include="CEGUI\FribidiVisualMapping.cpp" />
+    <ClCompile Include="CEGUI\GeometryBuffer.cpp" />
+    <ClCompile Include="CEGUI\GlobalEventSet.cpp" />
+    <ClCompile Include="CEGUI\GUIContext.cpp" />
+    <ClCompile Include="CEGUI\GUILayout_xmlHandler.cpp" />
+    <ClCompile Include="CEGUI\IconvStringTranscoder.cpp" />
+    <ClCompile Include="CEGUI\Image.cpp" />
+    <ClCompile Include="CEGUI\ImageCodec.cpp" />
+    <ClCompile Include="CEGUI\ImageManager.cpp" />
+    <ClCompile Include="CEGUI\JustifiedRenderedString.cpp" />
+    <ClCompile Include="CEGUI\JustifiedRenderedStringWordWrapper.cpp" />
+    <ClCompile Include="CEGUI\KeyFrame.cpp" />
+    <ClCompile Include="CEGUI\LeftAlignedRenderedString.cpp" />
+    <ClCompile Include="CEGUI\LinkedEvent.cpp" />
+    <ClCompile Include="CEGUI\Logger.cpp" />
+    <ClCompile Include="CEGUI\minibidi.cpp" />
+    <ClCompile Include="CEGUI\MinibidiVisualMapping.cpp" />
+    <ClCompile Include="CEGUI\MinizipResourceProvider.cpp" />
+    <ClCompile Include="CEGUI\MouseCursor.cpp" />
+    <ClCompile Include="CEGUI\NamedElement.cpp" />
+    <ClCompile Include="CEGUI\NamedXMLResourceManager.cpp" />
+    <ClCompile Include="CEGUI\PCRERegexMatcher.cpp" />
+    <ClCompile Include="CEGUI\PixmapFont.cpp" />
+    <ClCompile Include="CEGUI\Property.cpp" />
+    <ClCompile Include="CEGUI\PropertyHelper.cpp" />
+    <ClCompile Include="CEGUI\PropertySet.cpp" />
+    <ClCompile Include="CEGUI\Quaternion.cpp" />
+    <ClCompile Include="CEGUI\Rect.cpp" />
+    <ClCompile Include="CEGUI\RenderedString.cpp" />
+    <ClCompile Include="CEGUI\RenderedStringComponent.cpp" />
+    <ClCompile Include="CEGUI\RenderedStringImageComponent.cpp" />
+    <ClCompile Include="CEGUI\RenderedStringTextComponent.cpp" />
+    <ClCompile Include="CEGUI\RenderedStringWidgetComponent.cpp" />
+    <ClCompile Include="CEGUI\RenderEffectManager.cpp" />
+    <ClCompile Include="CEGUI\RenderingSurface.cpp" />
+    <ClCompile Include="CEGUI\RenderingWindow.cpp" />
+    <ClCompile Include="CEGUI\RenderQueue.cpp" />
+    <ClCompile Include="CEGUI\RenderTarget.cpp" />
+    <ClCompile Include="CEGUI\RightAlignedRenderedString.cpp" />
+    <ClCompile Include="CEGUI\Scheme.cpp" />
+    <ClCompile Include="CEGUI\SchemeManager.cpp" />
+    <ClCompile Include="CEGUI\Scheme_xmlHandler.cpp" />
+    <ClCompile Include="CEGUI\ScriptModule.cpp" />
+    <ClCompile Include="CEGUI\SimpleTimer.cpp" />
+    <ClCompile Include="CEGUI\String.cpp" />
+    <ClCompile Include="CEGUI\SubscriberSlot.cpp" />
+    <ClCompile Include="CEGUI\System.cpp" />
+    <ClCompile Include="CEGUI\SystemKeys.cpp" />
+    <ClCompile Include="CEGUI\TextUtils.cpp" />
+    <ClCompile Include="CEGUI\Widgets\ButtonBase.cpp" />
+    <ClCompile Include="CEGUI\Widgets\ClippedContainer.cpp" />
+    <ClCompile Include="CEGUI\Widgets\Combobox.cpp" />
+    <ClCompile Include="CEGUI\Widgets\ComboDropList.cpp" />
+    <ClCompile Include="CEGUI\Widgets\DefaultWindow.cpp" />
+    <ClCompile Include="CEGUI\Widgets\DragContainer.cpp" />
+    <ClCompile Include="CEGUI\Widgets\Editbox.cpp" />
+    <ClCompile Include="CEGUI\Widgets\FrameWindow.cpp" />
+    <ClCompile Include="CEGUI\Widgets\GridLayoutContainer.cpp" />
+    <ClCompile Include="CEGUI\Widgets\GroupBox.cpp" />
+    <ClCompile Include="CEGUI\Widgets\HorizontalLayoutContainer.cpp" />
+    <ClCompile Include="CEGUI\Widgets\ItemEntry.cpp" />
+    <ClCompile Include="CEGUI\Widgets\ItemListBase.cpp" />
+    <ClCompile Include="CEGUI\Widgets\ItemListbox.cpp" />
+    <ClCompile Include="CEGUI\Widgets\LayoutCell.cpp" />
+    <ClCompile Include="CEGUI\Widgets\LayoutContainer.cpp" />
+    <ClCompile Include="CEGUI\Widgets\Listbox.cpp" />
+    <ClCompile Include="CEGUI\Widgets\ListboxItem.cpp" />
+    <ClCompile Include="CEGUI\Widgets\ListboxTextItem.cpp" />
+    <ClCompile Include="CEGUI\Widgets\ListHeader.cpp" />
+    <ClCompile Include="CEGUI\Widgets\ListHeaderSegment.cpp" />
+    <ClCompile Include="CEGUI\Widgets\Menubar.cpp" />
+    <ClCompile Include="CEGUI\Widgets\MenuBase.cpp" />
+    <ClCompile Include="CEGUI\Widgets\MenuItem.cpp" />
+    <ClCompile Include="CEGUI\Widgets\MultiColumnList.cpp" />
+    <ClCompile Include="CEGUI\Widgets\MultiLineEditbox.cpp" />
+    <ClCompile Include="CEGUI\Widgets\PopupMenu.cpp" />
+    <ClCompile Include="CEGUI\Widgets\ProgressBar.cpp" />
+    <ClCompile Include="CEGUI\Widgets\PushButton.cpp" />
+    <ClCompile Include="CEGUI\Widgets\RadioButton.cpp" />
+    <ClCompile Include="CEGUI\Widgets\ScrollablePane.cpp" />
+    <ClCompile Include="CEGUI\Widgets\Scrollbar.cpp" />
+    <ClCompile Include="CEGUI\Widgets\ScrolledContainer.cpp" />
+    <ClCompile Include="CEGUI\Widgets\ScrolledItemListBase.cpp" />
+    <ClCompile Include="CEGUI\Widgets\SequentialLayoutContainer.cpp" />
+    <ClCompile Include="CEGUI\Widgets\Slider.cpp" />
+    <ClCompile Include="CEGUI\Widgets\Spinner.cpp" />
+    <ClCompile Include="CEGUI\Widgets\TabButton.cpp" />
+    <ClCompile Include="CEGUI\Widgets\TabControl.cpp" />
+    <ClCompile Include="CEGUI\Widgets\Thumb.cpp" />
+    <ClCompile Include="CEGUI\Widgets\Titlebar.cpp" />
+    <ClCompile Include="CEGUI\Widgets\ToggleButton.cpp" />
+    <ClCompile Include="CEGUI\Widgets\Tooltip.cpp" />
+    <ClCompile Include="CEGUI\Widgets\Tree.cpp" />
+    <ClCompile Include="CEGUI\Widgets\TreeItem.cpp" />
+    <ClCompile Include="CEGUI\Widgets\VerticalLayoutContainer.cpp" />
+    <ClCompile Include="CEGUI\Win32StringTranscoder.cpp" />
+    <ClCompile Include="CEGUI\Window.cpp" />
+    <ClCompile Include="CEGUI\WindowFactory.cpp" />
+    <ClCompile Include="CEGUI\WindowFactoryManager.cpp" />
+    <ClCompile Include="CEGUI\WindowManager.cpp" />
+    <ClCompile Include="CEGUI\WindowRenderer.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererManager.cpp" />
+    <ClCompile Include="CEGUI\XMLAttributes.cpp" />
+    <ClCompile Include="CEGUI\XMLHandler.cpp" />
+    <ClCompile Include="CEGUI\XMLParser.cpp" />
+    <ClCompile Include="CEGUI\XMLSerializer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CEGUI\Affector.h" />
+    <ClInclude Include="CEGUI\Animation.h" />
+    <ClInclude Include="CEGUI\AnimationInstance.h" />
+    <ClInclude Include="CEGUI\AnimationManager.h" />
+    <ClInclude Include="CEGUI\Animation_xmlHandler.h" />
+    <ClInclude Include="CEGUI\Base.h" />
+    <ClInclude Include="CEGUI\BasicImage.h" />
+    <ClInclude Include="CEGUI\BasicRenderedStringParser.h" />
+    <ClInclude Include="CEGUI\BidiVisualMapping.h" />
+    <ClInclude Include="CEGUI\BoundSlot.h" />
+    <ClInclude Include="CEGUI\CEGUI.h" />
+    <ClInclude Include="CEGUI\CentredRenderedString.h" />
+    <ClInclude Include="CEGUI\ChainedXMLHandler.h" />
+    <ClInclude Include="CEGUI\Clipboard.h" />
+    <ClInclude Include="CEGUI\Colour.h" />
+    <ClInclude Include="CEGUI\ColourRect.h" />
+    <ClInclude Include="CEGUI\CompositeResourceProvider.h" />
+    <ClInclude Include="CEGUI\Config.h" />
+    <ClInclude Include="CEGUI\Config_xmlHandler.h" />
+    <ClInclude Include="CEGUI\CoordConverter.h" />
+    <ClInclude Include="CEGUI\DataContainer.h" />
+    <ClInclude Include="CEGUI\DefaultLogger.h" />
+    <ClInclude Include="CEGUI\DefaultRenderedStringParser.h" />
+    <ClInclude Include="CEGUI\DefaultResourceProvider.h" />
+    <ClInclude Include="CEGUI\DynamicModule.h" />
+    <ClInclude Include="CEGUI\Element.h" />
+    <ClInclude Include="CEGUI\Event.h" />
+    <ClInclude Include="CEGUI\EventArgs.h" />
+    <ClInclude Include="CEGUI\EventSet.h" />
+    <ClInclude Include="CEGUI\Exceptions.h" />
+    <ClInclude Include="CEGUI\FactoryModule.h" />
+    <ClInclude Include="CEGUI\FactoryRegisterer.h" />
+    <ClInclude Include="CEGUI\Falagard\ComponentBase.h" />
+    <ClInclude Include="CEGUI\Falagard\Dimensions.h" />
+    <ClInclude Include="CEGUI\Falagard\Enums.h" />
+    <ClInclude Include="CEGUI\Falagard\EventAction.h" />
+    <ClInclude Include="CEGUI\Falagard\EventLinkDefinition.h" />
+    <ClInclude Include="CEGUI\Falagard\FalagardPropertyBase.h" />
+    <ClInclude Include="CEGUI\Falagard\FormattingSetting.h" />
+    <ClInclude Include="CEGUI\Falagard\FrameComponent.h" />
+    <ClInclude Include="CEGUI\Falagard\ImageryComponent.h" />
+    <ClInclude Include="CEGUI\Falagard\ImagerySection.h" />
+    <ClInclude Include="CEGUI\Falagard\LayerSpecification.h" />
+    <ClInclude Include="CEGUI\Falagard\NamedArea.h" />
+    <ClInclude Include="CEGUI\Falagard\NamedDefinitionCollator.h" />
+    <ClInclude Include="CEGUI\Falagard\PropertyDefinition.h" />
+    <ClInclude Include="CEGUI\Falagard\PropertyDefinitionBase.h" />
+    <ClInclude Include="CEGUI\Falagard\PropertyInitialiser.h" />
+    <ClInclude Include="CEGUI\Falagard\PropertyLinkDefinition.h" />
+    <ClInclude Include="CEGUI\Falagard\SectionSpecification.h" />
+    <ClInclude Include="CEGUI\Falagard\StateImagery.h" />
+    <ClInclude Include="CEGUI\Falagard\TextComponent.h" />
+    <ClInclude Include="CEGUI\Falagard\WidgetComponent.h" />
+    <ClInclude Include="CEGUI\Falagard\WidgetLookFeel.h" />
+    <ClInclude Include="CEGUI\Falagard\WidgetLookManager.h" />
+    <ClInclude Include="CEGUI\Falagard\XMLEnumHelper.h" />
+    <ClInclude Include="CEGUI\Falagard\FalagardXMLHandler.h" />
+    <ClInclude Include="CEGUI\Font.h" />
+    <ClInclude Include="CEGUI\FontGlyph.h" />
+    <ClInclude Include="CEGUI\FontManager.h" />
+    <ClInclude Include="CEGUI\Font_xmlHandler.h" />
+    <ClInclude Include="CEGUI\FormattedRenderedString.h" />
+    <ClInclude Include="CEGUI\ForwardRefs.h" />
+    <ClInclude Include="CEGUI\FreeFunctionSlot.h" />
+    <ClInclude Include="CEGUI\FreeTypeFont.h" />
+    <ClInclude Include="CEGUI\FribidiVisualMapping.h" />
+    <ClInclude Include="CEGUI\FunctorCopySlot.h" />
+    <ClInclude Include="CEGUI\FunctorPointerSlot.h" />
+    <ClInclude Include="CEGUI\FunctorReferenceBinder.h" />
+    <ClInclude Include="CEGUI\FunctorReferenceSlot.h" />
+    <ClInclude Include="CEGUI\GeometryBuffer.h" />
+    <ClInclude Include="CEGUI\GlobalEventSet.h" />
+    <ClInclude Include="CEGUI\GUIContext.h" />
+    <ClInclude Include="CEGUI\GUILayout_xmlHandler.h" />
+    <ClInclude Include="CEGUI\IconvStringTranscoder.h" />
+    <ClInclude Include="CEGUI\Image.h" />
+    <ClInclude Include="CEGUI\ImageCodec.h" />
+    <ClInclude Include="CEGUI\ImageFactory.h" />
+    <ClInclude Include="CEGUI\ImageManager.h" />
+    <ClInclude Include="CEGUI\InjectedInputReceiver.h" />
+    <ClInclude Include="CEGUI\InputEvent.h" />
+    <ClInclude Include="CEGUI\Interpolator.h" />
+    <ClInclude Include="CEGUI\IteratorBase.h" />
+    <ClInclude Include="CEGUI\JustifiedRenderedString.h" />
+    <ClInclude Include="CEGUI\KeyFrame.h" />
+    <ClInclude Include="CEGUI\LeftAlignedRenderedString.h" />
+    <ClInclude Include="CEGUI\LinkedEvent.h" />
+    <ClInclude Include="CEGUI\Logger.h" />
+    <ClInclude Include="CEGUI\MemberFunctionSlot.h" />
+    <ClInclude Include="CEGUI\MemoryAllocatedObject.h" />
+    <ClInclude Include="CEGUI\MemoryAllocation.h" />
+    <ClInclude Include="CEGUI\MemoryOgreAllocator.h" />
+    <ClInclude Include="CEGUI\MemoryStdAllocator.h" />
+    <ClInclude Include="CEGUI\MemorySTLWrapper.h" />
+    <ClInclude Include="CEGUI\MinibidiVisualMapping.h" />
+    <ClInclude Include="CEGUI\MinizipResourceProvider.h" />
+    <ClInclude Include="CEGUI\ModuleConfig.h" />
+    <ClInclude Include="CEGUI\MouseCursor.h" />
+    <ClInclude Include="CEGUI\NamedElement.h" />
+    <ClInclude Include="CEGUI\NamedXMLResourceManager.h" />
+    <ClInclude Include="CEGUI\PCRERegexMatcher.h" />
+    <ClInclude Include="CEGUI\PixmapFont.h" />
+    <ClInclude Include="CEGUI\Property.h" />
+    <ClInclude Include="CEGUI\PropertyHelper.h" />
+    <ClInclude Include="CEGUI\PropertySet.h" />
+    <ClInclude Include="CEGUI\Quaternion.h" />
+    <ClInclude Include="CEGUI\Rect.h" />
+    <ClInclude Include="CEGUI\RefCounted.h" />
+    <ClInclude Include="CEGUI\RegexMatcher.h" />
+    <ClInclude Include="CEGUI\RenderedString.h" />
+    <ClInclude Include="CEGUI\RenderedStringComponent.h" />
+    <ClInclude Include="CEGUI\RenderedStringImageComponent.h" />
+    <ClInclude Include="CEGUI\RenderedStringParser.h" />
+    <ClInclude Include="CEGUI\RenderedStringTextComponent.h" />
+    <ClInclude Include="CEGUI\RenderedStringWidgetComponent.h" />
+    <ClInclude Include="CEGUI\RenderedStringWordWrapper.h" />
+    <ClInclude Include="CEGUI\RenderEffect.h" />
+    <ClInclude Include="CEGUI\RenderEffectFactory.h" />
+    <ClInclude Include="CEGUI\RenderEffectManager.h" />
+    <ClInclude Include="CEGUI\Renderer.h" />
+    <ClInclude Include="CEGUI\RenderingContext.h" />
+    <ClInclude Include="CEGUI\RenderingSurface.h" />
+    <ClInclude Include="CEGUI\RenderingWindow.h" />
+    <ClInclude Include="CEGUI\RenderQueue.h" />
+    <ClInclude Include="CEGUI\RenderTarget.h" />
+    <ClInclude Include="CEGUI\ResourceProvider.h" />
+    <ClInclude Include="CEGUI\RightAlignedRenderedString.h" />
+    <ClInclude Include="CEGUI\Scheme.h" />
+    <ClInclude Include="CEGUI\SchemeManager.h" />
+    <ClInclude Include="CEGUI\Scheme_xmlHandler.h" />
+    <ClInclude Include="CEGUI\ScriptModule.h" />
+    <ClInclude Include="CEGUI\SimpleTimer.h" />
+    <ClInclude Include="CEGUI\Singleton.h" />
+    <ClInclude Include="CEGUI\Size.h" />
+    <ClInclude Include="CEGUI\SlotFunctorBase.h" />
+    <ClInclude Include="CEGUI\String.h" />
+    <ClInclude Include="CEGUI\StringTranscoder.h" />
+    <ClInclude Include="CEGUI\SubscriberSlot.h" />
+    <ClInclude Include="CEGUI\System.h" />
+    <ClInclude Include="CEGUI\SystemKeys.h" />
+    <ClInclude Include="CEGUI\Texture.h" />
+    <ClInclude Include="CEGUI\TextureTarget.h" />
+    <ClInclude Include="CEGUI\TextUtils.h" />
+    <ClInclude Include="CEGUI\TplInterpolators.h" />
+    <ClInclude Include="CEGUI\TplProperty.h" />
+    <ClInclude Include="CEGUI\TplWindowFactory.h" />
+    <ClInclude Include="CEGUI\TplWindowFactoryRegisterer.h" />
+    <ClInclude Include="CEGUI\TplWindowProperty.h" />
+    <ClInclude Include="CEGUI\TplWindowRendererFactory.h" />
+    <ClInclude Include="CEGUI\TplWindowRendererProperty.h" />
+    <ClInclude Include="CEGUI\TplWRFactoryRegisterer.h" />
+    <ClInclude Include="CEGUI\TypedProperty.h" />
+    <ClInclude Include="CEGUI\UDim.h" />
+    <ClInclude Include="CEGUI\Vector.h" />
+    <ClInclude Include="CEGUI\Version.h" />
+    <ClInclude Include="CEGUI\Vertex.h" />
+    <ClInclude Include="CEGUI\Widgets\All.h" />
+    <ClInclude Include="CEGUI\Widgets\ButtonBase.h" />
+    <ClInclude Include="CEGUI\Widgets\ClippedContainer.h" />
+    <ClInclude Include="CEGUI\Widgets\Combobox.h" />
+    <ClInclude Include="CEGUI\Widgets\ComboDropList.h" />
+    <ClInclude Include="CEGUI\Widgets\DefaultWindow.h" />
+    <ClInclude Include="CEGUI\Widgets\DragContainer.h" />
+    <ClInclude Include="CEGUI\Widgets\Editbox.h" />
+    <ClInclude Include="CEGUI\Widgets\FrameWindow.h" />
+    <ClInclude Include="CEGUI\Widgets\GridLayoutContainer.h" />
+    <ClInclude Include="CEGUI\Widgets\GroupBox.h" />
+    <ClInclude Include="CEGUI\Widgets\HorizontalLayoutContainer.h" />
+    <ClInclude Include="CEGUI\Widgets\ItemEntry.h" />
+    <ClInclude Include="CEGUI\Widgets\ItemListBase.h" />
+    <ClInclude Include="CEGUI\Widgets\ItemListbox.h" />
+    <ClInclude Include="CEGUI\Widgets\LayoutCell.h" />
+    <ClInclude Include="CEGUI\Widgets\LayoutContainer.h" />
+    <ClInclude Include="CEGUI\Widgets\Listbox.h" />
+    <ClInclude Include="CEGUI\Widgets\ListboxItem.h" />
+    <ClInclude Include="CEGUI\Widgets\ListboxTextItem.h" />
+    <ClInclude Include="CEGUI\Widgets\ListHeader.h" />
+    <ClInclude Include="CEGUI\Widgets\ListHeaderSegment.h" />
+    <ClInclude Include="CEGUI\Widgets\Menubar.h" />
+    <ClInclude Include="CEGUI\Widgets\MenuBase.h" />
+    <ClInclude Include="CEGUI\Widgets\MenuItem.h" />
+    <ClInclude Include="CEGUI\Widgets\MultiColumnList.h" />
+    <ClInclude Include="CEGUI\Widgets\MultiLineEditbox.h" />
+    <ClInclude Include="CEGUI\Widgets\PopupMenu.h" />
+    <ClInclude Include="CEGUI\Widgets\ProgressBar.h" />
+    <ClInclude Include="CEGUI\Widgets\PushButton.h" />
+    <ClInclude Include="CEGUI\Widgets\RadioButton.h" />
+    <ClInclude Include="CEGUI\Widgets\ScrollablePane.h" />
+    <ClInclude Include="CEGUI\Widgets\Scrollbar.h" />
+    <ClInclude Include="CEGUI\Widgets\ScrolledContainer.h" />
+    <ClInclude Include="CEGUI\Widgets\ScrolledItemListBase.h" />
+    <ClInclude Include="CEGUI\Widgets\SequentialLayoutContainer.h" />
+    <ClInclude Include="CEGUI\Widgets\Slider.h" />
+    <ClInclude Include="CEGUI\Widgets\Spinner.h" />
+    <ClInclude Include="CEGUI\Widgets\TabButton.h" />
+    <ClInclude Include="CEGUI\Widgets\TabControl.h" />
+    <ClInclude Include="CEGUI\Widgets\Thumb.h" />
+    <ClInclude Include="CEGUI\Widgets\Titlebar.h" />
+    <ClInclude Include="CEGUI\Widgets\ToggleButton.h" />
+    <ClInclude Include="CEGUI\Widgets\Tooltip.h" />
+    <ClInclude Include="CEGUI\Widgets\Tree.h" />
+    <ClInclude Include="CEGUI\Widgets\TreeItem.h" />
+    <ClInclude Include="CEGUI\Widgets\VerticalLayoutContainer.h" />
+    <ClInclude Include="CEGUI\Win32StringTranscoder.h" />
+    <ClInclude Include="CEGUI\Window.h" />
+    <ClInclude Include="CEGUI\WindowFactory.h" />
+    <ClInclude Include="CEGUI\WindowFactoryManager.h" />
+    <ClInclude Include="CEGUI\WindowManager.h" />
+    <ClInclude Include="CEGUI\WindowRenderer.h" />
+    <ClInclude Include="CEGUI\WindowRendererManager.h" />
+    <ClInclude Include="CEGUI\XMLAttributes.h" />
+    <ClInclude Include="CEGUI\XMLHandler.h" />
+    <ClInclude Include="CEGUI\XMLParser.h" />
+    <ClInclude Include="CEGUI\XMLSerializer.h" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{c2c1f539-78aa-49f2-bc86-d55b47aa7e7c}</ProjectGuid>
+    <RootNamespace>CEGUI</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>CEGUIBase_static</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)Build\bin\static\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\obj\static\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)Build\bin\static\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\obj\static\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)Build\bin\static\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\obj\static\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)Build\bin\static\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\obj\static\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg">
+    <VcpkgEnabled>true</VcpkgEnabled>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_WIN32;_DEBUG;_WINDOWS;CEGUI_STATIC;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DisableSpecificWarnings>6031</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>winmm.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(TargetDir)\*" "$(SolutionDir)Install\bin\static\$(Platform)\$(Configuration)\*"
+xcopy /Y "$(ProjectDir)CEGUI\*.h" "$(SolutionDir)Install\include\CEGUI\*"
+xcopy /Y "$(ProjectDir)CEGUI\Falagard\*.h" "$(SolutionDir)Install\include\CEGUI\Falagard\*"
+xcopy /Y "$(ProjectDir)CEGUI\Widgets\*.h" "$(SolutionDir)Install\include\CEGUI\Widgets\*"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;CEGUIBASE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DisableSpecificWarnings>6031</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>winmm.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(TargetDir)\*" "$(SolutionDir)Install\bin\static\$(Platform)\$(Configuration)\*"
+xcopy /Y "$(ProjectDir)CEGUI\*.h" "$(SolutionDir)Install\include\CEGUI\*"
+xcopy /Y "$(ProjectDir)CEGUI\Falagard\*.h" "$(SolutionDir)Install\include\CEGUI\Falagard\*"
+xcopy /Y "$(ProjectDir)CEGUI\Widgets\*.h" "$(SolutionDir)Install\include\CEGUI\Widgets\*"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;CEGUIBASE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DisableSpecificWarnings>6031</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>winmm.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(TargetDir)\*" "$(SolutionDir)Install\bin\static\$(Platform)\$(Configuration)\*"
+xcopy /Y "$(ProjectDir)CEGUI\*.h" "$(SolutionDir)Install\include\CEGUI\*"
+xcopy /Y "$(ProjectDir)CEGUI\Falagard\*.h" "$(SolutionDir)Install\include\CEGUI\Falagard\*"
+xcopy /Y "$(ProjectDir)CEGUI\Widgets\*.h" "$(SolutionDir)Install\include\CEGUI\Widgets\*"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;CEGUIBASE_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DisableSpecificWarnings>6031</DisableSpecificWarnings>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>winmm.lib;dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(TargetDir)\*" "$(SolutionDir)Install\bin\static\$(Platform)\$(Configuration)\*"
+xcopy /Y "$(ProjectDir)CEGUI\*.h" "$(SolutionDir)Install\include\CEGUI\*"
+xcopy /Y "$(ProjectDir)CEGUI\Falagard\*.h" "$(SolutionDir)Install\include\CEGUI\Falagard\*"
+xcopy /Y "$(ProjectDir)CEGUI\Widgets\*.h" "$(SolutionDir)Install\include\CEGUI\Widgets\*"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

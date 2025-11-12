@@ -1,6 +1,7 @@
 @echo off
 vcpkg install freetype[core,zlib,error-strings]
 vcpkg install libiconv
+vcpkg install pcre
 vcpkg install glew
 vcpkg install glad[core,extensions,gl-api-latest,loader]
 vcpkg install glm
@@ -13,3 +14,4 @@ vcpkg install expat
 vcpkg install tinyxml
 vcpkg install xerces-c
 vcpkg install rapidxml
+vcpkg install lua

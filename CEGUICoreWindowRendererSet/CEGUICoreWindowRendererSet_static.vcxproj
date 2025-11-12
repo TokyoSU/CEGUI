@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\Button.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\Default.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\Editbox.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\FrameWindow.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\ItemEntry.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\ItemListbox.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\Listbox.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\ListHeader.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\ListHeaderSegment.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\Menubar.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\MenuItem.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\Module.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\MultiColumnList.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\MultiLineEditbox.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\PopupMenu.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\ProgressBar.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\ScrollablePane.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\Scrollbar.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\Slider.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\Static.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\StaticImage.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\StaticText.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\TabButton.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\TabControl.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\Titlebar.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\ToggleButton.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\Tooltip.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\Tree.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\Button.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\Default.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\Editbox.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\FrameWindow.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\ItemEntry.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\ItemListbox.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\Listbox.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\ListHeader.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\ListHeaderSegment.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\Menubar.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\MenuItem.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\Module.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\MultiColumnList.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\MultiLineEditbox.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\PopupMenu.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\ProgressBar.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\ScrollablePane.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\Scrollbar.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\Slider.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\Static.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\StaticImage.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\StaticText.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\TabButton.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\TabControl.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\Titlebar.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\ToggleButton.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\Tooltip.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\Tree.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CEGUIBase\CEGUIBase_static.vcxproj">
+      <Project>{c2c1f539-78aa-49f2-bc86-d55b47aa7e7c}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{08fd2353-3fb5-4094-9b90-910ebda8df7d}</ProjectGuid>
+    <RootNamespace>CEGUICoreWindowRendererSet_static</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)Build\bin\static\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\obj\static\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)Build\bin\static\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\obj\static\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <OutDir>$(SolutionDir)Build\bin\static\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\obj\static\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <OutDir>$(SolutionDir)Build\bin\static\$(ProjectName)\$(Platform)\$(Configuration)\</OutDir>
+    <IntDir>$(SolutionDir)Build\obj\static\$(ProjectName)\$(Platform)\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+  </PropertyGroup>
+  <PropertyGroup Label="Vcpkg" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <VcpkgUseStatic>true</VcpkgUseStatic>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;CEGUICOREWINDOWRENDERERSET_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(SolutionDir)CEGUIBase;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(TargetDir)\*" "$(SolutionDir)Install\bin\static\$(Platform)\$(Configuration)\*"
+xcopy /Y "$(ProjectDir)CEGUI\WindowRendererSets\Core\*.h" "$(SolutionDir)Install\include\CEGUI\WindowRendererSets\Core\*"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;CEGUICOREWINDOWRENDERERSET_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(SolutionDir)CEGUIBase;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(TargetDir)\*" "$(SolutionDir)Install\bin\static\$(Platform)\$(Configuration)\*"
+xcopy /Y "$(ProjectDir)CEGUI\WindowRendererSets\Core\*.h" "$(SolutionDir)Install\include\CEGUI\WindowRendererSets\Core\*"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;CEGUICOREWINDOWRENDERERSET_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(SolutionDir)CEGUIBase;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(TargetDir)\*" "$(SolutionDir)Install\bin\static\$(Platform)\$(Configuration)\*"
+xcopy /Y "$(ProjectDir)CEGUI\WindowRendererSets\Core\*.h" "$(SolutionDir)Install\include\CEGUI\WindowRendererSets\Core\*"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;CEGUICOREWINDOWRENDERERSET_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>
+      </PrecompiledHeaderFile>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(SolutionDir)CEGUIBase;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y "$(TargetDir)\*" "$(SolutionDir)Install\bin\static\$(Platform)\$(Configuration)\*"
+xcopy /Y "$(ProjectDir)CEGUI\WindowRendererSets\Core\*.h" "$(SolutionDir)Install\include\CEGUI\WindowRendererSets\Core\*"</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
