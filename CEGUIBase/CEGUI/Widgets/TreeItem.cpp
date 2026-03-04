@@ -103,11 +103,11 @@ TreeItem::~TreeItem(void)
         if (d_listItems[i]->isAutoDeleted())
         {
             // clean up this item.
-            CEGUI_DELETE_AO d_listItems[i];
+            CEGUI_DELETE_AO(d_listItems[i]);
         }
     }
 
-    CEGUI_DELETE_AO d_bidiVisualMapping;
+    CEGUI_DELETE_AO(d_bidiVisualMapping);
 }
 
 /*************************************************************************
@@ -260,7 +260,7 @@ void TreeItem::removeItem(const TreeItem* item)
                 parentWindow->d_lastSelected = 0;
 
             if (item->isAutoDeleted())
-                CEGUI_DELETE_AO item;
+                CEGUI_DELETE_AO(item);
 
             WindowEventArgs args(parentWindow);
             parentWindow->onListContentsChanged(args);

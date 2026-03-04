@@ -112,7 +112,7 @@ namespace CEGUI
     FalagardStaticText::~FalagardStaticText()
     {
         if (d_formattedRenderedString)
-            CEGUI_DELETE_AO d_formattedRenderedString;
+            CEGUI_DELETE_AO(d_formattedRenderedString);
     }
 
 //----------------------------------------------------------------------------//

@@ -79,8 +79,8 @@ void NullRenderer::destroySystem()
     System::destroy();
     // ImageCodec used is currently the system default, so we do not destroy
     // it here (since System already did that).
-    //CEGUI_DELETE_AO ic;
-	CEGUI_DELETE_AO rp;
+    //CEGUI_DELETE_AO(ic);
+	CEGUI_DELETE_AO(rp);
     destroy(*renderer);
 }
 
@@ -95,7 +95,7 @@ NullRenderer& NullRenderer::create(const int abi)
 //----------------------------------------------------------------------------//
 void NullRenderer::destroy(NullRenderer& renderer)
 {
-    CEGUI_DELETE_AO &renderer;
+    CEGUI_DELETE_AO(&renderer);
 }
 
 //----------------------------------------------------------------------------//
@@ -123,7 +123,7 @@ void NullRenderer::destroyGeometryBuffer(const GeometryBuffer& buffer)
     if (d_geometryBuffers.end() != i)
     {
         d_geometryBuffers.erase(i);
-        CEGUI_DELETE_AO &buffer;
+        CEGUI_DELETE_AO(&buffer);
     }
 }
 
@@ -152,7 +152,7 @@ void NullRenderer::destroyTextureTarget(TextureTarget* target)
     if (d_textureTargets.end() != i)
     {
         d_textureTargets.erase(i);
-        CEGUI_DELETE_AO target;
+        CEGUI_DELETE_AO(target);
     }
 }
 
@@ -233,7 +233,7 @@ void NullRenderer::destroyTexture(const String& name)
     if (d_textures.end() != i)
     {
         logTextureDestruction(name);
-        CEGUI_DELETE_AO i->second;
+        CEGUI_DELETE_AO(i->second);
         d_textures.erase(i);
     }
 }

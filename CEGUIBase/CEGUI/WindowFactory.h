@@ -63,7 +63,7 @@
         }\
         void destroyWindow(Window* window)\
         {\
-            CEGUI_DELETE_AO window;\
+            CEGUI_DELETE_AO(window);\
         }\
     };\
     T ## Factory& get ## T ## Factory();

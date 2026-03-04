@@ -72,9 +72,7 @@ OpenGL3Renderer& OpenGL3Renderer::bootstrapSystem(const int abi)
 {
     System::performVersionTest(CEGUI_VERSION_ABI, abi, CEGUI_FUNCTION_NAME);
 
-    if (System::getSingletonPtr())
-        CEGUI_THROW(InvalidRequestException(
-            "CEGUI::System object is already initialised."));
+    if (System::getSingletonPtr()) CEGUI_THROW(InvalidRequestException("CEGUI::System object is already initialised."));
 
     OpenGL3Renderer& renderer(create());
     DefaultResourceProvider* rp = CEGUI_NEW_AO CEGUI::DefaultResourceProvider();
@@ -89,9 +87,7 @@ OpenGL3Renderer& OpenGL3Renderer::bootstrapSystem(const Sizef& display_size,
 {
     System::performVersionTest(CEGUI_VERSION_ABI, abi, CEGUI_FUNCTION_NAME);
 
-    if (System::getSingletonPtr())
-        CEGUI_THROW(InvalidRequestException(
-            "CEGUI::System object is already initialised."));
+    if (System::getSingletonPtr()) CEGUI_THROW(InvalidRequestException("CEGUI::System object is already initialised."));
 
     OpenGL3Renderer& renderer(create(display_size));
     DefaultResourceProvider* rp = CEGUI_NEW_AO CEGUI::DefaultResourceProvider();
@@ -104,16 +100,13 @@ OpenGL3Renderer& OpenGL3Renderer::bootstrapSystem(const Sizef& display_size,
 void OpenGL3Renderer::destroySystem()
 {
     System* sys;
-    if (!(sys = System::getSingletonPtr()))
-        CEGUI_THROW(InvalidRequestException(
-            "CEGUI::System object is not created or was already destroyed."));
+    if (!(sys = System::getSingletonPtr())) CEGUI_THROW(InvalidRequestException("CEGUI::System object is not created or was already destroyed."));
 
     OpenGL3Renderer* renderer = static_cast<OpenGL3Renderer*>(sys->getRenderer());
-    DefaultResourceProvider* rp =
-        static_cast<DefaultResourceProvider*>(sys->getResourceProvider());
+    DefaultResourceProvider* rp = static_cast<DefaultResourceProvider*>(sys->getResourceProvider());
 
     System::destroy();
-    CEGUI_DELETE_AO rp;
+    CEGUI_DELETE_AO(rp);
     destroy(*renderer);
 }
 
@@ -137,7 +130,7 @@ OpenGL3Renderer& OpenGL3Renderer::create(const Sizef& display_size,
 //----------------------------------------------------------------------------//
 void OpenGL3Renderer::destroy(OpenGL3Renderer& renderer)
 {
-    CEGUI_DELETE_AO &renderer;
+    CEGUI_DELETE_AO(&renderer);
 }
 
 //----------------------------------------------------------------------------//
@@ -179,9 +172,9 @@ void OpenGL3Renderer::init()
 //----------------------------------------------------------------------------//
 OpenGL3Renderer::~OpenGL3Renderer()
 {
-    CEGUI_DELETE_AO d_textureTargetFactory;
-    CEGUI_DELETE_AO d_openGLStateChanger;
-    CEGUI_DELETE_AO d_shaderManager;
+    CEGUI_DELETE_AO(d_textureTargetFactory);
+    CEGUI_DELETE_AO(d_openGLStateChanger);
+    CEGUI_DELETE_AO(d_shaderManager);
 }
 
 //----------------------------------------------------------------------------//

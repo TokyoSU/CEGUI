@@ -174,7 +174,7 @@ System::System(Renderer& renderer,
         {
             // cleanup XML stuff
             d_xmlParser->cleanup();
-            CEGUI_DELETE_AO d_xmlParser;
+            CEGUI_DELETE_AO(d_xmlParser);
             CEGUI_RETHROW;
         }
     }
@@ -287,12 +287,12 @@ System::~System(void)
          i != d_guiContexts.end();
          ++i)
     {
-        CEGUI_DELETE_AO *i;
+        CEGUI_DELETE_AO(*i);
     }
 
     // cleanup resource provider if we own it
     if (d_ourResourceProvider)
-        CEGUI_DELETE_AO d_resourceProvider;
+        CEGUI_DELETE_AO(d_resourceProvider);
 
     char addr_buff[32];
     sprintf_s(addr_buff, sizeof(addr_buff), "(%p)", static_cast<void*>(this));
@@ -303,10 +303,10 @@ System::~System(void)
 #ifdef CEGUI_HAS_DEFAULT_LOGGER
     // delete the Logger object only if we created it.
     if (d_ourLogger)
-        CEGUI_DELETE_AO Logger::getSingletonPtr();
+        CEGUI_DELETE_AO(Logger::getSingletonPtr());
 #endif
     
-    CEGUI_DELETE_AO d_clipboard;
+    CEGUI_DELETE_AO(d_clipboard);
 }
 
 //---------------------------------------------------------------------------//
@@ -686,16 +686,16 @@ void System::createSingletons()
 
 void System::destroySingletons()
 {
-    CEGUI_DELETE_AO SchemeManager::getSingletonPtr();
-    CEGUI_DELETE_AO WindowManager::getSingletonPtr();
-    CEGUI_DELETE_AO WindowFactoryManager::getSingletonPtr();
-    CEGUI_DELETE_AO WidgetLookManager::getSingletonPtr();
-    CEGUI_DELETE_AO WindowRendererManager::getSingletonPtr();
-    CEGUI_DELETE_AO AnimationManager::getSingletonPtr();
-    CEGUI_DELETE_AO RenderEffectManager::getSingletonPtr();
-    CEGUI_DELETE_AO FontManager::getSingletonPtr();
-    CEGUI_DELETE_AO ImageManager::getSingletonPtr();
-    CEGUI_DELETE_AO GlobalEventSet::getSingletonPtr();
+    CEGUI_DELETE_AO(SchemeManager::getSingletonPtr());
+    CEGUI_DELETE_AO(WindowManager::getSingletonPtr());
+    CEGUI_DELETE_AO(WindowFactoryManager::getSingletonPtr());
+    CEGUI_DELETE_AO(WidgetLookManager::getSingletonPtr());
+    CEGUI_DELETE_AO(WindowRendererManager::getSingletonPtr());
+    CEGUI_DELETE_AO(AnimationManager::getSingletonPtr());
+    CEGUI_DELETE_AO(RenderEffectManager::getSingletonPtr());
+    CEGUI_DELETE_AO(FontManager::getSingletonPtr());
+    CEGUI_DELETE_AO(ImageManager::getSingletonPtr());
+    CEGUI_DELETE_AO(GlobalEventSet::getSingletonPtr());
 }
 
 //----------------------------------------------------------------------------//
@@ -743,7 +743,7 @@ void System::cleanupXMLParser()
         deleteFunc(d_xmlParser);
 
         // delete the dynamic module for the xml parser
-        CEGUI_DELETE_AO d_parserModule;
+        CEGUI_DELETE_AO(d_parserModule);
         d_parserModule = 0;
     }
 #ifdef CEGUI_STATIC
@@ -857,7 +857,7 @@ void System::cleanupImageCodec()
         ((void(*)(ImageCodec*))d_imageCodecModule->
             getSymbolAddress("destroyImageCodec"))(d_imageCodec);
 
-        CEGUI_DELETE_AO d_imageCodecModule;
+        CEGUI_DELETE_AO(d_imageCodecModule);
         d_imageCodecModule = 0;
     }
 #if defined(CEGUI_STATIC)
@@ -910,7 +910,7 @@ void System::performVersionTest(const int expected, const int received,
 //----------------------------------------------------------------------------//
 void System::destroy()
 {
-    CEGUI_DELETE_AO System::getSingletonPtr();
+    CEGUI_DELETE_AO(System::getSingletonPtr());
 }
 
 //----------------------------------------------------------------------------//
@@ -970,7 +970,7 @@ RegexMatcher* System::createRegexMatcher() const
 //----------------------------------------------------------------------------//
 void System::destroyRegexMatcher(RegexMatcher* rm) const
 {
-    CEGUI_DELETE_AO rm;
+    CEGUI_DELETE_AO(rm);
 }
 
 //----------------------------------------------------------------------------//
@@ -1001,7 +1001,7 @@ void System::destroyGUIContext(GUIContext& context)
     {
         if (*i == &context)
         {
-            CEGUI_DELETE_AO *i;
+            CEGUI_DELETE_AO(*i);
             d_guiContexts.erase(i);
             return;
         }

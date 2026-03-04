@@ -106,7 +106,7 @@ namespace CEGUI
     {
         for(shaderContainerType::iterator iter = d_shaders.begin(); iter != d_shaders.end(); ++iter)
         {
-            CEGUI_DELETE_AO iter->second;
+            CEGUI_DELETE_AO(iter->second);
         }
         d_shaders.clear();
     }

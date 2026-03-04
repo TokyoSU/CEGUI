@@ -36,7 +36,7 @@ CEGUI::XMLParser* createParser(void)
 //----------------------------------------------------------------------------//
 void destroyParser(CEGUI::XMLParser* parser)
 {
-    CEGUI_DELETE_AO parser;
+    CEGUI_DELETE_AO(parser);
 }
 
 //----------------------------------------------------------------------------//

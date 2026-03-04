@@ -526,7 +526,7 @@ void WindowFactoryManager::addFactory()
                                             factory->getTypeName() +
                                             "' windows.");
             // delete the factory object
-            CEGUI_DELETE_AO factory;
+            CEGUI_DELETE_AO(factory);
             CEGUI_RETHROW;
         }
     }

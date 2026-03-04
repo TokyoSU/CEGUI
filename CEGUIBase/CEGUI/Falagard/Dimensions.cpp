@@ -97,14 +97,14 @@ OperatorDim::OperatorDim(DimensionOperator op, BaseDim* left, BaseDim* right) :
 //----------------------------------------------------------------------------//
 OperatorDim::~OperatorDim()
 {
-    CEGUI_DELETE_AO d_right;
-    CEGUI_DELETE_AO d_left;
+    CEGUI_DELETE_AO(d_right);
+    CEGUI_DELETE_AO(d_left);
 }
 
 //----------------------------------------------------------------------------//
 void OperatorDim::setLeftOperand(const BaseDim* operand)
 {
-    CEGUI_DELETE_AO d_left;
+    CEGUI_DELETE_AO(d_left);
     
     d_left = operand ? operand->clone() : 0;
 }
@@ -118,7 +118,7 @@ BaseDim* OperatorDim::getLeftOperand() const
 //----------------------------------------------------------------------------//
 void OperatorDim::setRightOperand(const BaseDim* operand)
 {
-    CEGUI_DELETE_AO d_right;
+    CEGUI_DELETE_AO(d_right);
     
     d_right = operand ? operand->clone() : 0;
 }
@@ -846,7 +846,7 @@ Dimension::Dimension()
 Dimension::~Dimension()
 {
     if (d_value)
-        CEGUI_DELETE_AO d_value;
+        CEGUI_DELETE_AO(d_value);
 }
 
 //----------------------------------------------------------------------------//
@@ -868,7 +868,7 @@ Dimension& Dimension::operator=(const Dimension& other)
 {
     // release old value, if any.
     if (d_value)
-        CEGUI_DELETE_AO d_value;
+        CEGUI_DELETE_AO(d_value);
 
     d_value = other.d_value ? other.d_value->clone() : 0;
     d_type = other.d_type;
@@ -888,7 +888,7 @@ void Dimension::setBaseDimension(const BaseDim& dim)
 {
     // release old value, if any.
     if (d_value)
-        CEGUI_DELETE_AO d_value;
+        CEGUI_DELETE_AO(d_value);
 
     d_value = dim.clone();
 }

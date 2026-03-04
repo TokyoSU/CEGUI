@@ -130,7 +130,7 @@ void ImageManager::removeImageType(const String& name)
     Logger::getSingleton().logEvent(
         "[CEGUI::ImageManager] Unregistered Image type: " + name);
 
-    CEGUI_DELETE_AO i->second;
+    CEGUI_DELETE_AO(i->second);
 	d_factories.erase(name);
 }
 

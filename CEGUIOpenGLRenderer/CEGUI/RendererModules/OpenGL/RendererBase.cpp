@@ -127,7 +127,7 @@ OpenGLRendererBase::~OpenGLRendererBase()
     destroyAllTextureTargets();
     destroyAllTextures();
 
-    CEGUI_DELETE_AO d_defaultTarget;
+    CEGUI_DELETE_AO(d_defaultTarget);
     delete d_viewProjectionMatrix;
 }
 
@@ -172,7 +172,7 @@ void OpenGLRendererBase::destroyGeometryBuffer(const GeometryBuffer& buffer)
     if (d_geometryBuffers.end() != i)
     {
         d_geometryBuffers.erase(i);
-        CEGUI_DELETE_AO &buffer;
+        CEGUI_DELETE_AO(&buffer);
     }
 }
 
@@ -204,7 +204,7 @@ void OpenGLRendererBase::destroyTextureTarget(TextureTarget* target)
     if (d_textureTargets.end() != i)
     {
         d_textureTargets.erase(i);
-        CEGUI_DELETE_AO target;
+        CEGUI_DELETE_AO(target);
     }
 }
 
@@ -284,7 +284,7 @@ void OpenGLRendererBase::destroyTexture(const String& name)
     if (d_textures.end() != i)
     {
         logTextureDestruction(name);
-        CEGUI_DELETE_AO i->second;
+        CEGUI_DELETE_AO(i->second);
         d_textures.erase(i);
     }
 }

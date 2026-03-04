@@ -163,7 +163,7 @@ void Affector::destroyKeyFrame(KeyFrame* keyframe)
     }
 
     d_keyFrames.erase(it);
-    CEGUI_DELETE_AO keyframe;
+    CEGUI_DELETE_AO(keyframe);
 }
 
 //----------------------------------------------------------------------------//

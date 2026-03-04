@@ -189,9 +189,9 @@ void RenderedStringWordWrapper<T>::deleteFormatters()
         // get the rendered string back from rthe formatter
         const RenderedString* rs = &d_lines[i]->getRenderedString();
         // delete the formatter
-        CEGUI_DELETE_AO d_lines[i];
+        CEGUI_DELETE_AO(d_lines[i]);
         // delete the rendered string.
-        CEGUI_DELETE_AO rs;
+        CEGUI_DELETE_AO(rs);
     }
 
     d_lines.clear();

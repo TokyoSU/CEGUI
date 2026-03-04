@@ -327,7 +327,7 @@ Window::~Window(void)
     // most cleanup actually happened earlier in Window::destroy.
 
     System::getSingleton().getRenderer()->destroyGeometryBuffer(*d_geometry);
-    CEGUI_DELETE_AO d_bidiVisualMapping;
+    CEGUI_DELETE_AO(d_bidiVisualMapping);
 }
 
 //----------------------------------------------------------------------------//

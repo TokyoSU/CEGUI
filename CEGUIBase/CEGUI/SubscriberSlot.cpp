@@ -48,7 +48,7 @@ SubscriberSlot::~SubscriberSlot()
 
 void SubscriberSlot::cleanup()
 {
-    CEGUI_DELETE_AO d_functor_impl;
+    CEGUI_DELETE_AO(d_functor_impl);
     d_functor_impl = 0;
 }
 

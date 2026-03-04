@@ -101,7 +101,7 @@ AnimationManager::~AnimationManager()
     for (BasicInterpolatorList::const_iterator it = d_basicInterpolators.begin();
          it != d_basicInterpolators.end(); ++it)
     {
-        CEGUI_DELETE_AO *it;
+        CEGUI_DELETE_AO(*it);
     }
 
     d_basicInterpolators.clear();
@@ -191,7 +191,7 @@ void AnimationManager::destroyAnimation(const String& name)
     destroyAllInstancesOfAnimation(animation);
 
     d_animations.erase(it);
-    CEGUI_DELETE_AO animation;
+    CEGUI_DELETE_AO(animation);
 }
 
 //----------------------------------------------------------------------------//
@@ -205,7 +205,7 @@ void AnimationManager::destroyAllAnimations()
     for (AnimationMap::const_iterator it = d_animations.begin();
          it != d_animations.end(); ++it)
     {
-        CEGUI_DELETE_AO it->second;
+        CEGUI_DELETE_AO(it->second);
     }
 
     d_animations.clear();
@@ -283,7 +283,7 @@ void AnimationManager::destroyAnimationInstance(AnimationInstance* instance)
         if (it->second == instance)
         {
             d_animationInstances.erase(it);
-            CEGUI_DELETE_AO instance;
+            CEGUI_DELETE_AO(instance);
             return;
         }
     }
@@ -302,7 +302,7 @@ void AnimationManager::destroyAllInstancesOfAnimation(Animation* animation)
         AnimationInstanceMap::iterator toErase = it;
         ++it;
 
-        CEGUI_DELETE_AO toErase->second;
+        CEGUI_DELETE_AO(toErase->second);
         d_animationInstances.erase(toErase);
     }
 }
@@ -313,7 +313,7 @@ void AnimationManager::destroyAllAnimationInstances()
     for (AnimationInstanceMap::const_iterator it = d_animationInstances.begin();
          it != d_animationInstances.end(); ++it)
     {
-        CEGUI_DELETE_AO it->second;
+        CEGUI_DELETE_AO(it->second);
     }
 
     d_animationInstances.clear();

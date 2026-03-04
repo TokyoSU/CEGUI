@@ -88,7 +88,7 @@ Image& TplImageFactory<T>::create(const XMLAttributes& attributes)
 template <typename T>
 void TplImageFactory<T>::destroy(Image& image)
 {
-    CEGUI_DELETE_AO &image;
+    CEGUI_DELETE_AO(&image);
 }
 
 //---------------------------------------------------------------------------//

@@ -103,7 +103,7 @@ CoreWindowRendererModule::~CoreWindowRendererModule()
 {
     FactoryRegistry::iterator i = d_registry.begin();
     for ( ; i != d_registry.end(); ++i)
-        CEGUI_DELETE_AO (*i);
+        CEGUI_DELETE_AO((*i));
 }
 
 //----------------------------------------------------------------------------//

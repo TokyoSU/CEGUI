@@ -38,7 +38,7 @@ CEGUI::ImageCodec* createImageCodec(void)
 
 void destroyImageCodec(CEGUI::ImageCodec* imageCodec)
 {
-    CEGUI_DELETE_AO imageCodec;
+    CEGUI_DELETE_AO(imageCodec);
 }
 
 //----------------------------------------------------------------------------//

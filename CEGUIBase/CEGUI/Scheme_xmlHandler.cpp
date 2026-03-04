@@ -81,7 +81,7 @@ Scheme_xmlHandler::Scheme_xmlHandler():
 Scheme_xmlHandler::~Scheme_xmlHandler()
 {
     if (!d_objectRead)
-        CEGUI_DELETE_AO d_scheme;
+        CEGUI_DELETE_AO(d_scheme);
 }
 
 //----------------------------------------------------------------------------//

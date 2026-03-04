@@ -85,7 +85,7 @@ Font_xmlHandler::Font_xmlHandler():
 Font_xmlHandler::~Font_xmlHandler()
 {
     if (!d_objectRead)
-        CEGUI_DELETE_AO d_font;
+        CEGUI_DELETE_AO(d_font);
 }
 
 //----------------------------------------------------------------------------//

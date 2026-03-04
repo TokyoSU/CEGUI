@@ -260,7 +260,7 @@ DynamicModule::DynamicModule(const String& name) :
 //----------------------------------------------------------------------------//
 DynamicModule::~DynamicModule()
 {
-    CEGUI_DELETE_AO d_pimpl;
+    CEGUI_DELETE_AO(d_pimpl);
 }
 
 //----------------------------------------------------------------------------//

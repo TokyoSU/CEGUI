@@ -432,11 +432,10 @@ protected:
     EventSet& operator=(EventSet&) { return *this; } //! \deprecated
     EventSet& operator=(const EventSet&) { return *this; }
 
-    typedef std::map<String, Event*, StringFastLessCompare
-        CEGUI_MAP_ALLOC(String, Event*)> EventMap;
-    EventMap    d_events;
+    typedef std::map<String, Event*, StringFastLessCompare CEGUI_MAP_ALLOC(String, Event*)> EventMap;
+    EventMap d_events;
 
-    bool d_muted;    //!< true if events for this EventSet have been muted.
+    bool d_muted = false;    //!< true if events for this EventSet have been muted.
 
 public:
     /*************************************************************************

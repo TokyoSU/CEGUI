@@ -47,6 +47,15 @@ struct AllocatorConfig<Class>\
     typedef A Allocator;\
 };
 
+
+namespace CEGUI
+{
+	template<typename T>
+	inline void ceguiZeroPtr(T*& ptr) { ptr = 0; }
+	template<typename T>
+	inline void ceguiZeroPtr(T* const&) {}
+}
+
 #ifdef CEGUI_CUSTOM_ALLOCATORS
 
 namespace CEGUI
@@ -83,7 +92,7 @@ void destructN(T* basePtr, size_t count)
 
 #ifndef CEGUI_CUSTOM_ALLOCATORS_DEBUG
 #   define CEGUI_NEW_AO new
-#   define CEGUI_DELETE_AO delete
+#   define CEGUI_DELETE_AO(ptr) do { if(ptr) { delete (ptr); ::CEGUI::ceguiZeroPtr(ptr); } } while(0)
 // for primitive types, types not inherited from AllocatedObject
 #   define CEGUI_NEW_PT(T, A) new (::CEGUI::AllocatorConfig<A>::Allocator::allocateBytes(sizeof(T))) T
 #   define CEGUI_NEW_ARRAY_PT(T, count, A) ::CEGUI::constructN(static_cast<T*>(::CEGUI::AllocatorConfig<A>::Allocator::allocateBytes(sizeof(T)*(count))), count)
@@ -91,7 +100,7 @@ void destructN(T* basePtr, size_t count)
 #   define CEGUI_DELETE_ARRAY_PT(ptr, T, count, A) do{if(ptr){ ::CEGUI::destructN(static_cast<T*>(ptr), count); ::CEGUI::AllocatorConfig<A>::Allocator::deallocateBytes((void*)ptr);}}while(0)
 #else
 #   define CEGUI_NEW_AO new(__FILE__, __LINE__, __FUNCTION__)
-#   define CEGUI_DELETE_AO delete
+#   define CEGUI_DELETE_AO(ptr) do { if(ptr) { delete (ptr); ::CEGUI::ceguiZeroPtr(ptr); } } while(0)
 // for primitive types, types not inherited from AllocatedObject
 #   define CEGUI_NEW_PT(T, A) new (::CEGUI::AllocatorConfig<A>::Allocator::allocateBytes(sizeof(T), __FILE__, __LINE__, __FUNCTION__)) T
 #   define CEGUI_NEW_ARRAY_PT(T, count, A) ::CEGUI::constructN(static_cast<T*>(::CEGUI::AllocatorConfig<A>::Allocator::allocateBytes(sizeof(T)*(count), __FILE__, __LINE__, __FUNCTION__)), count)
@@ -110,12 +119,13 @@ void destructN(T* basePtr, size_t count)
 
 // dummy macros
 #define CEGUI_NEW_AO new
-#define CEGUI_DELETE_AO delete
+#define CEGUI_DELETE_AO(ptr) do { if(ptr) { delete (ptr); ::CEGUI::ceguiZeroPtr(ptr); } } while(0)
+#define CEGUI_DELETE_AO_SAFE(ptr) do{if(ptr){delete ptr; ptr = 0;}}while(0)
 // for primitive types, types not inherited from AllocatedObject
 #define CEGUI_NEW_PT(T, Allocator) new T
 #define CEGUI_NEW_ARRAY_PT(T, count, Allocator) new T[count]
-#define CEGUI_DELETE_PT(ptr, T, Allocator) delete ptr
-#define CEGUI_DELETE_ARRAY_PT(ptr, T, count, Allocator) delete [] ptr
+#define CEGUI_DELETE_PT(ptr, T, Allocator) do{if(ptr){delete ptr; ptr = 0;}}while(0)
+#define CEGUI_DELETE_ARRAY_PT(ptr, T, count, Allocator) do{if(ptr){delete [] ptr; ptr = 0;}}while(0)
 
 #endif
 

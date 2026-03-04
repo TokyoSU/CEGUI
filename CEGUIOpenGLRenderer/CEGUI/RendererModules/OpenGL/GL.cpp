@@ -125,7 +125,7 @@ namespace CEGUI
             {
                 // fallback parse from version string
                 int a = 0, b = 0;
-                sscanf(reinterpret_cast<const char*>(verstr), "%d.%d", &a, &b);
+                sscanf_s(reinterpret_cast<const char*>(verstr), "%d.%d", &a, &b);
                 d_verMajor = a;
                 d_verMinor = b;
             }

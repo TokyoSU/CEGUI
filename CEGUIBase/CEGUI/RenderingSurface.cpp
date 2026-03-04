@@ -62,7 +62,7 @@ RenderingSurface::~RenderingSurface()
     // destroy all the RenderingWindow objects attached to this surface
     const size_t count = d_windows.size();
     for (size_t i = 0; i < count; ++i)
-        CEGUI_DELETE_AO d_windows[i];
+        CEGUI_DELETE_AO(d_windows[i]);
 }
 
 //----------------------------------------------------------------------------//
@@ -164,7 +164,7 @@ void RenderingSurface::destroyRenderingWindow(RenderingWindow& window)
     if (&window.getOwner() == this)
     {
         detatchWindow(window);
-        CEGUI_DELETE_AO &window;
+        CEGUI_DELETE_AO(&window);
     }
 }
 

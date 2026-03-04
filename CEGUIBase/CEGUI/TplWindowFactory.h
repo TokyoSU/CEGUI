@@ -78,7 +78,7 @@ Window* TplWindowFactory<T>::createWindow(const String& name)
 template <typename T>
 void TplWindowFactory<T>::destroyWindow(Window* window)
 {
-    CEGUI_DELETE_AO window;
+    CEGUI_DELETE_AO(window);
 }
 
 //----------------------------------------------------------------------------//

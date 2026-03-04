@@ -187,7 +187,7 @@ private:
         if (!--*d_count)
         {
             // use CEGUI allocators for the object
-            CEGUI_DELETE_AO d_object;
+            CEGUI_DELETE_AO(d_object);
 
             // use system heap for this! no CEGUI_DELETE_PT!
             delete d_count;

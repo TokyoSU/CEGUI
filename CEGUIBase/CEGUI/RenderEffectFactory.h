@@ -72,7 +72,7 @@ RenderEffect& TplRenderEffectFactory<T>::create(Window* window)
 template <typename T>
 void TplRenderEffectFactory<T>::destroy(RenderEffect& effect)
 {
-    CEGUI_DELETE_AO &effect;
+    CEGUI_DELETE_AO(&effect);
 }
 
 //---------------------------------------------------------------------------//

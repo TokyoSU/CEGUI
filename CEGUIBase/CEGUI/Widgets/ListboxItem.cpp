@@ -78,7 +78,7 @@ ListboxItem::ListboxItem(const String& text, uint item_id, void* item_data, bool
 //----------------------------------------------------------------------------//
 ListboxItem::~ListboxItem(void)
 {
-    CEGUI_DELETE_AO d_bidiVisualMapping;
+    CEGUI_DELETE_AO(d_bidiVisualMapping);
 }
 
 /*************************************************************************

@@ -68,7 +68,7 @@ namespace CEGUI
 
     TextComponent::~TextComponent()
     {
-        CEGUI_DELETE_AO d_bidiVisualMapping;
+        CEGUI_DELETE_AO(d_bidiVisualMapping);
     }
 
     TextComponent::TextComponent(const TextComponent& obj) :

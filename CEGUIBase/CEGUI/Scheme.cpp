@@ -517,7 +517,7 @@ void Scheme::unloadWindowFactories()
         // unload dynamic module as required
         if ((*cmod).dynamicModule)
         {
-            CEGUI_DELETE_AO (*cmod).dynamicModule;
+            CEGUI_DELETE_AO((*cmod).dynamicModule);
             (*cmod).dynamicModule = 0;
         }
 
@@ -555,7 +555,7 @@ void Scheme::unloadWindowRendererFactories()
         // unload dynamic module as required
         if ((*cmod).dynamicModule)
         {
-            CEGUI_DELETE_AO (*cmod).dynamicModule;
+            CEGUI_DELETE_AO((*cmod).dynamicModule);
             (*cmod).dynamicModule = 0;
         }
 

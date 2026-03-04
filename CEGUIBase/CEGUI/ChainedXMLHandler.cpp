@@ -100,7 +100,7 @@ bool ChainedXMLHandler::completed() const
 void ChainedXMLHandler::cleanupChainedHandler()
 {
     if (d_deleteChaniedHandler)
-        CEGUI_DELETE_AO d_chainedHandler;
+        CEGUI_DELETE_AO(d_chainedHandler);
 
     d_chainedHandler = 0;
 }

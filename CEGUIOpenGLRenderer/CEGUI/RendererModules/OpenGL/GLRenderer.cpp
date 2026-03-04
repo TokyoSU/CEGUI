@@ -128,7 +128,7 @@ void OpenGLRenderer::destroySystem()
         static_cast<DefaultResourceProvider*>(sys->getResourceProvider());
 
     System::destroy();
-    CEGUI_DELETE_AO rp;
+    CEGUI_DELETE_AO(rp);
     destroy(*renderer);
 }
 
@@ -154,7 +154,7 @@ OpenGLRenderer& OpenGLRenderer::create(const Sizef& display_size,
 //----------------------------------------------------------------------------//
 void OpenGLRenderer::destroy(OpenGLRenderer& renderer)
 {
-    CEGUI_DELETE_AO &renderer;
+    CEGUI_DELETE_AO(&renderer);
 }
 
 //----------------------------------------------------------------------------//
@@ -191,7 +191,7 @@ OpenGLRenderer::OpenGLRenderer(const Sizef& display_size,
 //----------------------------------------------------------------------------//
 OpenGLRenderer::~OpenGLRenderer()
 {
-    CEGUI_DELETE_AO d_textureTargetFactory;
+    CEGUI_DELETE_AO(d_textureTargetFactory);
 }
 
 //----------------------------------------------------------------------------//

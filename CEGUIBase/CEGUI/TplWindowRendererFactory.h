@@ -78,7 +78,7 @@ WindowRenderer* TplWindowRendererFactory<T>::create()
 template <typename T>
 void TplWindowRendererFactory<T>::destroy(WindowRenderer* wr)
 {
-    CEGUI_DELETE_AO wr;
+    CEGUI_DELETE_AO(wr);
 }
 
 //----------------------------------------------------------------------------//

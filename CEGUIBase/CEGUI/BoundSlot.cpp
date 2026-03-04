@@ -47,7 +47,7 @@ BoundSlot::BoundSlot(const BoundSlot& other) :
 BoundSlot::~BoundSlot()
 {
     disconnect();
-    CEGUI_DELETE_AO d_subscriber;
+    CEGUI_DELETE_AO(d_subscriber);
 }
 
 

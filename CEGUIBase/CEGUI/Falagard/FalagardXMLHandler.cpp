@@ -1452,7 +1452,7 @@ namespace CEGUI
 
         Logger::getSingleton().logEvent("---< End of definition for widget look '" + d_widgetlook->getName() + "'.", Informative);
         d_manager->addWidgetLook(*d_widgetlook);
-        CEGUI_DELETE_AO d_widgetlook;
+        CEGUI_DELETE_AO(d_widgetlook);
         d_widgetlook = 0;
     }
 
@@ -1470,7 +1470,7 @@ namespace CEGUI
 
         CEGUI_LOGINSANE("-----< End of definition for child widget. Type: " + d_childcomponent->getBaseWidgetType() + ".");
         d_widgetlook->addWidgetComponent(*d_childcomponent);
-        CEGUI_DELETE_AO d_childcomponent;
+        CEGUI_DELETE_AO(d_childcomponent);
         d_childcomponent = 0;
     }
 
@@ -1488,7 +1488,7 @@ namespace CEGUI
 
         CEGUI_LOGINSANE("-----< End of definition for imagery section '" + d_imagerysection->getName() + "'.");
         d_widgetlook->addImagerySection(*d_imagerysection);
-        CEGUI_DELETE_AO d_imagerysection;
+        CEGUI_DELETE_AO(d_imagerysection);
         d_imagerysection = 0;
     }
 
@@ -1506,7 +1506,7 @@ namespace CEGUI
         {
             CEGUI_LOGINSANE("-----< End of definition for imagery for state '" + d_stateimagery->getName() + "'.");
             d_widgetlook->addStateSpecification(*d_stateimagery);
-            CEGUI_DELETE_AO d_stateimagery;
+            CEGUI_DELETE_AO(d_stateimagery);
             d_stateimagery = 0;
         }
     }
@@ -1525,7 +1525,7 @@ namespace CEGUI
 
         CEGUI_LOGINSANE("-------< End of definition of imagery layer.");
         d_stateimagery->addLayer(*d_layer);
-        CEGUI_DELETE_AO d_layer;
+        CEGUI_DELETE_AO(d_layer);
         d_layer = 0;
     }
 
@@ -1542,7 +1542,7 @@ namespace CEGUI
         }
 
         d_layer->addSectionSpecification(*d_section);
-        CEGUI_DELETE_AO d_section;
+        CEGUI_DELETE_AO(d_section);
         d_section = 0;
     }
 
@@ -1559,7 +1559,7 @@ namespace CEGUI
         }
 
         d_imagerysection->addImageryComponent(*d_imagerycomponent);
-        CEGUI_DELETE_AO d_imagerycomponent;
+        CEGUI_DELETE_AO(d_imagerycomponent);
         d_imagerycomponent = 0;
     }
 
@@ -1576,7 +1576,7 @@ namespace CEGUI
         }
 
         d_imagerysection->addTextComponent(*d_textcomponent);
-        CEGUI_DELETE_AO d_textcomponent;
+        CEGUI_DELETE_AO(d_textcomponent);
         d_textcomponent = 0;
     }
 
@@ -1593,7 +1593,7 @@ namespace CEGUI
         }
 
         d_imagerysection->addFrameComponent(*d_framecomponent);
-        CEGUI_DELETE_AO d_framecomponent;
+        CEGUI_DELETE_AO(d_framecomponent);
         d_framecomponent = 0;
     }
 
@@ -1631,7 +1631,7 @@ namespace CEGUI
             d_namedArea->setArea(*d_area);
         }
 
-        CEGUI_DELETE_AO d_area;
+        CEGUI_DELETE_AO(d_area);
         d_area = 0;
     }
 
@@ -1648,7 +1648,7 @@ namespace CEGUI
         }
 
         d_widgetlook->addNamedArea(*d_namedArea);
-        CEGUI_DELETE_AO d_namedArea;
+        CEGUI_DELETE_AO(d_namedArea);
         d_namedArea = 0;
     }
 
@@ -1674,7 +1674,7 @@ namespace CEGUI
             }
 
             // release the dim we popped.
-            CEGUI_DELETE_AO currDim;
+            CEGUI_DELETE_AO(currDim);
         }
     }
 
@@ -1875,7 +1875,7 @@ namespace CEGUI
         CEGUI_LOGINSANE("<----- End of EventLinkDefiniton. Name: " +
                         d_eventLink->getName());
 
-        CEGUI_DELETE_AO d_eventLink;
+        CEGUI_DELETE_AO(d_eventLink);
         d_eventLink = 0;
     }
 
