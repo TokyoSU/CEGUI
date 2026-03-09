@@ -663,6 +663,8 @@ void System::addStandardWindowFactories()
     WindowFactoryManager::addWindowType<ItemListbox>();
     WindowFactoryManager::addWindowType<GroupBox>();
     WindowFactoryManager::addWindowType<Tree>();
+    WindowFactoryManager::addWindowType<SlotImageItem>();
+    WindowFactoryManager::addWindowType<RoundImage>();
     WindowFactoryManager::addWindowType<LayoutCell>();
     WindowFactoryManager::addWindowType<HorizontalLayoutContainer>();
     WindowFactoryManager::addWindowType<VerticalLayoutContainer>();

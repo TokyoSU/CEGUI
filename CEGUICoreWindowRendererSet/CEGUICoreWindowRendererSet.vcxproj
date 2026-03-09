@@ -35,9 +35,11 @@
     <ClCompile Include="CEGUI\WindowRendererSets\Core\MultiLineEditbox.cpp" />
     <ClCompile Include="CEGUI\WindowRendererSets\Core\PopupMenu.cpp" />
     <ClCompile Include="CEGUI\WindowRendererSets\Core\ProgressBar.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\RoundImage.cpp" />
     <ClCompile Include="CEGUI\WindowRendererSets\Core\ScrollablePane.cpp" />
     <ClCompile Include="CEGUI\WindowRendererSets\Core\Scrollbar.cpp" />
     <ClCompile Include="CEGUI\WindowRendererSets\Core\Slider.cpp" />
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\SlotImageItem.cpp" />
     <ClCompile Include="CEGUI\WindowRendererSets\Core\Static.cpp" />
     <ClCompile Include="CEGUI\WindowRendererSets\Core\StaticImage.cpp" />
     <ClCompile Include="CEGUI\WindowRendererSets\Core\StaticText.cpp" />
@@ -65,9 +67,11 @@
     <ClInclude Include="CEGUI\WindowRendererSets\Core\MultiLineEditbox.h" />
     <ClInclude Include="CEGUI\WindowRendererSets\Core\PopupMenu.h" />
     <ClInclude Include="CEGUI\WindowRendererSets\Core\ProgressBar.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\RoundImage.h" />
     <ClInclude Include="CEGUI\WindowRendererSets\Core\ScrollablePane.h" />
     <ClInclude Include="CEGUI\WindowRendererSets\Core\Scrollbar.h" />
     <ClInclude Include="CEGUI\WindowRendererSets\Core\Slider.h" />
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\SlotImageItem.h" />
     <ClInclude Include="CEGUI\WindowRendererSets\Core\Static.h" />
     <ClInclude Include="CEGUI\WindowRendererSets\Core\StaticImage.h" />
     <ClInclude Include="CEGUI\WindowRendererSets\Core\StaticText.h" />

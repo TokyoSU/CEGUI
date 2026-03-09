@@ -55,6 +55,8 @@
 #include "CEGUI/WindowRendererSets/Core/Tooltip.h"
 #include "CEGUI/WindowRendererSets/Core/ItemListbox.h"
 #include "CEGUI/WindowRendererSets/Core/Tree.h"
+#include "CEGUI/WindowRendererSets/Core/SlotImageItem.h"
+#include "CEGUI/WindowRendererSets/Core/RoundImage.h"
 
 //----------------------------------------------------------------------------//
 extern "C"
@@ -96,6 +98,8 @@ CoreWindowRendererModule::CoreWindowRendererModule()
     d_registry.push_back(CEGUI_NEW_AO TplWRFactoryRegisterer<FalagardTooltip>());
     d_registry.push_back(CEGUI_NEW_AO TplWRFactoryRegisterer<FalagardItemListbox>());
     d_registry.push_back(CEGUI_NEW_AO TplWRFactoryRegisterer<FalagardTree>());
+    d_registry.push_back(CEGUI_NEW_AO TplWRFactoryRegisterer<FalagardSlotImageItem>());
+    d_registry.push_back(CEGUI_NEW_AO TplWRFactoryRegisterer<FalagardRoundImage>());
 }
 
 //----------------------------------------------------------------------------//

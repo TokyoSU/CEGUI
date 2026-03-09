@@ -66,5 +66,7 @@
 #include "./Tree.h"
 #include "./TreeItem.h"
 #include "./VerticalLayoutContainer.h"
+#include "./SlotImageItem.h"
+#include "./RoundImage.h"
 
 #endif // End of guard _CEGUIAll_h_

@@ -99,6 +99,12 @@
     <ClCompile Include="CEGUI\WindowRendererSets\Core\Tree.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\SlotImageItem.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="CEGUI\WindowRendererSets\Core\RoundImage.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CEGUI\WindowRendererSets\Core\Button.h">
@@ -183,6 +189,12 @@
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
     <ClInclude Include="CEGUI\WindowRendererSets\Core\Tree.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\SlotImageItem.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="CEGUI\WindowRendererSets\Core\RoundImage.h">
       <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
