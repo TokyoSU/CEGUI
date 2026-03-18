@@ -9,7 +9,7 @@
 namespace CEGUI
 {
 
-const String FalagardSlotImageItem::TypeName("Falagard/SlotImageItem");
+const String FalagardSlotImageItem::TypeName("Core/SlotImageItem");
 
 //----------------------------------------------------------------------------//
 FalagardSlotImageItem::FalagardSlotImageItem(const String& type) :

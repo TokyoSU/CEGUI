@@ -9,7 +9,7 @@
 namespace CEGUI
 {
 
-const String FalagardRoundImage::TypeName("Falagard/RoundImage");
+const String FalagardRoundImage::TypeName("Core/RoundImage");
 
 //----------------------------------------------------------------------------//
 FalagardRoundImage::FalagardRoundImage(const String& type) :

@@ -114,7 +114,9 @@ void OpenGL3Renderer::destroySystem()
 OpenGL3Renderer& OpenGL3Renderer::create(const int abi)
 {
     System::performVersionTest(CEGUI_VERSION_ABI, abi, CEGUI_FUNCTION_NAME);
-
+    if (!gladLoadGL())
+        throw RendererException(
+            "OpenGL3Renderer::create: failed to initialize glad.");
     return *CEGUI_NEW_AO OpenGL3Renderer();
 }
 
@@ -123,7 +125,9 @@ OpenGL3Renderer& OpenGL3Renderer::create(const Sizef& display_size,
                                          const int abi)
 {
     System::performVersionTest(CEGUI_VERSION_ABI, abi, CEGUI_FUNCTION_NAME);
-
+    if (!gladLoadGL())
+        throw RendererException(
+            "OpenGL3Renderer::create: failed to initialize glad.");
     return *CEGUI_NEW_AO OpenGL3Renderer(display_size);
 }
 
