@@ -3,7 +3,7 @@ vcpkg install freetype[core,zlib,error-strings]
 vcpkg install libiconv
 vcpkg install pcre
 vcpkg install glew
-vcpkg install glad[core,extensions,gl-api-latest,loader]
+vcpkg install glad[core,extensions,gl-api-latest,loader,wgl]
 vcpkg install glm
 vcpkg install freeimage
 vcpkg install devil[core,jasper,lcms,libjpeg,libpng,openexr,tiff]
