@@ -168,8 +168,8 @@
     <ClCompile Include="CEGUI\Widgets\Tooltip.cpp" />
     <ClCompile Include="CEGUI\Widgets\Tree.cpp" />
     <ClCompile Include="CEGUI\Widgets\TreeItem.cpp" />
-	<ClCompile Include="CEGUI\Widgets\SlotImageItem.cpp" />
-	<ClCompile Include="CEGUI\Widgets\RoundImage.cpp" />
+    <ClCompile Include="CEGUI\Widgets\SlotImageItem.cpp" />
+    <ClCompile Include="CEGUI\Widgets\RoundImage.cpp" />
     <ClCompile Include="CEGUI\Widgets\VerticalLayoutContainer.cpp" />
     <ClCompile Include="CEGUI\Win32StringTranscoder.cpp" />
     <ClCompile Include="CEGUI\Window.cpp" />
@@ -386,8 +386,8 @@
     <ClInclude Include="CEGUI\Widgets\Tooltip.h" />
     <ClInclude Include="CEGUI\Widgets\Tree.h" />
     <ClInclude Include="CEGUI\Widgets\TreeItem.h" />
-	<ClInclude Include="CEGUI\Widgets\SlotImageItem.h" />
-	<ClInclude Include="CEGUI\Widgets\RoundImage.h" />
+    <ClInclude Include="CEGUI\Widgets\SlotImageItem.h" />
+    <ClInclude Include="CEGUI\Widgets\RoundImage.h" />
     <ClInclude Include="CEGUI\Widgets\VerticalLayoutContainer.h" />
     <ClInclude Include="CEGUI\Win32StringTranscoder.h" />
     <ClInclude Include="CEGUI\Window.h" />
@@ -414,14 +414,14 @@
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v145</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
     <UseDebugLibraries>false</UseDebugLibraries>
     <PlatformToolset>v145</PlatformToolset>
     <WholeProgramOptimization>true</WholeProgramOptimization>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>DynamicLibrary</ConfigurationType>
@@ -585,4 +585,3 @@ xcopy /Y "$(ProjectDir)CEGUI\Widgets\*.h" "$(SolutionDir)Install\include\CEGUI\W
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
 </Project>
-
