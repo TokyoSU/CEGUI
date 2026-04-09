@@ -188,36 +188,58 @@ static String getFailureString()
 static DYNLIB_HANDLE DynLibLoad(const String& name)
 {
     DYNLIB_HANDLE handle = 0;
+    String failures;
 
-    // prefer whatever location is set in CEGUI_MODULE_DIR environment var
     const String envModuleDir(getModuleDirEnvVar());
-
     if (!envModuleDir.empty())
     {
-        handle = DYNLIB_LOAD(envModuleDir + '/' + name);
+        const String envPath = envModuleDir + '/' + name;
+        handle = DYNLIB_LOAD(envPath);
         if (!handle)
-            CEGUI_THROW(GenericException("Failed to load module '" + name + "': '" + getFailureString() + "' at env path: " + (envModuleDir + '/' + name)));
+            failures += "env path [" + envPath + "]: " + getFailureString() + "\n";
     }
 
-    #ifdef __APPLE__
+#ifdef __APPLE__
     if (!handle)
-        // on apple, look in the app bundle frameworks directory
-        handle = DYNLIB_LOAD("@executable_path/../Frameworks/" + name);
-    #endif
+    {
+        const String appBundlePath = "@executable_path/../Frameworks/" + name;
+        handle = DYNLIB_LOAD(appBundlePath);
+        if (!handle)
+            failures += "app bundle path [" + appBundlePath + "]: " + getFailureString() + "\n";
+    }
+#endif
 
     if (!handle)
     {
-        // try loading without any explicit location (i.e. use OS search path)
-        handle = DYNLIB_LOAD(name);
+#if defined(__WIN32__) || defined(_WIN32)
+        const String localPath = ".\\" + name;
+#else
+        const String localPath = "./" + name;
+#endif
+        handle = DYNLIB_LOAD(localPath);
         if (!handle)
-            CEGUI_THROW(GenericException("Failed to load module '" + name + "': '" + getFailureString() + "' at local path: " + name));
+            failures += "local path [" + localPath + "]: " + getFailureString() + "\n";
     }
 
-    // finally, try using the compiled-in module directory
-    #if defined(CEGUI_MODULE_DIR)
     if (!handle)
-        handle = DYNLIB_LOAD(CEGUI_MODULE_DIR + name);
-    #endif
+    {
+        handle = DYNLIB_LOAD(name);
+        if (!handle)
+            failures += "OS search path [" + name + "]: " + getFailureString() + "\n";
+    }
+
+#if defined(CEGUI_MODULE_DIR)
+    if (!handle)
+    {
+        const String compiledPath = CEGUI_MODULE_DIR + name;
+        handle = DYNLIB_LOAD(compiledPath);
+        if (!handle)
+            failures += "compiled module dir [" + compiledPath + "]: " + getFailureString() + "\n";
+    }
+#endif
+
+    if (!handle)
+        CEGUI_THROW(GenericException("Failed to load module '" + name + "'. Attempts:\n" + failures));
 
     return handle;
 }
