@@ -32,6 +32,7 @@
 #include "CEGUI/TextUtils.h"
 #include "CEGUI/GUIContext.h"
 #include "CEGUI/Window.h"
+#include <cmath>
 
 // Start of CEGUI namespace section
 namespace CEGUI
@@ -203,6 +204,30 @@ void RenderedStringTextComponent::draw(const Window* ref_wnd,
     ColourRect final_cols(d_colours);
     if (mod_colours)
         final_cols *= *mod_colours;
+
+    const bool outline_enabled = ref_wnd && ref_wnd->isTextOutlineEnabled();
+    const float outline_thickness = outline_enabled ? ref_wnd->getTextOutlineThickness() : 0.0f;
+    if (outline_enabled && outline_thickness > 0.0f)
+    {
+        ColourRect outline_cols(ref_wnd->getTextOutlineColour());
+        if (mod_colours)
+            outline_cols *= *mod_colours;
+
+        for (float x = -outline_thickness; x <= outline_thickness; x += 1.0f)
+        {
+            for (float y = -outline_thickness; y <= outline_thickness; y += 1.0f)
+            {
+                if ((x == 0.0f && y == 0.0f) ||
+                    (std::abs(x) + std::abs(y) > outline_thickness))
+                {
+                    continue;
+                }
+
+                fnt->drawText(buffer, d_text, final_pos + Vector2f(x, y), clip_rect,
+                              outline_cols, space_extra, 1.0f, y_scale);
+            }
+        }
+    }
 
     // render selection
     if (d_selectionImage && d_selectionLength)

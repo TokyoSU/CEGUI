@@ -207,12 +207,22 @@ public:
     static const String AutoRenderingSurfacePropertyName;
     //! Name of property to access for the text parsing setting for the Window.
     static const String TextParsingEnabledPropertyName;
+    //! Name of property to access whether text outline rendering is enabled for the Window.
+    static const String OutlineEnabledPropertyName;
+    //! Name of property to access the colour used for text outline rendering.
+    static const String OutlineColourPropertyName;
+    //! Alias name of property to access the colour used for text outline rendering.
+    static const String OutlineColorPropertyName;
+    //! Name of property to access the thickness used for text outline rendering.
+    static const String OutlineThicknessPropertyName;
     //! Name of property to access for the margin for the Window.
     static const String MarginPropertyName;
     //! Name of property to access for the window update mode setting.
     static const String UpdateModePropertyName;
     //! Name of property to access whether unhandled mouse inputs should be propagated back to the Window's parent. 
     static const String MouseInputPropagationEnabledPropertyName;
+    //! Old name of property to access whether unhandled mouse inputs should be propagated back to the Window's parent.
+    static const String CursorInputPropagationEnabledPropertyName;
     //! Name of property to access whether the system considers this window to be an automatically created sub-component window.
     static const String AutoWindowPropertyName;
 
@@ -878,6 +888,42 @@ public:
          will be added with proper function names to replicate the functionality for useDefault=false.
     */
     const Font* getFont(bool useDefault = true) const;
+
+    /*! 
+         \brief
+             Return whether text outline rendering is enabled for this Window.
+     */
+    bool isTextOutlineEnabled() const { return d_outlineEnabled; }
+
+    /*!
+        \brief
+            Set whether text outline rendering is enabled for this Window.
+    */
+    void setTextOutlineEnabled(bool enabled);
+
+    /*!
+        \brief
+            Return the colour used for text outline rendering.
+    */
+    const Colour& getTextOutlineColour() const { return d_outlineColour; }
+
+    /*!
+        \brief
+            Set the colour used for text outline rendering.
+    */
+    void setTextOutlineColour(const Colour& colour);
+
+    /*!
+        \brief
+            Return the thickness used for text outline rendering.
+    */
+    float getTextOutlineThickness() const { return d_outlineThickness; }
+
+    /*!
+        \brief
+            Set the thickness used for text outline rendering.
+    */
+    void setTextOutlineThickness(float thickness);
 
     /*!
     \brief
@@ -3714,6 +3760,12 @@ protected:
 
     //! Holds pointer to the Window objects current Font.
     const Font* d_font;
+    //! Whether text outline rendering is enabled for text drawn for this window.
+    bool d_outlineEnabled;
+    //! Colour used when rendering text outlines.
+    Colour d_outlineColour;
+    //! Thickness, in pixels, used when rendering text outlines.
+    float d_outlineThickness;
     //! Holds the text / label / caption for this Window.
     String d_textLogical;
     //! pointer to bidirection support object

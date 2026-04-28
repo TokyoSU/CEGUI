@@ -95,9 +95,14 @@ const String Window::CursorPassThroughEnabledPropertyName("CursorPassThroughEnab
 const String Window::DragDropTargetPropertyName("DragDropTarget");
 const String Window::AutoRenderingSurfacePropertyName("AutoRenderingSurface");
 const String Window::TextParsingEnabledPropertyName("TextParsingEnabled");
+const String Window::OutlineEnabledPropertyName("OutlineEnabled");
+const String Window::OutlineColourPropertyName("OutlineColour");
+const String Window::OutlineColorPropertyName("OutlineColor");
+const String Window::OutlineThicknessPropertyName("OutlineThickness");
 const String Window::MarginPropertyName("MarginProperty");
 const String Window::UpdateModePropertyName("UpdateMode");
 const String Window::MouseInputPropagationEnabledPropertyName("MouseInputPropagationEnabled");
+const String Window::CursorInputPropagationEnabledPropertyName("CursorInputPropagationEnabled");
 const String Window::AutoWindowPropertyName("AutoWindow");
 //----------------------------------------------------------------------------//
 const String Window::EventNamespace("Window");
@@ -245,6 +250,9 @@ Window::Window(const String& type, const String& name):
 
     // text system set up
     d_font(0),
+    d_outlineEnabled(false),
+    d_outlineColour(0xFF000000),
+    d_outlineThickness(1.0f),
 #ifndef CEGUI_BIDI_SUPPORT
     d_bidiVisualMapping(0),
 #elif defined (CEGUI_USE_FRIBIDI)
@@ -499,6 +507,38 @@ const Font* Window::getFont(bool useDefault) const
         return useDefault ? getGUIContext().getDefaultFont() : 0;
 
     return d_font;
+}
+
+//----------------------------------------------------------------------------//
+void Window::setTextOutlineEnabled(bool enabled)
+{
+    if (d_outlineEnabled == enabled)
+        return;
+
+    d_outlineEnabled = enabled;
+    invalidate();
+}
+
+//----------------------------------------------------------------------------//
+void Window::setTextOutlineColour(const Colour& colour)
+{
+    if (d_outlineColour == colour)
+        return;
+
+    d_outlineColour = colour;
+    invalidate();
+}
+
+//----------------------------------------------------------------------------//
+void Window::setTextOutlineThickness(float thickness)
+{
+    thickness = ceguimax(0.0f, thickness);
+
+    if (d_outlineThickness == thickness)
+        return;
+
+    d_outlineThickness = thickness;
+    invalidate();
 }
 
 //----------------------------------------------------------------------------//
@@ -1386,6 +1426,26 @@ void Window::addWindowProperties(void)
         &Window::setFont, &Window::property_getFont, 0
     );
 
+    CEGUI_DEFINE_PROPERTY(Window, bool,
+        OutlineEnabledPropertyName, "Property to get/set whether text outline rendering is enabled for the Window. Value is either \"true\" or \"false\".",
+        &Window::setTextOutlineEnabled, &Window::isTextOutlineEnabled, false
+    );
+
+    CEGUI_DEFINE_PROPERTY(Window, Colour,
+        OutlineColourPropertyName, "Property to get/set the colour used for text outline rendering for the Window. Value is a colour value.",
+        &Window::setTextOutlineColour, &Window::getTextOutlineColour, Colour(0xFF000000)
+    );
+
+    CEGUI_DEFINE_PROPERTY(Window, Colour,
+        OutlineColorPropertyName, "Property to get/set the color used for text outline rendering for the Window. Value is a colour value.",
+        &Window::setTextOutlineColour, &Window::getTextOutlineColour, Colour(0xFF000000)
+    );
+
+    CEGUI_DEFINE_PROPERTY(Window, float,
+        OutlineThicknessPropertyName, "Property to get/set the thickness used for text outline rendering for the Window. Value is floating point number.",
+        &Window::setTextOutlineThickness, &Window::getTextOutlineThickness, 1.0f
+    );
+
     CEGUI_DEFINE_PROPERTY(Window, uint,
         IDPropertyName, "Property to get/set the ID value of the Window. Value is an unsigned integer number.",
         &Window::setID, &Window::getID, 0
@@ -1474,6 +1534,16 @@ void Window::addWindowProperties(void)
     CEGUI_DEFINE_PROPERTY(Window, bool,
         CursorPassThroughEnabledPropertyName, "Old property to get/set whether the window ignores mouse events and pass them through to any windows behind it. Value is either \"true\" or \"false\", use MousePassThroughEnabled instead !",
         &Window::setMousePassThroughEnabled, &Window::isMousePassThroughEnabled, false
+    );
+
+    CEGUI_DEFINE_PROPERTY(Window, bool,
+        MouseInputPropagationEnabledPropertyName, "Property to get/set whether unhandled mouse inputs should be propagated to the Window's parent. Value is either \"true\" or \"false\".",
+        &Window::setMouseInputPropagationEnabled, &Window::isMouseInputPropagationEnabled, false
+    );
+
+    CEGUI_DEFINE_PROPERTY(Window, bool,
+        CursorInputPropagationEnabledPropertyName, "Old property to get/set whether unhandled mouse inputs should be propagated to the Window's parent. Value is either \"true\" or \"false\", use MouseInputPropagationEnabled instead !",
+        &Window::setMouseInputPropagationEnabled, &Window::isMouseInputPropagationEnabled, false
     );
     
     addProperty(&d_windowRendererProperty);
