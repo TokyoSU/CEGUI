@@ -33,9 +33,49 @@
 #include "CEGUI/Image.h"
 #include "CEGUI/TplWindowRendererProperty.h"
 
+#include <cmath>
+
 // Start of CEGUI namespace section
 namespace CEGUI
 {
+
+namespace
+{
+float drawOutlinedText(Window* window,
+                       const Font* font,
+                       GeometryBuffer& buffer,
+                       const String& text,
+                       const Vector2f& position,
+                       const Rectf* clip_rect,
+                       const ColourRect& colours)
+{
+    const bool outline_enabled = window && window->isTextOutlineEnabled();
+    const float outline_thickness = outline_enabled ? window->getTextOutlineThickness() : 0.0f;
+
+    if (outline_enabled && outline_thickness > 0.0f)
+    {
+        ColourRect outline_cols(window->getTextOutlineColour());
+        outline_cols.modulateAlpha(window->getEffectiveAlpha());
+
+        for (float x = -outline_thickness; x <= outline_thickness; x += 1.0f)
+        {
+            for (float y = -outline_thickness; y <= outline_thickness; y += 1.0f)
+            {
+                if ((x == 0.0f && y == 0.0f) ||
+                    (std::fabs(x) + std::fabs(y) > outline_thickness))
+                {
+                    continue;
+                }
+
+                font->drawText(buffer, text, position + Vector2f(x, y), clip_rect,
+                               outline_cols);
+            }
+        }
+    }
+
+    return font->drawText(buffer, text, position, clip_rect, colours);
+}
+}
 
 const String FalagardMultiLineEditbox::TypeName("Core/MultiLineEditbox");
 
@@ -224,8 +264,8 @@ void FalagardMultiLineEditbox::cacheTextLines(const Rectf& dest_area)
             {
                 colours = normalTextCol;
                 // render the complete line.
-                fnt->drawText(w->getGeometryBuffer(), lineText,
-                                lineRect.getPosition(), &dest_area, colours);
+                drawOutlinedText(w, fnt, w->getGeometryBuffer(), lineText,
+                                 lineRect.getPosition(), &dest_area, colours);
             }
             // we have at least some selection highlighting to do
             else
@@ -250,8 +290,8 @@ void FalagardMultiLineEditbox::cacheTextLines(const Rectf& dest_area)
 
                     // draw this portion of the text
                     colours = normalTextCol;
-                    fnt->drawText(w->getGeometryBuffer(), sect,
-                                    lineRect.getPosition(), &dest_area, colours);
+                    drawOutlinedText(w, fnt, w->getGeometryBuffer(), sect,
+                                     lineRect.getPosition(), &dest_area, colours);
 
                     // set position ready for next portion of text
                     lineRect.d_min.d_x += selStartOffset;
@@ -281,8 +321,8 @@ void FalagardMultiLineEditbox::cacheTextLines(const Rectf& dest_area)
 
                 // draw the text for this section
                 colours = selectTextCol;
-                fnt->drawText(w->getGeometryBuffer(), sect,
-                                lineRect.getPosition(), &dest_area, colours);
+                drawOutlinedText(w, fnt, w->getGeometryBuffer(), sect,
+                                 lineRect.getPosition(), &dest_area, colours);
 
                 lineRect.top(text_top);
 
@@ -300,8 +340,8 @@ void FalagardMultiLineEditbox::cacheTextLines(const Rectf& dest_area)
 
                     // render the text for this section.
                     colours = normalTextCol;
-                    fnt->drawText(w->getGeometryBuffer(), sect,
-                                    lineRect.getPosition(), &dest_area, colours);
+                    drawOutlinedText(w, fnt, w->getGeometryBuffer(), sect,
+                                     lineRect.getPosition(), &dest_area, colours);
                 }
             }
 

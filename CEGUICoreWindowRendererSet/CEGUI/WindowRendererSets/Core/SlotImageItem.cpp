@@ -6,8 +6,48 @@
 #include "CEGUI/PropertyHelper.h"
 #include "CEGUI/GeometryBuffer.h"
 
+#include <cmath>
+
 namespace CEGUI
 {
+
+namespace
+{
+float drawOutlinedText(Window* window,
+                       const Font* font,
+                       GeometryBuffer& buffer,
+                       const String& text,
+                       const Vector2f& position,
+                       const Rectf* clip_rect,
+                       const ColourRect& colours)
+{
+    const bool outline_enabled = window && window->isTextOutlineEnabled();
+    const float outline_thickness = outline_enabled ? window->getTextOutlineThickness() : 0.0f;
+
+    if (outline_enabled && outline_thickness > 0.0f)
+    {
+        ColourRect outline_cols(window->getTextOutlineColour());
+        outline_cols.modulateAlpha(window->getEffectiveAlpha());
+
+        for (float x = -outline_thickness; x <= outline_thickness; x += 1.0f)
+        {
+            for (float y = -outline_thickness; y <= outline_thickness; y += 1.0f)
+            {
+                if ((x == 0.0f && y == 0.0f) ||
+                    (std::fabs(x) + std::fabs(y) > outline_thickness))
+                {
+                    continue;
+                }
+
+                font->drawText(buffer, text, position + Vector2f(x, y), clip_rect,
+                               outline_cols);
+            }
+        }
+    }
+
+    return font->drawText(buffer, text, position, clip_rect, colours);
+}
+}
 
 const String FalagardSlotImageItem::TypeName("Core/SlotImageItem");
 
@@ -64,7 +104,8 @@ void FalagardSlotImageItem::render()
                                    destRect.bottom() - textH - 2.0f);
 
             const ColourRect textCols(Colour(1.0f, 1.0f, 1.0f, alpha));
-            font->drawText(geobuf, countStr, textPos, &clipRect, textCols);
+            drawOutlinedText(w, font, geobuf, countStr, textPos, &clipRect,
+                             textCols);
         }
     }
 }

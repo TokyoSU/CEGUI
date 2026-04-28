@@ -34,11 +34,50 @@
 #include "CEGUI/BidiVisualMapping.h"
 #include "CEGUI/TplWindowRendererProperty.h"
 
+#include <cmath>
 #include <stdio.h>
 
 // Start of CEGUI namespace section
 namespace CEGUI
 {
+namespace
+{
+float drawOutlinedText(Window* window,
+                       const Font* font,
+                       GeometryBuffer& buffer,
+                       const String& text,
+                       const Vector2f& position,
+                       const Rectf* clip_rect,
+                       const ColourRect& colours)
+{
+    const bool outline_enabled = window && window->isTextOutlineEnabled();
+    const float outline_thickness = outline_enabled ? window->getTextOutlineThickness() : 0.0f;
+
+    if (outline_enabled && outline_thickness > 0.0f)
+    {
+        ColourRect outline_cols(window->getTextOutlineColour());
+        outline_cols.modulateAlpha(window->getEffectiveAlpha());
+
+        for (float x = -outline_thickness; x <= outline_thickness; x += 1.0f)
+        {
+            for (float y = -outline_thickness; y <= outline_thickness; y += 1.0f)
+            {
+                if ((x == 0.0f && y == 0.0f) ||
+                    (std::fabs(x) + std::fabs(y) > outline_thickness))
+                {
+                    continue;
+                }
+
+                font->drawText(buffer, text, position + Vector2f(x, y), clip_rect,
+                               outline_cols);
+            }
+        }
+    }
+
+    return font->drawText(buffer, text, position, clip_rect, colours);
+}
+}
+
 //----------------------------------------------------------------------------//
 const String FalagardEditbox::TypeName("Core/Editbox");
 
@@ -270,23 +309,23 @@ void FalagardEditbox::renderTextNoBidi(const WidgetLookFeel& wlf,
     colours = unselectedColours;
     colours.modulateAlpha(alpha_comp);
     text_part_rect.d_min.d_x =
-        font->drawText(w->getGeometryBuffer(), sect,
-                       text_part_rect.getPosition(), &text_area, colours);
+        drawOutlinedText(w, font, w->getGeometryBuffer(), sect,
+                         text_part_rect.getPosition(), &text_area, colours);
 
     // draw highlight text
     sect = text.substr(w->getSelectionStartIndex(), w->getSelectionLength());
     setColourRectToSelectedTextColour(colours);
     colours.modulateAlpha(alpha_comp);
     text_part_rect.d_min.d_x =
-        font->drawText(w->getGeometryBuffer(), sect,
-                       text_part_rect.getPosition(), &text_area, colours);
+        drawOutlinedText(w, font, w->getGeometryBuffer(), sect,
+                         text_part_rect.getPosition(), &text_area, colours);
 
     // draw post-highlight text
     sect = text.substr(w->getSelectionEndIndex());
     colours = unselectedColours;
     colours.modulateAlpha(alpha_comp);
-    font->drawText(w->getGeometryBuffer(), sect, text_part_rect.getPosition(),
-                   &text_area, colours);
+    drawOutlinedText(w, font, w->getGeometryBuffer(), sect,
+                     text_part_rect.getPosition(), &text_area, colours);
 }
 
 //----------------------------------------------------------------------------//
@@ -320,8 +359,8 @@ void FalagardEditbox::renderTextBidi(const WidgetLookFeel& wlf,
         colours = unselectedColour;
         colours.modulateAlpha(alpha_comp);
         text_part_rect.d_min.d_x =
-            font->drawText(w->getGeometryBuffer(), text,
-                           text_part_rect.getPosition(), &text_area, colours);
+            drawOutlinedText(w, font, w->getGeometryBuffer(), text,
+                             text_part_rect.getPosition(), &text_area, colours);
     }
     else
     {
@@ -373,8 +412,8 @@ void FalagardEditbox::renderTextBidi(const WidgetLookFeel& wlf,
                 colours = unselectedColour;
                 colours.modulateAlpha(alpha_comp);
             }
-            font->drawText(w->getGeometryBuffer(), currChar,
-                           text_part_rect.getPosition(), &text_area, colours);
+            drawOutlinedText(w, font, w->getGeometryBuffer(), currChar,
+                             text_part_rect.getPosition(), &text_area, colours);
 
             // adjust rect for next section
             text_part_rect.d_min.d_x += charAdvance;
