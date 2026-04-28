@@ -1583,13 +1583,6 @@ void Window::addWindowProperties(void)
     );
 
     CEGUI_DEFINE_PROPERTY(Window, bool,
-        MouseInputPropagationEnabledPropertyName, "Property to get/set whether unhandled mouse inputs should be "
-        "propagated back to the Window's parent.  "
-        "Value is either \"true\" or \"false\".",
-        &Window::setMouseInputPropagationEnabled, &Window::isMouseInputPropagationEnabled, false
-    );
-
-    CEGUI_DEFINE_PROPERTY(Window, bool,
         AutoWindowPropertyName, "Property to get/set whether the system considers this window to be an "
         "automatically created sub-component window."
         "Value is either \"true\" or \"false\".",
