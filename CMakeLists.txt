@@ -44,7 +44,7 @@ if(MSVC)
     add_compile_options(/MP)
 endif()
 
-# Set C++ standard to C++14 for all targets (can be overridden by sub-projects)
+# Set C++ standard to C++20 for all targets (can be overridden by sub-projects)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
