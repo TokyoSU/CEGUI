@@ -1,37 +1,66 @@
-# Prerequisites
-*.d
+# Build directories
+/[bB]uild/
+/[bB]uild32/
+/[bB]uild86/
+/[bB]uild64/
+/[bB]uildx32/
+/[bB]uildx86/
+/[bB]uildx64/
+/[bB]uild_32/
+/[bB]uild_86/
+/[bB]uild_64/
+/[bB]uild_x32/
+/[bB]uild_x86/
+/[bB]uild_x64/
+/[bB]in/
+/[oO]ut/
+/[iI]nstall/
+/cmake-build-*/
+/CMakeFiles/
+/CMakeCache.txt
+/cmake_install.cmake
+/Makefile
 
-# Compiled Object files
-*.slo
-*.lo
+# Compiled objects
 *.o
 *.obj
+*.lo
+*.slo
 
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
+# Static / dynamic libs (IGNORE ALL except .lib/.dll)
 *.a
-*.lib
+*.la
+*.lai
+*.so
+*.so.*
+*.dylib
 
 # Executables
 *.exe
 *.out
 *.app
 
-# Build
-[Bb]uild/*
-.[Vv]s/*
-[Ii]nstall/*
+# Debug / logs
+*.log
+*.tlog
+*.pdb
+*.idb
+
+# IDE files
+.vscode/
+.vs/
+.idea/
+*.vcxproj*
+*.sln
+*.user
+*.filters
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Optional: ignore everything in libs EXCEPT dll/lib
+# (use this if you store third-party libs in a folder like /libs)
+/libs/*
+!/libs/*.lib
+!/libs/*.dll

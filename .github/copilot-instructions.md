@@ -1,4 +1,4 @@
 # Copilot Instructions
 
 ## Project Guidelines
-- The user corrects inaccurate explanations and prefers precise, non-buggy descriptions when discussing CEGUI layout behavior.
+- The solution should use C++14 by default; avoid setting CMAKE_CXX_STANDARD to 20 unless explicitly intended.
