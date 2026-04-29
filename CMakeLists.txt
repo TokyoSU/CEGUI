@@ -54,7 +54,7 @@ if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
 endif()
 
 # Include install helper function (ni_install_target)
-include("${CMAKE_SOURCE_DIR}/cmake/install.cmake")
+include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/install.cmake")
 
 # Renderer codecs
 option(BUILD_RENDERER_OPENGL "Use OpenGL3 renderer" ON)
