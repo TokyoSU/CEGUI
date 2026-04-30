@@ -1,5 +1,8 @@
 # Add compile definitions for static library builds
-add_compile_definitions($<$<NOT:$<BOOL:${BUILD_SHARED_LIBS}>>:CEGUI_STATIC>)
+add_compile_definitions(
+	$<$<NOT:$<BOOL:${BUILD_SHARED_LIBS}>>:CEGUI_STATIC>
+	$<$<NOT:$<BOOL:${BUILD_SHARED_LIBS}>>:CEGUI_BUILD_STATIC_FACTORY_MODULE>
+)
 
 # Required modules
 

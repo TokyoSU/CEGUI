@@ -34,7 +34,6 @@ endif()
 # Export macro for DLL visibility (important on Windows)
 target_compile_definitions(CEGUIBase
     PRIVATE
-        $<NOT:$<BOOL:${BUILD_SHARED_LIBS}>>:CEGUI_BUILD_STATIC_FACTORY_MODULE>
         $<$<BOOL:${BUILD_SHARED_LIBS}>:CEGUIBASE_EXPORTS>
     INTERFACE
         $<$<BOOL:${BUILD_SHARED_LIBS}>:CEGUIBASE_IMPORTS>
