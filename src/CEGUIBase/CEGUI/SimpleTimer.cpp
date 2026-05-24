@@ -26,16 +26,20 @@
  ***************************************************************************/
 #include "CEGUI/SimpleTimer.h"
 
-#if (defined(__WIN32__) || defined(_WIN32) ) && (!defined __MINGW32__)
+#if (defined(__WIN32__) || defined(_WIN32)) && (!defined __MINGW32__)
 
-#ifdef WIN32_LEAN_AND_MEAN
-    #undef WIN32_LEAN_AND_MEAN
-#endif
 #include <windows.h>
 
 double CEGUI::SimpleTimer::currentTime()
 {
-    return timeGetTime() / 1000.0;
+    static LARGE_INTEGER freq = []() {
+        LARGE_INTEGER f;
+        QueryPerformanceFrequency(&f);
+        return f;
+    }();
+    LARGE_INTEGER counter;
+    QueryPerformanceCounter(&counter);
+    return static_cast<double>(counter.QuadPart) / static_cast<double>(freq.QuadPart);
 }
 
 #elif defined(__linux__) || defined(__APPLE__) || defined(__FreeBSD__) || defined(__NetBSD__) || defined(__HAIKU__) || defined(__CYGWIN__) || defined(__MINGW32__)
