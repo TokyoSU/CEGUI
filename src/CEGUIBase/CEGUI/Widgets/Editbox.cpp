@@ -46,6 +46,7 @@ EditboxWindowRenderer::EditboxWindowRenderer(const String& name) :
 //----------------------------------------------------------------------------//
 const String Editbox::EventNamespace("Editbox");
 const String Editbox::WidgetTypeName("CEGUI/Editbox");
+const String Editbox::EventTextMaskingEnabled( "TextMaskingEnabled" );
 const String Editbox::EventReadOnlyModeChanged( "ReadOnlyModeChanged" );
 const String Editbox::EventMaskedRenderingModeChanged( "MaskedRenderingModeChanged" );
 const String Editbox::EventMaskCodePointChanged( "MaskCodePointChanged" );
@@ -920,6 +921,12 @@ void Editbox::addEditboxProperties(void)
           "MaskText","Property to get/set the mask text setting for the Editbox.  Value is either \"true\" or \"false\".",
           &Editbox::setTextMasked, &Editbox::isTextMasked, false /* TODO: Inconsistency */
     );
+
+	// Fallback for older property name, now being MaskText.
+	CEGUI_DEFINE_PROPERTY(Editbox, bool,
+          "TextMaskingEnabled", "Property to get/set the mask text setting for the Editbox.  Value is either \"true\" or \"false\".",
+		  &Editbox::setTextMasked, &Editbox::isTextMasked, false
+	);
     
     CEGUI_DEFINE_PROPERTY(Editbox, String::value_type,
           "MaskCodepoint","Property to get/set the utf32 codepoint value used for masking text. "

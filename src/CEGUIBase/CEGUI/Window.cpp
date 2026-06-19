@@ -2850,8 +2850,7 @@ void Window::onCharacter(KeyEventArgs& e)
     // As of 0.7.0 CEGUI::System no longer does input event propogation, so by
     // default we now do that here.  Generally speaking key handling widgets
     // may need to override this behaviour to halt further propogation.
-    if (!e.handled && d_parent &&
-        this != getGUIContext().getModalWindow())
+    if (!e.handled && d_parent && this != getGUIContext().getModalWindow())
     {
         e.window = getParent();
         getParent()->onCharacter(e);

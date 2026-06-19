@@ -31,6 +31,25 @@ if(WIN32)
     )
 endif()
 
+#//////////////////////////////////////////////////////////////////////////
+#// CEGUI allows 3 different string class configurations
+#//////////////////////////////////////////////////////////////////////////
+set(CEGUI_STRING_CLASS_DEFINE "CEGUI_STRING_CLASS_STD" CACHE STRING "CEGUI string class selection")
+set_property(CACHE CEGUI_STRING_CLASS_DEFINE PROPERTY STRINGS
+    "CEGUI_STRING_CLASS_UNICODE" # Inbuilt Unicode (utf8 and utf32 aware)
+    "CEGUI_STRING_CLASS_STD"     # plain std::string without allocators (makes pass by reference easy)
+    "CEGUI_STRING_CLASS_STD_AO"  # std::basic_string allocated according to allocator config
+)
+if (CEGUI_STRING_CLASS_DEFINE STREQUAL "CEGUI_STRING_CLASS_UNICODE")
+    set(CEGUI_STRING_CLASS 1)
+elseif (CEGUI_STRING_CLASS_DEFINE STREQUAL "CEGUI_STRING_CLASS_STD")
+    set(CEGUI_STRING_CLASS 2)
+elseif (CEGUI_STRING_CLASS_DEFINE STREQUAL "CEGUI_STRING_CLASS_STD_AO")
+    set(CEGUI_STRING_CLASS 3)
+else()
+    message(FATAL_ERROR "Invalid CEGUI_STRING_CLASS_DEFINE")
+endif()
+
 # Export macro for DLL visibility (important on Windows)
 target_compile_definitions(CEGUIBase
     PRIVATE

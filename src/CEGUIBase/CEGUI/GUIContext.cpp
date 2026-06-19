@@ -618,15 +618,13 @@ void GUIContext::notifyMouseTransition(Window* top, Window* bottom,
 }
 
 //----------------------------------------------------------------------------//
-Window* GUIContext::getTargetWindow(const Vector2f& pt,
-                                 const bool allow_disabled) const
+Window* GUIContext::getTargetWindow(const Vector2f& pt, const bool allow_disabled) const
 {
     // if there is no GUI sheet visible, then there is nowhere to send input
     if (!d_rootWindow || !d_rootWindow->isEffectiveVisible())
         return 0;
 
     Window* dest_window = d_captureWindow;
-
     if (!dest_window)
     {
         dest_window = d_rootWindow->
@@ -678,8 +676,7 @@ bool GUIContext::injectMouseLeaves(void)
         return false;
 
     MouseEventArgs ma(0);
-    ma.position = getWindowContainingMouse()->getUnprojectedPosition(
-        d_mouseCursor.getPosition());
+    ma.position = getWindowContainingMouse()->getUnprojectedPosition(d_mouseCursor.getPosition());
     ma.moveDelta = Vector2f(0.0f, 0.0f);
     ma.button = NoButton;
     ma.sysKeys = d_systemKeys.get();
@@ -793,8 +790,10 @@ bool GUIContext::injectMouseButtonUp(MouseButton button)
     ma.clickCount = tkr.d_click_count;
 
     // if there is no window, inputs can not be handled.
-    if (!ma.window)
+    if (!ma.window) {
+        CEGUI_THROW(InvalidRequestException("No window is available to receive mouse input."));
         return false;
+    }
 
     // store original window becase we re-use the event args.
     Window* const tgt_wnd = ma.window;
@@ -816,8 +815,11 @@ bool GUIContext::injectMouseButtonUp(MouseButton button)
         ma.handled = 0;
         ma.window->onMouseClicked(ma);
     }
+    if ((ma.handled + upHandled) != 0)
+        return true;
 
-    return (ma.handled + upHandled) != 0;
+    CEGUI_THROW(InvalidRequestException("injectMouseButtonUp event was not handled by the target window."));
+    return false;
 }
 
 //----------------------------------------------------------------------------//
@@ -828,14 +830,20 @@ bool GUIContext::injectKeyDown(Key::Scan scan_code)
     KeyEventArgs args(getKeyboardTargetWindow());
 
     // if there's no destination window, input can't be handled.
-    if (!args.window)
+    if (!args.window) {
+		CEGUI_THROW(InvalidRequestException("No window is available to receive keyboard input."));
         return false;
+    }
 
     args.scancode = scan_code;
     args.sysKeys = d_systemKeys.get();
 
     args.window->onKeyDown(args);
-    return args.handled != 0;
+    if (args.handled != 0)
+        return true;
+
+    CEGUI_THROW(InvalidRequestException("injectKeyDown event was not handled by the target window."));
+    return false;
 }
 
 //----------------------------------------------------------------------------//
@@ -846,14 +854,20 @@ bool GUIContext::injectKeyUp(Key::Scan scan_code)
     KeyEventArgs args(getKeyboardTargetWindow());
 
     // if there's no destination window, input can't be handled.
-    if (!args.window)
+    if (!args.window) {
+		CEGUI_THROW(InvalidRequestException("No window is available to receive key input."));
         return false;
+    }
 
     args.scancode = scan_code;
     args.sysKeys = d_systemKeys.get();
 
     args.window->onKeyUp(args);
-    return args.handled != 0;
+	if (args.handled != 0)
+		return true;
+
+    CEGUI_THROW(InvalidRequestException("injectKeyUp event was not handled by the target window."));
+    return false;
 }
 
 //----------------------------------------------------------------------------//
@@ -862,14 +876,19 @@ bool GUIContext::injectChar(String::value_type code_point)
     KeyEventArgs args(getKeyboardTargetWindow());
 
     // if there's no destination window, input can't be handled.
-    if (!args.window)
+    if (!args.window) {
+		CEGUI_THROW(InvalidRequestException("injectChar called when there is no keyboard target window."));
         return false;
+    }
 
     args.codepoint = code_point;
     args.sysKeys = d_systemKeys.get();
-
     args.window->onCharacter(args);
-    return args.handled != 0;
+	if (args.handled != 0)
+		return true;
+
+    CEGUI_THROW(InvalidRequestException("injectChar event was not handled by the target window."));
+    return false;
 }
 
 //----------------------------------------------------------------------------//
@@ -888,11 +907,17 @@ bool GUIContext::injectMouseWheelChange(float delta)
         ma.position = ma.window->getUnprojectedPosition(ma.position);
 
     // if there is no target window, input can not be handled.
-    if (!ma.window)
+    if (!ma.window) {
+        CEGUI_THROW(InvalidRequestException("injectMouseWheelChange called when there is no target window."));
         return false;
+    }
 
     ma.window->onMouseWheel(ma);
-    return ma.handled != 0;
+	if (ma.handled != 0)
+		return true;
+
+    CEGUI_THROW(InvalidRequestException("injectMouseWheelChange event was not handled by the target window."));
+    return false;
 }
 
 //----------------------------------------------------------------------------//
@@ -925,14 +950,17 @@ bool GUIContext::injectMousePosition(float x_pos, float y_pos)
 bool GUIContext::injectTimePulse(float timeElapsed)
 {
     // if no visible active sheet, input can't be handled
-    if (!d_rootWindow || !d_rootWindow->isEffectiveVisible())
+    if (!d_rootWindow || !d_rootWindow->isEffectiveVisible()) {
+        CEGUI_THROW(InvalidRequestException("injectTimePulse called when there is no visible active root window."));
         return false;
+    }
 
     // ensure window containing mouse is now valid
     getWindowContainingMouse();
 
     // else pass to sheet for distribution.
     d_rootWindow->update(timeElapsed);
+
     // this input is then /always/ considered handled.
     return true;
 }

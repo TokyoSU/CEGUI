@@ -65,19 +65,6 @@ setting CMake options and regenerating, rather than editing directly.
 constexpr auto CEGUI_CUSTOM_ALLOCATORS_INCLUDE = "CEGUI/MemoryStdAllocator.h";
 
 //////////////////////////////////////////////////////////////////////////
-// CEGUI allows 3 different string class configurations
-//////////////////////////////////////////////////////////////////////////
-
-// Inbuilt Unicode (utf8 and utf32 aware)
-constexpr auto CEGUI_STRING_CLASS_UNICODE = 1;
-// plain std::string without allocators (makes pass by reference easy)
-constexpr auto CEGUI_STRING_CLASS_STD = 2;
-// std::basic_string allocated according to allocator config
-constexpr auto CEGUI_STRING_CLASS_STD_AO = 3;
-
-#define CEGUI_STRING_CLASS CEGUI_STRING_CLASS_UNICODE
-
-//////////////////////////////////////////////////////////////////////////
 // Set this to the default XMLParser to be used.
 //////////////////////////////////////////////////////////////////////////
 #ifndef CEGUI_DEFAULT_XMLPARSER

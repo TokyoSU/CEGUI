@@ -75,6 +75,12 @@ public:
     static const String EventNamespace;
     //! Window factory name
     static const String WidgetTypeName;
+    /** Event fired when the text masking (password) mode is enabled or disabled.
+     * Handlers are passed a const WindowEventArgs reference with
+     * WindowEventArgs::window set to the Editbox whose text masking mode has
+     * been changed.
+     */
+    static const String EventTextMaskingEnabled;
     /** Event fired when the read-only mode for the edit box is changed.
      * Handlers are passed a const WindowEventArgs reference with
      * WindowEventArgs::window set to the Editbox whose read only setting
