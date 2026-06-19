@@ -815,11 +815,8 @@ bool GUIContext::injectMouseButtonUp(MouseButton button)
         ma.handled = 0;
         ma.window->onMouseClicked(ma);
     }
-    if ((ma.handled + upHandled) != 0)
-        return true;
 
-    CEGUI_THROW(InvalidRequestException("injectMouseButtonUp event was not handled by the target window."));
-    return false;
+    return (ma.handled + upHandled) != 0;
 }
 
 //----------------------------------------------------------------------------//
@@ -837,13 +834,8 @@ bool GUIContext::injectKeyDown(Key::Scan scan_code)
 
     args.scancode = scan_code;
     args.sysKeys = d_systemKeys.get();
-
     args.window->onKeyDown(args);
-    if (args.handled != 0)
-        return true;
-
-    CEGUI_THROW(InvalidRequestException("injectKeyDown event was not handled by the target window."));
-    return false;
+    return args.handled != 0;
 }
 
 //----------------------------------------------------------------------------//
@@ -861,13 +853,8 @@ bool GUIContext::injectKeyUp(Key::Scan scan_code)
 
     args.scancode = scan_code;
     args.sysKeys = d_systemKeys.get();
-
     args.window->onKeyUp(args);
-	if (args.handled != 0)
-		return true;
-
-    CEGUI_THROW(InvalidRequestException("injectKeyUp event was not handled by the target window."));
-    return false;
+    return args.handled != 0;
 }
 
 //----------------------------------------------------------------------------//
@@ -884,11 +871,7 @@ bool GUIContext::injectChar(String::value_type code_point)
     args.codepoint = code_point;
     args.sysKeys = d_systemKeys.get();
     args.window->onCharacter(args);
-	if (args.handled != 0)
-		return true;
-
-    CEGUI_THROW(InvalidRequestException("injectChar event was not handled by the target window."));
-    return false;
+    return args.handled != 0;
 }
 
 //----------------------------------------------------------------------------//
@@ -913,11 +896,7 @@ bool GUIContext::injectMouseWheelChange(float delta)
     }
 
     ma.window->onMouseWheel(ma);
-	if (ma.handled != 0)
-		return true;
-
-    CEGUI_THROW(InvalidRequestException("injectMouseWheelChange event was not handled by the target window."));
-    return false;
+    return ma.handled != 0;
 }
 
 //----------------------------------------------------------------------------//

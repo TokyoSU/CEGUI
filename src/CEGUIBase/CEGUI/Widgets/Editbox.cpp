@@ -157,6 +157,8 @@ void Editbox::setValidationString(const String& validation_string)
 {
     if (validation_string == d_validationString)
         return;
+	if (validation_string.empty())
+        CEGUI_THROW(InvalidRequestException("The validation string for an Editbox must not be empty, at last use '.*' which matches any string."));
 
     if (!d_validator)
         CEGUI_THROW(InvalidRequestException(
@@ -559,14 +561,8 @@ void Editbox::onCharacter(KeyEventArgs& e)
     // fire event.
     fireEvent(EventCharacterKey, e, Window::EventNamespace);
 
-    const CEGUI::Font* font = getFont();
-	if (!font)
-        CEGUI_THROW(InvalidRequestException("The font used by this Editbox is not available."));
-    if (!font->isCodepointAvailable(e.codepoint))
-        CEGUI_THROW(InvalidRequestException("The font used by this Editbox does not support the codepoint that was input."));
-
     // only need to take notice if we have focus
-    if (e.handled == 0 && hasInputFocus() && !isReadOnly())
+    if (e.handled == 0 && hasInputFocus() && !isReadOnly() && getFont()->isCodepointAvailable(e.codepoint))
     {
         // backup current text
         String tmp(getText());
