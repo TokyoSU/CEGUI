@@ -28,7 +28,7 @@
  ***************************************************************************/
 #include "CEGUI/String.h"
 
-#if CEGUI_STRING_CLASS == CEGUI_STRING_CLASS_UNICODE
+#if defined(CEGUI_STRING_CLASS_UNICODE)
 
 #include <iostream>
 

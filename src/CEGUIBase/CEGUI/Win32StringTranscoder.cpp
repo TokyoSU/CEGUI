@@ -92,7 +92,7 @@ static CEGUI::String stringFromUTF16(UINT codepage, const uint16* input)
 //----------------------------------------------------------------------------//
 String Win32StringTranscoder::stringFromUTF16(const uint16* input) const
 {
-#if CEGUI_STRING_CLASS == CEGUI_STRING_CLASS_UNICODE
+#if defined(CEGUI_STRING_CLASS_UNICODE)
     return CEGUI::stringFromUTF16<utf8>(CP_UTF8, input);
 #else
     return CEGUI::stringFromUTF16<String::value_type>(CP_ACP, input);

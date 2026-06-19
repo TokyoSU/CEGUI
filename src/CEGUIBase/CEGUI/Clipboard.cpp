@@ -155,7 +155,8 @@ String Clipboard::getText()
 
         // !!! However it is not null terminated !!! So we have to tell String
         // how many code units (not code points!) there are.
-#if CEGUI_STRING_CLASS == CEGUI_STRING_CLASS_UNICODE
+#if defined(CEGUI_STRING_CLASS_UNICODE)
+		// CEGUI::String is UTF-32, so we have to convert from UTF
         return String(reinterpret_cast<const utf8*>(d_buffer), d_bufferSize);
 #else
         return String(static_cast<const char*>(d_buffer), d_bufferSize);

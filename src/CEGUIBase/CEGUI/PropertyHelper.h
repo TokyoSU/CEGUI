@@ -352,7 +352,7 @@ public:
     }
 };
 
-#if CEGUI_STRING_CLASS != CEGUI_STRING_CLASS_UNICODE
+#if !defined(CEGUI_STRING_CLASS_UNICODE)
 
 template<>
 class PropertyHelper<String::value_type>

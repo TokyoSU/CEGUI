@@ -49,7 +49,6 @@ public:
 	virtual ~PropertyReceiver() {}
 };
 
-
 /*!
 \brief
 	An abstract class that defines the interface to access object properties by name.

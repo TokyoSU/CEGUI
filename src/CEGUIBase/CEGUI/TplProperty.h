@@ -40,7 +40,6 @@ class TplProperty : public TypedProperty<T>
 {
 public:
     typedef PropertyHelper<T> Helper;
-    
     typedef void (C::*Setter)(typename Helper::pass_type);
 
     /*!
@@ -71,21 +70,21 @@ public:
         {}
 
         GetterFunctor(ConstRefGetter getter):
-            d_plainGetter(0),
+            d_plainGetter(nullptr),
             d_constRefGetter(getter)
-            //d_refGetter(0) // no need to initialise this, we will never use it
+            //d_refGetter(nullptr) // no need to initialise this, we will never use it
         {}
 
         GetterFunctor(RefGetter getter):
-            d_plainGetter(0),
-            d_constRefGetter(0),
+            d_plainGetter(nullptr),
+            d_constRefGetter(nullptr),
             d_refGetter(getter)
         {}
         // to set 0 as func
         GetterFunctor(int /*val*/):
-            d_plainGetter(0),
-            d_constRefGetter(0),
-            d_refGetter(0)
+            d_plainGetter(nullptr),
+            d_constRefGetter(nullptr),
+            d_refGetter(nullptr)
         {}
         operator bool(void) const
         {
@@ -107,9 +106,9 @@ public:
             return CEGUI_CALL_MEMBER_FN(*instance, d_plainGetter)();
         }
 
-        PlainGetter d_plainGetter;
-        ConstRefGetter d_constRefGetter;
-        RefGetter d_refGetter;
+        PlainGetter d_plainGetter = nullptr;
+        ConstRefGetter d_constRefGetter = nullptr;
+        RefGetter d_refGetter = nullptr;
     };
 
     TplProperty(const String& name, const String& help, const String& origin, Setter setter, GetterFunctor getter, typename Helper::pass_type defaultValue = T(), bool writesXML = true):
@@ -134,8 +133,8 @@ public:
     }
 
 protected:
-    Setter d_setter;
-    GetterFunctor d_getter;
+    Setter d_setter = nullptr;
+    GetterFunctor d_getter = nullptr;
 };
 
 } // End of  CEGUI namespace section

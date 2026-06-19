@@ -44,7 +44,7 @@ typedef		uint8	utf8;
 //typedef		uint16	utf16;  // removed typedef to prevent usage, as utf16 is not supported (yet)
 typedef		uint32	utf32;
 
-#if CEGUI_STRING_CLASS == CEGUI_STRING_CLASS_UNICODE
+#if defined(CEGUI_STRING_CLASS_UNICODE)
 
 /// encoded char signifies that it's a char (8bit) with encoding (in this case utf8)
 typedef utf8 encoded_char;
@@ -5602,13 +5602,17 @@ struct StringFastLessCompare
 /// encoded char signifies that it's a char (8bit) with encoding (in this case ASCII)
 typedef char encoded_char;
 
-#if CEGUI_STRING_CLASS == CEGUI_STRING_CLASS_STD
+#if defined(CEGUI_STRING_CLASS_STD)
 
 typedef std::string String;
 
-#else // CEGUI_STRING_CLASS_STD_AO
+#elif defined(CEGUI_STRING_CLASS_STD_AO)
 
 typedef std::basic_string<char, std::char_traits<char>, STLAllocatorWrapper<char, AllocatorConfig<STLAllocator>::Allocator> > String;
+
+#else
+
+#error "No CEGUI_STRING_CLASS_* macro defined"
 
 #endif
 
