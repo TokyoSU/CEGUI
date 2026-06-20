@@ -791,7 +791,6 @@ bool GUIContext::injectMouseButtonUp(MouseButton button)
 
     // if there is no window, inputs can not be handled.
     if (!ma.window) {
-        CEGUI_THROW(InvalidRequestException("No window is available to receive mouse input."));
         return false;
     }
 
@@ -828,7 +827,6 @@ bool GUIContext::injectKeyDown(Key::Scan scan_code)
 
     // if there's no destination window, input can't be handled.
     if (!args.window) {
-		CEGUI_THROW(InvalidRequestException("No window is available to receive keyboard input."));
         return false;
     }
 
@@ -847,7 +845,6 @@ bool GUIContext::injectKeyUp(Key::Scan scan_code)
 
     // if there's no destination window, input can't be handled.
     if (!args.window) {
-		CEGUI_THROW(InvalidRequestException("No window is available to receive key input."));
         return false;
     }
 
@@ -864,7 +861,6 @@ bool GUIContext::injectChar(String::value_type code_point)
 
     // if there's no destination window, input can't be handled.
     if (!args.window) {
-		CEGUI_THROW(InvalidRequestException("injectChar called when there is no keyboard target window."));
         return false;
     }
 
@@ -891,7 +887,6 @@ bool GUIContext::injectMouseWheelChange(float delta)
 
     // if there is no target window, input can not be handled.
     if (!ma.window) {
-        CEGUI_THROW(InvalidRequestException("injectMouseWheelChange called when there is no target window."));
         return false;
     }
 
