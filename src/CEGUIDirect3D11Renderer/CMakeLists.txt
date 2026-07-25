@@ -9,7 +9,6 @@ add_library(CEGUIDirect3D11Renderer ${FILE_SOURCES} ${FILE_HEADERS})
 
 find_package(dxsdk-d3dx CONFIG REQUIRED)
 find_package(effects11 CONFIG REQUIRED)
-target_link_libraries(CEGUIDirect3D11Renderer PRIVATE Microsoft::D3DX10 Microsoft::D3DX11 Microsoft::Effects11)
 
 target_include_directories(CEGUIDirect3D11Renderer
     PUBLIC
@@ -25,6 +24,7 @@ target_include_directories(CEGUIDirect3D11Renderer
 target_link_libraries(CEGUIDirect3D11Renderer
     PRIVATE
         CEGUIBase
+        Microsoft::D3DX11
 )
 
 # Export macro for DLL visibility (important on Windows)

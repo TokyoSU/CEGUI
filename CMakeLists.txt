@@ -36,6 +36,14 @@ endif()
 # Set ON for DLL (.dll), OFF for static (.lib) — default to shared
 option(BUILD_SHARED_LIBS "Build shared libraries" ON)
 
+# Optional language bindings. Enabling the managed binding also enables the C
+# ABI it uses for P/Invoke. Both remain disabled in normal CEGUI builds.
+option(BUILD_C_BINDING "Build the optional C ABI binding DLL" ON)
+option(BUILD_CSHARP_BINDING "Build the optional C# managed binding" ON)
+if(BUILD_CSHARP_BINDING AND NOT BUILD_C_BINDING)
+    set(BUILD_C_BINDING ON CACHE BOOL "Build the optional C ABI binding DLL" FORCE)
+endif()
+
 # Enable multi-threaded compilation for MSVC (/MP) and
 # explicit parallel job count for Ninja.
 if(MSVC)
@@ -80,3 +88,7 @@ option(BUILD_XML_TINYXML "Use TinyXML library" ON)
 
 # Include sub-projects.
 add_subdirectory ("src")
+
+if(BUILD_CSHARP_BINDING)
+    add_subdirectory("managed/CEGUI.Managed")
+endif()

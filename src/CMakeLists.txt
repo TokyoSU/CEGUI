@@ -88,3 +88,8 @@ endif()
 if(BUILD_XML_XERCES)
 	add_subdirectory("CEGUIXercesParser")
 endif()
+
+# Optional stable C ABI used by the managed binding and other FFI consumers.
+if(BUILD_C_BINDING)
+    add_subdirectory("CEGUI.Native")
+endif()

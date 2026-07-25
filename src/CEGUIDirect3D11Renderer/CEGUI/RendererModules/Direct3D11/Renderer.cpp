@@ -385,7 +385,7 @@ Direct3D11Renderer::Direct3D11Renderer(ID3D11Device* device,ID3D11DeviceContext 
             d_effect->GetTechniqueByName("BM_NORMAL_Unclipped_Rendering");
     d_premultipliedClippedTechnique =
             d_effect->GetTechniqueByName("BM_RTT_PREMULTIPLIED_Clipped_Rendering");
-    d_premultipliedClippedTechnique =
+    d_premultipliedUnclippedTechnique =
             d_effect->GetTechniqueByName("BM_RTT_PREMULTIPLIED_Unclipped_Rendering");
 
     // Get the variables from the shader we need to be able to access
