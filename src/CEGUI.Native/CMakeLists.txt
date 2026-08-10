@@ -60,6 +60,11 @@ endif()
 # factory module (which would introduce duplicate createParser/createImageCodec
 # symbols).
 if(NOT BUILD_SHARED_LIBS)
+    # Static Scheme.cpp calls getWindowRendererFactoryModule() directly.
+    # Its implementation is provided by CEGUICoreWindowRendererSet, so the
+    # final C ABI DLL must link that static factory module explicitly.
+    target_link_libraries(CEGUI.Native PRIVATE CEGUICoreWindowRendererSet)
+
     if(BUILD_XML_RAPIDXML)
         target_link_libraries(CEGUI.Native PRIVATE CEGUIRapidXMLParser)
     elseif(BUILD_XML_TINYXML)

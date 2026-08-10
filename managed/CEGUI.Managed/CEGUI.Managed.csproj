@@ -11,14 +11,14 @@
     <NoWarn>$(NoWarn);1591</NoWarn>
   </PropertyGroup>
 
-	<Target Name="CopyNativeBinding" AfterTargets="Build"
-        Condition="'$(IsCrossTargetingBuild)' != 'true' and
-                   '$(TargetFramework)' != '' and
-                   '$(TargetDir)' != '' and
-                   '$(CEGUINativeLibraryPath)' != '' and
-                   Exists('$(CEGUINativeLibraryPath)')">
-		<Copy SourceFiles="$(CEGUINativeLibraryPath)"
+  <Target Name="CopyNativeBinding" AfterTargets="Build"
+          Condition="'$(IsCrossTargetingBuild)' != 'true' and
+                     '$(TargetFramework)' != '' and
+                     '$(TargetDir)' != '' and
+                     '$(CEGUINativeLibraryPath)' != '' and
+                     Exists('$(CEGUINativeLibraryPath)')">
+    <Copy SourceFiles="$(CEGUINativeLibraryPath)"
           DestinationFolder="$(TargetDir)"
           SkipUnchangedFiles="true" />
-	</Target>
+  </Target>
 </Project>
