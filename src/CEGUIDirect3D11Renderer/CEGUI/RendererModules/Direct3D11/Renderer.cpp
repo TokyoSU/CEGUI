@@ -34,7 +34,7 @@
 #include "CEGUI/Logger.h"
 #include "Shader.h"
 #include <algorithm>
-#include <D3DX11.h>
+#include <d3dcompiler.h>
 #include <d3dx11effect.h>
 
 // Start of CEGUI namespace section
@@ -352,31 +352,40 @@ Direct3D11Renderer::Direct3D11Renderer(ID3D11Device* device,ID3D11DeviceContext 
 
 	d_displaySize=getViewportSize();
 
-    // create the main effect from the shader source.
-    ID3D10Blob* errors = 0;
+    // Compile the FX11 effect with the Windows SDK compiler. Effects11 remains
+    // the effect runtime, while DirectXTK/DirectXMath provide all renderer math.
+    ID3DBlob* errors = nullptr;
+    ID3DBlob* shaderBlob = nullptr;
+    const UINT compileFlags = 0;
 
-	DWORD DefaultOptions=NULL;//D3D10_SHADER_PACK_MATRIX_ROW_MAJOR|D3D10_SHADER_PARTIAL_PRECISION|D3D10_SHADER_SKIP_VALIDATION;
+    const HRESULT compileResult = D3DCompile(
+        shaderSource, sizeof(shaderSource) - 1, "shaderSource", nullptr, nullptr,
+        "", "fx_5_0", compileFlags, 0, &shaderBlob, &errors);
 
-	ID3D10Blob* ShaderBlob=NULL;//first we compile shader, then create effect from it
+    if (FAILED(compileResult))
+    {
+        std::string msg("failed to compile Direct3D 11 CEGUI effect.");
+        if (errors)
+        {
+            msg.assign(static_cast<const char*>(errors->GetBufferPointer()),
+                       errors->GetBufferSize());
+            errors->Release();
+        }
+        CEGUI_THROW(RendererException(msg));
+    }
 
-	if (FAILED(D3DX11CompileFromMemory(shaderSource,sizeof(shaderSource),
-		"shaderSource",NULL,NULL,NULL,"fx_5_0",
-		DefaultOptions,NULL,NULL,&ShaderBlob,&errors,NULL)))
-	{
-		std::string msg(static_cast<const char*>(errors->GetBufferPointer()),
-			errors->GetBufferSize());
-		errors->Release();
-		CEGUI_THROW(RendererException(msg));
-	}
+    if (errors)
+        errors->Release();
 
-	if (FAILED(D3DX11CreateEffectFromMemory(ShaderBlob->GetBufferPointer(), ShaderBlob->GetBufferSize(),0, 
-		d_device.d_device, &d_effect) ))
-	{
-		CEGUI_THROW(RendererException("failed to create effect!"));
-	}
+    if (FAILED(D3DX11CreateEffectFromMemory(
+            shaderBlob->GetBufferPointer(), shaderBlob->GetBufferSize(), 0,
+            d_device.d_device, &d_effect)))
+    {
+        shaderBlob->Release();
+        CEGUI_THROW(RendererException("failed to create Direct3D 11 effect!"));
+    }
 
-	if(ShaderBlob) 
-		ShaderBlob->Release();
+    shaderBlob->Release();
 
     // extract the rendering techniques
     d_normalClippedTechnique =
@@ -486,14 +495,18 @@ void Direct3D11Renderer::setCurrentTextureShaderResource(
 }
 
 //----------------------------------------------------------------------------//
-void Direct3D11Renderer::setProjectionMatrix(D3DXMATRIX& matrix)
+void Direct3D11Renderer::setProjectionMatrix(
+    const DirectX::SimpleMath::Matrix& matrix)
 {
-    d_projectionMatrixVariable->SetMatrix(reinterpret_cast<float*>(&matrix));
+    d_projectionMatrixVariable->SetMatrix(
+        reinterpret_cast<const float*>(&matrix));
 }
 //----------------------------------------------------------------------------//
-void Direct3D11Renderer::setWorldMatrix(D3DXMATRIX& matrix)
+void Direct3D11Renderer::setWorldMatrix(
+    const DirectX::SimpleMath::Matrix& matrix)
 {
-    d_worldMatrixVariable->SetMatrix(reinterpret_cast<float*>(&matrix));
+    d_worldMatrixVariable->SetMatrix(
+        reinterpret_cast<const float*>(&matrix));
 }
 
 //----------------------------------------------------------------------------//

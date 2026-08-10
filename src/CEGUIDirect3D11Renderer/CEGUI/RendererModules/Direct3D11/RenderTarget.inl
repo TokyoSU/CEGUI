@@ -105,67 +105,54 @@ void Direct3D11RenderTarget<T>::unprojectPoint(const GeometryBuffer& buff,
     const Direct3D11GeometryBuffer& gb =
         static_cast<const Direct3D11GeometryBuffer&>(buff);
 
-    D3D11_VIEWPORT vp_;
-    setupViewport(vp_);
+    D3D11_VIEWPORT vp;
+    setupViewport(vp);
 
-	//ToDo
-	//ms didn't update their math for 11, so use 10
-	D3D10_VIEWPORT vp;
-	vp.Width=static_cast<unsigned int>(vp_.Width);
-	vp.Height=static_cast<unsigned int>(vp_.Height);
-	vp.TopLeftX=static_cast<int>(vp_.TopLeftX);
-	vp.TopLeftY=static_cast<int>(vp_.TopLeftY);
-	vp.MinDepth=vp_.MinDepth;
-	vp.MaxDepth=vp_.MaxDepth;
+    using DirectX::SimpleMath::Plane;
+    using DirectX::SimpleMath::Vector3;
 
-    D3DXVECTOR3 in_vec;
-    in_vec.z = 0.0f;
+    const DirectX::XMMATRIX projection = d_matrix;
+    const DirectX::XMMATRIX view = DirectX::XMMatrixIdentity();
+    const DirectX::XMMATRIX world = *gb.getMatrix();
 
-    // project points to create a plane orientated with GeometryBuffer's data
-    D3DXVECTOR3 p1;
-    D3DXVECTOR3 p2;
-    D3DXVECTOR3 p3;
-    in_vec.x = 0;
-    in_vec.y = 0;
-    D3DXVec3Project(&p1, &in_vec, &vp, &d_matrix, 0, gb.getMatrix()); 
+    const auto project = [&](const Vector3& value)
+    {
+        return Vector3(DirectX::XMVector3Project(
+            value, vp.TopLeftX, vp.TopLeftY, vp.Width, vp.Height,
+            vp.MinDepth, vp.MaxDepth, projection, view, world));
+    };
 
-    in_vec.x = 1;
-    in_vec.y = 0;
-    D3DXVec3Project(&p2, &in_vec, &vp, &d_matrix, 0, gb.getMatrix()); 
+    const auto unproject = [&](const Vector3& value)
+    {
+        return Vector3(DirectX::XMVector3Unproject(
+            value, vp.TopLeftX, vp.TopLeftY, vp.Width, vp.Height,
+            vp.MinDepth, vp.MaxDepth, projection, view, world));
+    };
 
-    in_vec.x = 0;
-    in_vec.y = 1;
-    D3DXVec3Project(&p3, &in_vec, &vp, &d_matrix, 0, gb.getMatrix()); 
+    // Project three local points to obtain the plane occupied by this
+    // GeometryBuffer, then intersect the mouse ray with that plane.
+    const Vector3 p1 = project(Vector3(0.0f, 0.0f, 0.0f));
+    const Vector3 p2 = project(Vector3(1.0f, 0.0f, 0.0f));
+    const Vector3 p3 = project(Vector3(0.0f, 1.0f, 0.0f));
+    const Plane surfacePlane(p1, p2, p3);
 
-    // create plane from projected points
-    D3DXPLANE surface_plane;
-    D3DXPlaneFromPoints(&surface_plane, &p1, &p2, &p3);
+    const Vector3 rayStart = unproject(Vector3(
+        vp.Width * 0.5f, vp.Height * 0.5f, -d_viewDistance));
+    const Vector3 rayEnd = unproject(Vector3(p_in.d_x, p_in.d_y, 0.0f));
+    const Vector3 intersection(DirectX::XMPlaneIntersectLine(
+        surfacePlane, rayStart, rayEnd));
 
-    // unproject ends of ray
-    in_vec.x = vp.Width * 0.5f;
-    in_vec.y = vp.Height * 0.5f;
-    in_vec.z = -d_viewDistance;
-    D3DXVECTOR3 t1;
-    D3DXVec3Unproject(&t1, &in_vec, &vp, &d_matrix, 0, gb.getMatrix()); 
-
-    in_vec.x = p_in.d_x;
-    in_vec.y = p_in.d_y;
-    in_vec.z = 0.0f;
-    D3DXVECTOR3 t2;
-    D3DXVec3Unproject(&t2, &in_vec, &vp, &d_matrix, 0, gb.getMatrix()); 
-
-    // get intersection of ray and plane
-    D3DXVECTOR3 intersect;
-    D3DXPlaneIntersectLine(&intersect, &surface_plane, &t1, &t2);
-
-    p_out.d_x = intersect.x;
-    p_out.d_y = intersect.y;
+    p_out.d_x = intersection.x;
+    p_out.d_y = intersection.y;
 }
 
 //----------------------------------------------------------------------------//
 template <typename T>
 void Direct3D11RenderTarget<T>::updateMatrix() const
 {
+    using DirectX::SimpleMath::Matrix;
+    using DirectX::SimpleMath::Vector3;
+
     const float fov = 0.523598776f;
     const float w = d_area.getWidth();
     const float h = d_area.getHeight();
@@ -174,18 +161,18 @@ void Direct3D11RenderTarget<T>::updateMatrix() const
     const float midy = h * 0.5f;
     d_viewDistance = midx / (aspect * 0.267949192431123f);
 
-    D3DXVECTOR3 eye(midx, midy, -d_viewDistance);
-    D3DXVECTOR3 at(midx, midy, 1);
-    D3DXVECTOR3 up(0, -1, 0);
+    const Vector3 eye(midx, midy, -d_viewDistance);
+    const Vector3 at(midx, midy, 1.0f);
+    const Vector3 up(0.0f, -1.0f, 0.0f);
 
-    D3DXMATRIX tmp;
-    D3DXMatrixMultiply(&d_matrix,
-        D3DXMatrixLookAtRH(&d_matrix, &eye, &at, &up),
-        D3DXMatrixPerspectiveFovRH(&tmp, fov, aspect,
-                                   d_viewDistance * 0.5f,
-                                   d_viewDistance * 2.0f));
+    // Keep the existing right-handed camera/projection behaviour while
+    // storing the result in DirectXTK's SimpleMath matrix type.
+    const Matrix view(DirectX::XMMatrixLookAtRH(eye, at, up));
+    const Matrix projection(DirectX::XMMatrixPerspectiveFovRH(
+        fov, aspect, d_viewDistance * 0.5f, d_viewDistance * 2.0f));
+    d_matrix = view * projection;
 
-    d_matrixValid = false;
+    d_matrixValid = true;
 }
 
 //----------------------------------------------------------------------------//

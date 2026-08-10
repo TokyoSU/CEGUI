@@ -55,11 +55,10 @@ struct ID3DX11EffectTechnique;//D3DXEffect11 in dependences
 struct ID3D11InputLayout;
 struct ID3DX11EffectShaderResourceVariable;//D3DXEffect11 in dependences
 struct ID3DX11EffectMatrixVariable;//D3DXEffect11 in dependences
-struct ID3D11ShaderResourceView;//D3DXEffect11 in dependences
-struct D3DXMATRIX;
+struct ID3D11ShaderResourceView;
 
 #include <d3d11.h>
-#include <D3DX11.h>
+#include <directxtk/SimpleMath.h>
 
 struct IDevice11//little structure that keeps both device, in order to reduce copy & paste around module
 {
@@ -76,7 +75,7 @@ class Direct3D11GeometryBuffer;
 class Direct3D11Texture;
 
 
-//! Renderer implementation using Direct3D 10.
+//! Renderer implementation using Direct3D 11.
 class D3D11_GUIRENDERER_API Direct3D11Renderer : public Renderer
 {
 public:
@@ -141,7 +140,7 @@ public:
     */
     static void destroy(Direct3D11Renderer& renderer);
 
-//     //! return the ID3D10Device used by this renderer object.
+//     //! return the ID3D11Device used by this renderer object.
 //     ID3D11Device& getDirect3DDevice() const;
 // 
 // 	//! return the ID3D11Device context used by this renderer object.
@@ -172,9 +171,9 @@ public:
     //! low-level function to set the texture shader resource view to be used.
     void setCurrentTextureShaderResource(ID3D11ShaderResourceView* srv); 
     //! low-level function to set the projection matrix to be used.
-    void setProjectionMatrix(D3DXMATRIX& matrix);
+    void setProjectionMatrix(const DirectX::SimpleMath::Matrix& matrix);
     //! low-level function to set the world matrix to be used.
-    void setWorldMatrix(D3DXMATRIX& matrix);
+    void setWorldMatrix(const DirectX::SimpleMath::Matrix& matrix);
 
     // Implement interface from Renderer
     RenderTarget& getDefaultRenderTarget();

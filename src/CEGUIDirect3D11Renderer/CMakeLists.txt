@@ -7,7 +7,7 @@ file(GLOB_RECURSE FILE_HEADERS
 # Add library — type is controlled by BUILD_SHARED_LIBS (ON = DLL, OFF = static)
 add_library(CEGUIDirect3D11Renderer ${FILE_SOURCES} ${FILE_HEADERS})
 
-find_package(dxsdk-d3dx CONFIG REQUIRED)
+find_package(directxtk CONFIG REQUIRED)
 find_package(effects11 CONFIG REQUIRED)
 
 target_include_directories(CEGUIDirect3D11Renderer
@@ -22,9 +22,12 @@ target_include_directories(CEGUIDirect3D11Renderer
 )
 
 target_link_libraries(CEGUIDirect3D11Renderer
+    PUBLIC
+        Microsoft::DirectXTK
     PRIVATE
         CEGUIBase
-        Microsoft::D3DX11
+        Microsoft::Effects11
+        d3dcompiler
 )
 
 # Export macro for DLL visibility (important on Windows)

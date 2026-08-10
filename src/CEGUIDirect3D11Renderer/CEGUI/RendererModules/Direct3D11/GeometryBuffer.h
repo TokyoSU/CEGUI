@@ -41,7 +41,7 @@ namespace CEGUI
 {
 class Direct3D11Texture;
 
-//! Implementation of CEGUI::GeometryBuffer for the Direct3D 10 API.
+//! Implementation of CEGUI::GeometryBuffer for the Direct3D 11 API.
 class D3D11_GUIRENDERER_API Direct3D11GeometryBuffer : public GeometryBuffer
 {
 public:
@@ -51,8 +51,8 @@ public:
     //! Destructor
     ~Direct3D11GeometryBuffer();
 
-    //! return pointer to D3DXMATRIX used by this GeometryBuffer
-    const D3DXMATRIX* getMatrix() const;
+    //! Return the DirectXTK SimpleMath matrix used by this GeometryBuffer.
+    const DirectX::SimpleMath::Matrix* getMatrix() const;
 
     // Implement GeometryBuffer interface.
     void draw() const;
@@ -134,7 +134,7 @@ protected:
     //! RenderEffect that will be used by the GeometryBuffer
     RenderEffect* d_effect;
     //! model matrix cache
-    mutable D3DXMATRIX d_matrix;
+    mutable DirectX::SimpleMath::Matrix d_matrix;
     //! true when d_matrix is valid and up to date
     mutable bool d_matrixValid;
 };

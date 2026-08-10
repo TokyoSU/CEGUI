@@ -125,6 +125,14 @@ CEGUI_C_API CEGUI_C_Result CEGUI_C_CALL CEGUI_C_D3D11_BootstrapSystem(
     void* device_context,
     CEGUI_C_System* out_system);
 CEGUI_C_API CEGUI_C_Result CEGUI_C_CALL CEGUI_C_D3D11_DestroySystem(void);
+CEGUI_C_API CEGUI_C_Result CEGUI_C_CALL CEGUI_C_Bgfx_BootstrapSystem(
+    float width,
+    float height,
+    uint16_t view_id_base,
+    uint16_t view_id_count,
+    const char* shader_root_utf8,
+    CEGUI_C_System* out_system);
+CEGUI_C_API CEGUI_C_Result CEGUI_C_CALL CEGUI_C_Bgfx_DestroySystem(void);
 CEGUI_C_API CEGUI_C_Result CEGUI_C_CALL CEGUI_C_System_GetExisting(
     CEGUI_C_System* out_system);
 CEGUI_C_API CEGUI_C_Result CEGUI_C_CALL CEGUI_C_System_GetDefaultGUIContext(

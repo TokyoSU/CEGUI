@@ -1,4 +1,4 @@
-﻿# CMakeList.txt : Top-level CMake project file, do global configuration
+# CMakeList.txt : Top-level CMake project file, do global configuration
 # and include sub-projects here.
 #
 cmake_minimum_required (VERSION 3.16)
@@ -66,9 +66,8 @@ include("${CMAKE_CURRENT_SOURCE_DIR}/cmake/install.cmake")
 
 # Renderer codecs
 option(BUILD_RENDERER_OPENGL "Use OpenGL3 renderer" ON)
-option(BUILD_RENDERER_D3D9 "Use Direct3D 9 renderer" ON)
-option(BUILD_RENDERER_D3D10 "Use Direct3D 10 renderer" ON)
 option(BUILD_RENDERER_D3D11 "Use Direct3D 11 renderer" ON)
+option(BUILD_RENDERER_BGFX "Use bgfx renderer (host-owned bgfx context)" ON)
 option(BUILD_RENDERER_NULL "Use null renderer (for testing)" OFF)
 
 # Script codecs
