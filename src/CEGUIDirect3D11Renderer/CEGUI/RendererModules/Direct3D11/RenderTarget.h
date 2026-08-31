@@ -23,13 +23,12 @@
  *   ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
  *   OTHER DEALINGS IN THE SOFTWARE.
  ***************************************************************************/
-#ifndef _CEGUIDirect3D10RenderTarget_h_
-#define _CEGUIDirect3D10RenderTarget_h_
+#ifndef _CEGUIDirect3D11RenderTarget_h_
+#define _CEGUIDirect3D11RenderTarget_h_
 
 #include "CEGUI/RenderTarget.h"
 #include "CEGUI/RendererModules/Direct3D11/Renderer.h"
 #include "CEGUI/Rect.h"
-#include <D3DX11.h>
 
 #if defined(_MSC_VER)
 #   pragma warning(push)
@@ -39,7 +38,7 @@
 // Start of CEGUI namespace section
 namespace CEGUI
 {
-//! Implementation of an ntermediate RenderTarget for the Direct3D 10 API
+//! Intermediate RenderTarget implementation for the Direct3D 11 API
 template <typename T = RenderTarget>
 class D3D11_GUIRENDERER_API Direct3D11RenderTarget : public T
 {
@@ -61,17 +60,17 @@ public:
 protected:
     //! helper that initialises the cached matrix
     void updateMatrix() const;
-    //! helper to initialise the D3D10_VIEWPORT \a vp for this target.
+    //! helper to initialise the D3D11_VIEWPORT \a vp for this target.
     void setupViewport(D3D11_VIEWPORT& vp) const;
 
     //! Renderer that created and owns the render target.
     Direct3D11Renderer& d_owner;
-    //! D3D10Device interface.
+    //! D3D11 device/context pair.
     IDevice11& d_device;
     //! holds defined area for the RenderTarget
     Rectf d_area;
     //! projection / view matrix cache
-    mutable D3DXMATRIX d_matrix;
+    mutable DirectX::SimpleMath::Matrix d_matrix;
     //! true when d_matrix is valid and up to date
     mutable bool d_matrixValid;
     //! tracks viewing distance (this is set up at the same time as d_matrix)
@@ -84,4 +83,4 @@ protected:
 #   pragma warning(pop)
 #endif
 
-#endif  // end of guard _CEGUIDirect3D10RenderTarget_h_
+#endif  // end of guard _CEGUIDirect3D11RenderTarget_h_

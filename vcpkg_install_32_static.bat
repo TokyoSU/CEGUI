@@ -8,7 +8,7 @@ vcpkg install glm:x86-windows-static
 vcpkg install freeimage:x86-windows-static
 vcpkg install devil[core,jasper,lcms,libjpeg,libpng,openexr,tiff]:x86-windows-static
 vcpkg install stb:x86-windows-static
-vcpkg install dxsdk-d3dx:x86-windows-static
+vcpkg install directxtk:x86-windows-static
 vcpkg install effects11:x86-windows-static
 vcpkg install expat:x86-windows-static
 vcpkg install tinyxml:x86-windows-static

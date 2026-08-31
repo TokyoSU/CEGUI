@@ -4,13 +4,20 @@ namespace CEGUI;
 
 public sealed class CeguiSystem : IDisposable
 {
-    private bool _ownsD3D11Bootstrap;
+    private enum BootstrapOwner
+    {
+        None,
+        D3D11,
+        Bgfx
+    }
+
+    private BootstrapOwner _bootstrapOwner;
     private bool _disposed;
 
-    private CeguiSystem(IntPtr handle, bool ownsD3D11Bootstrap)
+    private CeguiSystem(IntPtr handle, BootstrapOwner bootstrapOwner)
     {
         Handle = handle;
-        _ownsD3D11Bootstrap = ownsD3D11Bootstrap;
+        _bootstrapOwner = bootstrapOwner;
     }
 
     internal IntPtr Handle { get; private set; }
@@ -32,13 +39,36 @@ public sealed class CeguiSystem : IDisposable
             throw new ArgumentException("The ID3D11DeviceContext pointer must not be null.", nameof(deviceContext));
 
         Interop.Check(NativeMethods.CEGUI_C_D3D11_BootstrapSystem(device, deviceContext, out IntPtr system));
-        return new CeguiSystem(system, ownsD3D11Bootstrap: true);
+        return new CeguiSystem(system, BootstrapOwner.D3D11);
+    }
+
+    /// <summary>
+    /// Bootstraps CEGUI using an already-initialised bgfx instance. The host retains
+    /// ownership of bgfx and must reserve the supplied view-ID range for CEGUI.
+    /// </summary>
+    public static CeguiSystem BootstrapBgfx(
+        float width,
+        float height,
+        ushort viewIdBase = 240,
+        ushort viewIdCount = 16,
+        string? shaderRoot = null)
+    {
+        if (width <= 0.0f)
+            throw new ArgumentOutOfRangeException(nameof(width), "Display width must be positive.");
+        if (height <= 0.0f)
+            throw new ArgumentOutOfRangeException(nameof(height), "Display height must be positive.");
+        if (viewIdCount == 0)
+            throw new ArgumentOutOfRangeException(nameof(viewIdCount), "At least one bgfx view ID must be reserved.");
+
+        Interop.Check(NativeMethods.CEGUI_C_Bgfx_BootstrapSystem(
+            width, height, viewIdBase, viewIdCount, shaderRoot, out IntPtr system));
+        return new CeguiSystem(system, BootstrapOwner.Bgfx);
     }
 
     public static CeguiSystem FromExisting()
     {
         Interop.Check(NativeMethods.CEGUI_C_System_GetExisting(out IntPtr system));
-        return new CeguiSystem(system, ownsD3D11Bootstrap: false);
+        return new CeguiSystem(system, BootstrapOwner.None);
     }
 
     public GuiContext DefaultContext
@@ -98,10 +128,20 @@ public sealed class CeguiSystem : IDisposable
         if (_disposed)
             return;
 
-        if (_ownsD3D11Bootstrap && Handle != IntPtr.Zero)
-            Interop.Check(NativeMethods.CEGUI_C_D3D11_DestroySystem());
+        if (Handle != IntPtr.Zero)
+        {
+            switch (_bootstrapOwner)
+            {
+                case BootstrapOwner.D3D11:
+                    Interop.Check(NativeMethods.CEGUI_C_D3D11_DestroySystem());
+                    break;
+                case BootstrapOwner.Bgfx:
+                    Interop.Check(NativeMethods.CEGUI_C_Bgfx_DestroySystem());
+                    break;
+            }
+        }
 
-        _ownsD3D11Bootstrap = false;
+        _bootstrapOwner = BootstrapOwner.None;
         Handle = IntPtr.Zero;
         _disposed = true;
         GC.SuppressFinalize(this);

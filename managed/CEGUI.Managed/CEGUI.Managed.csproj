@@ -12,7 +12,13 @@
   </PropertyGroup>
 
   <Target Name="CopyNativeBinding" AfterTargets="Build"
-          Condition="'$(CEGUINativeLibraryPath)' != '' and Exists('$(CEGUINativeLibraryPath)')">
-    <Copy SourceFiles="$(CEGUINativeLibraryPath)" DestinationFolder="$(TargetDir)" SkipUnchangedFiles="true" />
+          Condition="'$(IsCrossTargetingBuild)' != 'true' and
+                     '$(TargetFramework)' != '' and
+                     '$(TargetDir)' != '' and
+                     '$(CEGUINativeLibraryPath)' != '' and
+                     Exists('$(CEGUINativeLibraryPath)')">
+    <Copy SourceFiles="$(CEGUINativeLibraryPath)"
+          DestinationFolder="$(TargetDir)"
+          SkipUnchangedFiles="true" />
   </Target>
 </Project>

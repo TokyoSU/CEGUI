@@ -129,6 +129,27 @@ The `ID3D11Device*` and immediate `ID3D11DeviceContext*` must remain alive until
 the owning `CeguiSystem` is disposed because the renderer stores borrowed
 native pointers.
 
+When the host already owns an initialised bgfx instance, C# can bootstrap the
+optional bgfx renderer instead:
+
+```csharp
+using CeguiSystem cegui = CeguiSystem.BootstrapBgfx(
+    width: 1920,
+    height: 1080,
+    viewIdBase: 240,
+    viewIdCount: 16);
+```
+
+Build it with `-DBUILD_RENDERER_BGFX=ON` and install bgfx with the `tools`
+feature so CMake can compile the renderer shaders. The host owns the bgfx
+lifecycle: CEGUI does not call `bgfx::init()`, `bgfx::shutdown()`, or
+`bgfx::frame()`. The supplied view-ID range must be reserved exclusively for
+CEGUI; the first view is used for the default target and the remaining views
+are allocated to CEGUI texture targets. `shaderRoot` may be supplied to
+`BootstrapBgfx` when the generated `Shaders/bgfx/<backend>` directory is not at
+the default build-time location.
+
+
 ## Widget coverage
 
 `WindowManager.CreateWindow`, `LoadLayoutFromFile`, `GetWindow`, child lookup,

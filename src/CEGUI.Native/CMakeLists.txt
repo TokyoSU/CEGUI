@@ -2,6 +2,7 @@ set(CEGUI_NATIVE_SOURCES
     src/CEGUIC.cpp
     src/CEGUIWidgets.cpp
     src/CEGUIDirect3D11.cpp
+    src/CEGUIBgfx.cpp
 )
 
 set(CEGUI_NATIVE_HEADERS
@@ -45,11 +46,25 @@ if(WIN32 AND BUILD_RENDERER_D3D11)
     target_compile_definitions(CEGUI.Native PRIVATE CEGUI_NATIVE_HAS_D3D11)
 endif()
 
+if(BUILD_RENDERER_BGFX)
+    target_link_libraries(CEGUI.Native PRIVATE CEGUIBgfxRenderer)
+    target_include_directories(CEGUI.Native PRIVATE ${CMAKE_SOURCE_DIR}/src/CEGUIBgfxRenderer)
+    target_compile_definitions(CEGUI.Native PRIVATE CEGUI_NATIVE_HAS_BGFX)
+    if(MSVC)
+        target_compile_options(CEGUI.Native PRIVATE /Zc:__cplusplus /Zc:preprocessor)
+    endif()
+endif()
+
 # Static CEGUIBase references one statically selected parser and image codec.
 # Resolve those factory symbols in the final C binding DLL without linking every
 # factory module (which would introduce duplicate createParser/createImageCodec
 # symbols).
 if(NOT BUILD_SHARED_LIBS)
+    # Static Scheme.cpp calls getWindowRendererFactoryModule() directly.
+    # Its implementation is provided by CEGUICoreWindowRendererSet, so the
+    # final C ABI DLL must link that static factory module explicitly.
+    target_link_libraries(CEGUI.Native PRIVATE CEGUICoreWindowRendererSet)
+
     if(BUILD_XML_RAPIDXML)
         target_link_libraries(CEGUI.Native PRIVATE CEGUIRapidXMLParser)
     elseif(BUILD_XML_TINYXML)

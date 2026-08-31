@@ -230,24 +230,29 @@ RenderEffect* Direct3D11GeometryBuffer::getRenderEffect()
 //----------------------------------------------------------------------------//
 void Direct3D11GeometryBuffer::updateMatrix() const
 {
-    const D3DXVECTOR3 p(d_pivot.d_x, d_pivot.d_y, d_pivot.d_z);
-    const D3DXVECTOR3 t(d_translation.d_x,
-                        d_translation.d_y,
-                        d_translation.d_z);
+    using DirectX::SimpleMath::Matrix;
+    using DxQuaternion = DirectX::SimpleMath::Quaternion;
+    using DirectX::SimpleMath::Vector3;
 
-    D3DXQUATERNION r;
-    r.x = d_rotation.d_x;
-    r.y = d_rotation.d_y;
-    r.z = d_rotation.d_z;
-    r.w = d_rotation.d_w;
+    const Vector3 pivot(d_pivot.d_x, d_pivot.d_y, d_pivot.d_z);
+    const Vector3 translation(d_translation.d_x, d_translation.d_y,
+                              d_translation.d_z);
+    const DxQuaternion rotation(d_rotation.d_x, d_rotation.d_y,
+                              d_rotation.d_z, d_rotation.d_w);
 
-    D3DXMatrixTransformation(&d_matrix, 0, 0, 0, &p, &r, &t);
+    // Rotate around the CEGUI pivot and then apply the requested translation.
+    // SimpleMath uses the
+    // same row-vector convention as DirectXMath/D3D.
+    d_matrix = Matrix::CreateTranslation(-pivot.x, -pivot.y, -pivot.z) *
+               Matrix::CreateFromQuaternion(rotation) *
+               Matrix::CreateTranslation(pivot.x, pivot.y, pivot.z) *
+               Matrix::CreateTranslation(translation);
 
     d_matrixValid = true;
 }
 
 //----------------------------------------------------------------------------//
-const D3DXMATRIX* Direct3D11GeometryBuffer::getMatrix() const
+const DirectX::SimpleMath::Matrix* Direct3D11GeometryBuffer::getMatrix() const
 {
     if (!d_matrixValid)
         updateMatrix();

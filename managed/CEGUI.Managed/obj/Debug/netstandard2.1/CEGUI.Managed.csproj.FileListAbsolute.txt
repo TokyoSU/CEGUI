@@ -1,0 +1,12 @@
+C:\Users\TokyoSU\Documents\GitHub\CEGUI\managed\CEGUI.Managed\bin\Debug\netstandard2.1\CEGUI.Managed.deps.json
+C:\Users\TokyoSU\Documents\GitHub\CEGUI\managed\CEGUI.Managed\bin\Debug\netstandard2.1\CEGUI.Managed.dll
+C:\Users\TokyoSU\Documents\GitHub\CEGUI\managed\CEGUI.Managed\bin\Debug\netstandard2.1\CEGUI.Managed.pdb
+C:\Users\TokyoSU\Documents\GitHub\CEGUI\managed\CEGUI.Managed\bin\Debug\netstandard2.1\CEGUI.Managed.xml
+C:\Users\TokyoSU\Documents\GitHub\CEGUI\managed\CEGUI.Managed\obj\Debug\netstandard2.1\CEGUI.Managed.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\TokyoSU\Documents\GitHub\CEGUI\managed\CEGUI.Managed\obj\Debug\netstandard2.1\CEGUI.Managed.AssemblyInfoInputs.cache
+C:\Users\TokyoSU\Documents\GitHub\CEGUI\managed\CEGUI.Managed\obj\Debug\netstandard2.1\CEGUI.Managed.AssemblyInfo.cs
+C:\Users\TokyoSU\Documents\GitHub\CEGUI\managed\CEGUI.Managed\obj\Debug\netstandard2.1\CEGUI.Managed.csproj.CoreCompileInputs.cache
+C:\Users\TokyoSU\Documents\GitHub\CEGUI\managed\CEGUI.Managed\obj\Debug\netstandard2.1\CEGUI.Managed.sourcelink.json
+C:\Users\TokyoSU\Documents\GitHub\CEGUI\managed\CEGUI.Managed\obj\Debug\netstandard2.1\CEGUI.Managed.dll
+C:\Users\TokyoSU\Documents\GitHub\CEGUI\managed\CEGUI.Managed\obj\Debug\netstandard2.1\CEGUI.Managed.xml
+C:\Users\TokyoSU\Documents\GitHub\CEGUI\managed\CEGUI.Managed\obj\Debug\netstandard2.1\CEGUI.Managed.pdb

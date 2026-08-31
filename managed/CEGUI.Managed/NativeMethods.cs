@@ -35,6 +35,18 @@ internal static class NativeMethods
     internal static extern NativeResult CEGUI_C_D3D11_DestroySystem();
 
     [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl)]
+    internal static extern NativeResult CEGUI_C_Bgfx_BootstrapSystem(
+        float width,
+        float height,
+        ushort viewIdBase,
+        ushort viewIdCount,
+        [MarshalAs(UnmanagedType.LPUTF8Str)] string? shaderRoot,
+        out IntPtr system);
+
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl)]
+    internal static extern NativeResult CEGUI_C_Bgfx_DestroySystem();
+
+    [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl)]
     internal static extern NativeResult CEGUI_C_System_GetExisting(out IntPtr system);
 
     [DllImport(LibraryName, CallingConvention = CallingConvention.Cdecl)]
