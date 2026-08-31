@@ -15,3 +15,5 @@ vcpkg install tinyxml:x86-windows-static
 vcpkg install xerces-c:x86-windows-static
 vcpkg install rapidxml:x86-windows-static
 vcpkg install lua:x86-windows-static
+vcpkg install bgfx[core,multithreaded,tools]:x86-windows-static
+pause
