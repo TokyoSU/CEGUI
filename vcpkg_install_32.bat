@@ -15,4 +15,5 @@ vcpkg install tinyxml:x86-windows
 vcpkg install xerces-c:x86-windows
 vcpkg install rapidxml:x86-windows
 vcpkg install lua:x86-windows
-vcpkg install bgfx[tools]:x86-windows
+vcpkg install bgfx[core,multithreaded,tools]:x86-windows
+pause
