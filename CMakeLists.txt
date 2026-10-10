@@ -58,7 +58,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Set default install location to <source>/install
 if(CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
-    set(CMAKE_INSTALL_PREFIX "${CMAKE_SOURCE_DIR}/install" CACHE PATH "Default install path" FORCE)
+    set(CMAKE_INSTALL_PREFIX "${PROJECT_SOURCE_DIR}/install" CACHE PATH "Default install path" FORCE)
 endif()
 
 # Include install helper function (ni_install_target)

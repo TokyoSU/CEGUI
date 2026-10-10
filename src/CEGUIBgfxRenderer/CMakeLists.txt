@@ -11,7 +11,7 @@ if(NOT DEFINED BGFX_SHADER_INCLUDE_PATH OR
     message(FATAL_ERROR "The bgfx package did not expose a valid BGFX_SHADER_INCLUDE_PATH.")
 endif()
 
-file(GLOB_RECURSE FILE_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp")
+file(GLOB_RECURSE FILE_SOURCES "${CMAKE_CURRENT_SOURCE_DIR}/CEGUI/*.cpp")
 file(GLOB_RECURSE FILE_HEADERS
     "${CMAKE_CURRENT_SOURCE_DIR}/*.h"
     "${CMAKE_CURRENT_SOURCE_DIR}/*.inl"
@@ -25,7 +25,7 @@ target_include_directories(CEGUIBgfxRenderer
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>
         $<INSTALL_INTERFACE:include>
     PRIVATE
-        $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/CEGUIBase>
+        $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src/CEGUIBase>
 )
 
 target_link_libraries(CEGUIBgfxRenderer
@@ -90,6 +90,29 @@ if(WIN32)
 endif()
 list(APPEND CEGUI_BGFX_COMPILED_SHADERS "${_vs_glsl}" "${_fs_glsl}" "${_vs_spirv}" "${_fs_spirv}")
 
+foreach(_backend dx11 glsl spirv)
+    if(_backend STREQUAL "dx11")
+        if(NOT WIN32)
+            continue()
+        endif()
+        set(_platform windows)
+        set(_profile s_5_0)
+    elseif(_backend STREQUAL "glsl")
+        if(WIN32)
+            set(_platform windows)
+        else()
+            set(_platform linux)
+        endif()
+        set(_profile 150)
+    else()
+        set(_platform linux)
+        set(_profile spirv)
+    endif()
+    cegui_bgfx_compile_shader(_instanced "${CEGUI_BGFX_SHADER_SOURCE_DIR}/vs_cegui_instanced.sc"
+        vertex ${_backend} ${_platform} ${_profile})
+    list(APPEND CEGUI_BGFX_COMPILED_SHADERS "${_instanced}")
+endforeach()
+
 add_custom_target(CEGUIBgfxShaders DEPENDS ${CEGUI_BGFX_COMPILED_SHADERS})
 add_dependencies(CEGUIBgfxRenderer CEGUIBgfxShaders)
 
@@ -101,3 +124,13 @@ install_target(CEGUIBgfxRenderer HEADER_DIRS CEGUI)
 install(DIRECTORY "${CEGUI_BGFX_SHADER_BINARY_DIR}/"
     DESTINATION "share/CEGUI/Shaders/bgfx"
 )
+
+option(CEGUI_BGFX_BUILD_TESTS "Build Windows D3D11 pixel comparison test" OFF)
+if(CEGUI_BGFX_BUILD_TESTS AND WIN32)
+    if(BUILD_SHARED_LIBS OR NOT BUILD_XML_RAPIDXML OR NOT BUILD_IMAGE_TGA)
+        message(FATAL_ERROR "GPU test requires static CEGUI, BUILD_XML_RAPIDXML=ON and BUILD_IMAGE_TGA=ON")
+    endif()
+    add_executable(CEGUIBgfxInstancingTest tests/Instancing.cpp)
+    target_link_libraries(CEGUIBgfxInstancingTest PRIVATE CEGUIBgfxRenderer CEGUIBase CEGUICoreWindowRendererSet CEGUIRapidXMLParser CEGUITGAImageCodec user32)
+    target_compile_options(CEGUIBgfxInstancingTest PRIVATE /EHsc /Zc:__cplusplus /Zc:preprocessor)
+endif()

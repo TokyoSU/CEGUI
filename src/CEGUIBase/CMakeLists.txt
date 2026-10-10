@@ -7,7 +7,7 @@ file(GLOB_RECURSE FILE_HEADERS
 # Add library — type is controlled by BUILD_SHARED_LIBS (ON = DLL, OFF = static)
 add_library(CEGUIBase ${FILE_SOURCES} ${FILE_HEADERS})
 
-find_package(Freetype CONFIG REQUIRED)
+find_package(Freetype REQUIRED)
 find_package(unofficial-pcre CONFIG REQUIRED)
 
 # Include directories for this library
@@ -37,6 +37,9 @@ target_compile_definitions(CEGUIBase
     PRIVATE
         $<$<BOOL:${BUILD_SHARED_LIBS}>:CEGUIBASE_EXPORTS>
     INTERFACE
+        CEGUI_STRING_CLASS_${CEGUI_STRING_CLASS}
+        $<$<NOT:$<BOOL:${BUILD_SHARED_LIBS}>>:CEGUI_STATIC>
+        $<$<NOT:$<BOOL:${BUILD_SHARED_LIBS}>>:CEGUI_BUILD_STATIC_FACTORY_MODULE>
         $<$<BOOL:${BUILD_SHARED_LIBS}>:CEGUIBASE_IMPORTS>
 )
 

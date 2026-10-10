@@ -29,7 +29,7 @@ target_include_directories(CEGUIOpenGLRenderer
 
 target_include_directories(CEGUIOpenGLRenderer
     PRIVATE
-        $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/CEGUIBase>
+        $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src/CEGUIBase>
 )
 
 target_link_libraries(CEGUIOpenGLRenderer

@@ -15,7 +15,7 @@ target_include_directories(CEGUICommonDialogs
 
 target_include_directories(CEGUICommonDialogs
     PRIVATE
-        $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/CEGUIBase>
+        $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src/CEGUIBase>
 )
 
 target_link_libraries(CEGUICommonDialogs

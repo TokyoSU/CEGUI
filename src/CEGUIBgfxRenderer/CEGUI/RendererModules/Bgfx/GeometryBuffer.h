@@ -53,6 +53,8 @@ private:
         bool clip;
     };
 
+    bool buildQuadInstances(uint32_t start, uint32_t count,
+                            std::vector<BgfxRenderer::QuadInstance>& instances) const;
     void updateMatrix() const;
     void syncHardwareBuffer() const;
     static uint32_t colourToABGR(const Colour& colour);
@@ -63,6 +65,8 @@ private:
     mutable bool d_bufferSynced;
     std::vector<BatchInfo> d_batches;
     std::vector<BgfxVertex> d_vertices;
+    mutable bool d_instancesSynced = false;
+    mutable std::vector<std::vector<BgfxRenderer::QuadInstance>> d_quadBatches;
     Rectf d_clipRect;
     bool d_clippingActive;
     Vector3f d_translation;

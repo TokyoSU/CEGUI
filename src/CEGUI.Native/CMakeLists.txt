@@ -27,7 +27,7 @@ target_include_directories(CEGUI.Native
         $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
         $<INSTALL_INTERFACE:include>
     PRIVATE
-        ${CMAKE_SOURCE_DIR}/src/CEGUIBase
+        ${PROJECT_SOURCE_DIR}/src/CEGUIBase
 )
 
 target_link_libraries(CEGUI.Native
@@ -42,13 +42,13 @@ target_compile_definitions(CEGUI.Native
 
 if(WIN32 AND BUILD_RENDERER_D3D11)
     target_link_libraries(CEGUI.Native PRIVATE CEGUIDirect3D11Renderer d3d11)
-    target_include_directories(CEGUI.Native PRIVATE ${CMAKE_SOURCE_DIR}/src/CEGUIDirect3D11Renderer)
+    target_include_directories(CEGUI.Native PRIVATE ${PROJECT_SOURCE_DIR}/src/CEGUIDirect3D11Renderer)
     target_compile_definitions(CEGUI.Native PRIVATE CEGUI_NATIVE_HAS_D3D11)
 endif()
 
 if(BUILD_RENDERER_BGFX)
     target_link_libraries(CEGUI.Native PRIVATE CEGUIBgfxRenderer)
-    target_include_directories(CEGUI.Native PRIVATE ${CMAKE_SOURCE_DIR}/src/CEGUIBgfxRenderer)
+    target_include_directories(CEGUI.Native PRIVATE ${PROJECT_SOURCE_DIR}/src/CEGUIBgfxRenderer)
     target_compile_definitions(CEGUI.Native PRIVATE CEGUI_NATIVE_HAS_BGFX)
     if(MSVC)
         target_compile_options(CEGUI.Native PRIVATE /Zc:__cplusplus /Zc:preprocessor)

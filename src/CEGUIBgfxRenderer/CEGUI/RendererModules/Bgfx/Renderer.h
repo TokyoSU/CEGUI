@@ -91,6 +91,14 @@ public:
                         BlendMode blendMode, bool clipped,
                         const Rectf& clipRect) const;
 
+    // Five vec4 attributes. Matches vs_cegui_instanced.sc exactly.
+    struct QuadInstance { float data[20]; };
+    bool submitQuads(const QuadInstance* instances, uint32_t count,
+                     bgfx::TextureHandle texture, const float* modelMatrix,
+                     BlendMode blendMode, bool clipped, const Rectf& clipRect) const;
+    bool supportsInstancing() const { return d_instancingEnabled && bgfx::isValid(d_instancedProgram); }
+    void setInstancingEnabled(bool enabled) { d_instancingEnabled = enabled; }
+
 protected:
     BgfxRenderer(const Sizef& displaySize, bgfx::ViewId viewIdBase,
                  uint16_t viewIdCount, const char* shaderRoot);
@@ -123,7 +131,12 @@ private:
     TextureMap d_textures;
 
     bgfx::VertexLayout d_vertexLayout;
+    void applyDrawState(bgfx::TextureHandle texture, const float* modelMatrix,
+                        BlendMode blendMode, bool clipped, const Rectf& clipRect) const;
     bgfx::ProgramHandle d_program;
+    bool d_instancingEnabled = true;
+    bgfx::ProgramHandle d_instancedProgram;
+    bgfx::VertexBufferHandle d_quadBuffer;
     bgfx::UniformHandle d_textureSampler;
     bgfx::TextureHandle d_whiteTexture;
 

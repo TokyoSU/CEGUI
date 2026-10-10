@@ -29,11 +29,22 @@ void BgfxGeometryBuffer::draw() const
 {
     if (d_vertices.empty())
         return;
-    if (!d_bufferSynced)
-        syncHardwareBuffer();
     if (!d_matrixValid)
         updateMatrix();
 
+    if (!d_effect && d_owner.supportsInstancing() && !d_instancesSynced)
+    {
+        d_quadBatches.clear();
+        uint32_t start = 0;
+        for (const auto& batch : d_batches)
+        {
+            std::vector<BgfxRenderer::QuadInstance> instances;
+            if (!buildQuadInstances(start, batch.vertexCount, instances)) instances.clear();
+            d_quadBatches.push_back(std::move(instances));
+            start += batch.vertexCount;
+        }
+        d_instancesSynced = true;
+    }
     const int passCount = d_effect ? d_effect->getPassCount() : 1;
     for (int pass = 0; pass < passCount; ++pass)
     {
@@ -41,18 +52,68 @@ void BgfxGeometryBuffer::draw() const
             d_effect->performPreRenderFunctions(pass);
 
         uint32_t start = 0;
+        size_t batchIndex = 0;
         for (std::vector<BatchInfo>::const_iterator it = d_batches.begin();
              it != d_batches.end(); ++it)
         {
-            d_owner.submitGeometry(d_vertexBuffer, start, it->vertexCount,
-                                   it->texture, d_matrix, d_blendMode,
-                                   it->clip, d_clipRect);
+            // Effects can depend on the original vertex attributes/shader path.
+            if (d_effect || !d_owner.supportsInstancing() ||
+                d_quadBatches[batchIndex].empty() ||
+                !d_owner.submitQuads(d_quadBatches[batchIndex].data(), static_cast<uint32_t>(d_quadBatches[batchIndex].size()),
+                                     it->texture, d_matrix, d_blendMode, it->clip, d_clipRect))
+            {
+                if (!d_bufferSynced) syncHardwareBuffer();
+                d_owner.submitGeometry(d_vertexBuffer, start, it->vertexCount,
+                                       it->texture, d_matrix, d_blendMode, it->clip, d_clipRect);
+            }
             start += it->vertexCount;
+            ++batchIndex;
         }
     }
 
     if (d_effect)
         d_effect->performPostRenderFunctions();
+}
+
+bool BgfxGeometryBuffer::buildQuadInstances(uint32_t start, uint32_t count,
+    std::vector<BgfxRenderer::QuadInstance>& instances) const
+{
+    if (!count || count % 6) return false;
+    instances.reserve(count / 6);
+    for (uint32_t i = start; i < start + count; i += 6)
+    {
+        const BgfxVertex* v = &d_vertices[i];
+        const bool alternate = v[2].y == v[0].y;
+        const int corners[6] = {0, 1, alternate ? 3 : 2, 3, alternate ? 1 : 0, 2};
+        const BgfxVertex* c[4] = {&v[0], &v[1], &v[5], &v[3]};
+        // Exact comparisons deliberately reject non-rectangular/custom geometry.
+        for (int j = 0; j < 6; ++j)
+        {
+            const auto& expected = *c[corners[j]];
+            if (v[j].x != expected.x || v[j].y != expected.y ||
+                v[j].z != expected.z || v[j].u != expected.u ||
+                v[j].v != expected.v || v[j].abgr != expected.abgr) return false;
+        }
+        if (c[0]->x != c[1]->x || c[2]->x != c[3]->x ||
+            c[0]->y != c[3]->y || c[1]->y != c[2]->y ||
+            c[0]->u != c[1]->u || c[2]->u != c[3]->u ||
+            c[0]->v != c[3]->v || c[1]->v != c[2]->v ||
+            c[0]->z != c[1]->z || c[0]->z != c[2]->z || c[0]->z != c[3]->z)
+            return false;
+        BgfxRenderer::QuadInstance instance{};
+        float* out = instance.data;
+        out[0]=c[0]->x; out[1]=c[0]->y; out[2]=c[2]->x; out[3]=c[2]->y;
+        out[4]=c[0]->u; out[5]=c[0]->v; out[6]=c[2]->u; out[7]=c[2]->v;
+        for (int j=0;j<4;++j)
+        {
+            // Exact 16-bit integer pairs are representable by float32.
+            out[8+j*2]=static_cast<float>(c[j]->abgr & 65535);
+            out[9+j*2]=static_cast<float>(c[j]->abgr >> 16);
+        }
+        out[16]=c[0]->z; out[17]=alternate ? 1.0f : 0.0f;
+        instances.push_back(instance);
+    }
+    return true;
 }
 
 void BgfxGeometryBuffer::setTranslation(const Vector3f& v) { d_translation = v; d_matrixValid = false; }
@@ -101,6 +162,7 @@ void BgfxGeometryBuffer::appendGeometry(const Vertex* const vertices, uint verte
         d_vertices.push_back(out);
     }
     d_bufferSynced = false;
+    d_instancesSynced = false;
 }
 
 void BgfxGeometryBuffer::setActiveTexture(Texture* texture)
@@ -114,6 +176,7 @@ void BgfxGeometryBuffer::reset()
     d_vertices.clear();
     d_activeTexture = 0;
     d_bufferSynced = false;
+    d_instancesSynced = false;
 }
 
 Texture* BgfxGeometryBuffer::getActiveTexture() const { return d_activeTexture; }

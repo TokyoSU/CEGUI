@@ -17,7 +17,7 @@ target_include_directories(CEGUIXercesParser
 
 target_include_directories(CEGUIXercesParser
     PRIVATE
-        $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/CEGUIBase>
+        $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src/CEGUIBase>
 )
 
 target_link_libraries(CEGUIXercesParser

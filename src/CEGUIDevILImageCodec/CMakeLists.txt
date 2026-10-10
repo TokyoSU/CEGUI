@@ -22,7 +22,7 @@ target_include_directories(CEGUIDevILImageCodec
 
 target_include_directories(CEGUIDevILImageCodec
     PRIVATE
-        $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/CEGUIBase>
+        $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src/CEGUIBase>
         ${DEVIL_INCLUDE_DIR}
 )
 

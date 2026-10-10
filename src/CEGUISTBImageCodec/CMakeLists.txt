@@ -17,7 +17,7 @@ target_include_directories(CEGUISTBImageCodec
 
 target_include_directories(CEGUISTBImageCodec
     PRIVATE
-        $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/CEGUIBase>
+        $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src/CEGUIBase>
         ${Stb_INCLUDE_DIR}
 )
 

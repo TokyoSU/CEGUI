@@ -270,8 +270,33 @@ void BgfxRenderer::submitGeometry(bgfx::DynamicVertexBufferHandle vertexBuffer,
     if (!bgfx::isValid(vertexBuffer) || vertexCount == 0 || !bgfx::isValid(d_program))
         return;
 
-    bgfx::setTransform(modelMatrix);
+    applyDrawState(texture, modelMatrix, blendMode, clipped, clipRect);
     bgfx::setVertexBuffer(0, vertexBuffer, startVertex, vertexCount);
+    bgfx::submit(d_currentViewId, d_program);
+}
+
+bool BgfxRenderer::submitQuads(const QuadInstance* instances, uint32_t count,
+                               bgfx::TextureHandle texture, const float* modelMatrix,
+                               BlendMode blendMode, bool clipped, const Rectf& clipRect) const
+{
+    static_assert(sizeof(QuadInstance) == 80, "Shader instance stride mismatch");
+    if (!count || !supportsInstancing() ||
+        bgfx::getAvailInstanceDataBuffer(count, sizeof(QuadInstance)) != count)
+        return false;
+    bgfx::InstanceDataBuffer buffer;
+    bgfx::allocInstanceDataBuffer(&buffer, count, sizeof(QuadInstance));
+    std::memcpy(buffer.data, instances, count * sizeof(QuadInstance));
+    applyDrawState(texture, modelMatrix, blendMode, clipped, clipRect);
+    bgfx::setVertexBuffer(0, d_quadBuffer);
+    bgfx::setInstanceDataBuffer(&buffer);
+    bgfx::submit(d_currentViewId, d_instancedProgram);
+    return true;
+}
+
+void BgfxRenderer::applyDrawState(bgfx::TextureHandle texture, const float* modelMatrix,
+                                 BlendMode blendMode, bool clipped, const Rectf& clipRect) const
+{
+    bgfx::setTransform(modelMatrix);
     bgfx::setTexture(0, d_textureSampler,
                      bgfx::isValid(texture) ? texture : d_whiteTexture);
 
@@ -295,13 +320,13 @@ void BgfxRenderer::submitGeometry(bgfx::DynamicVertexBufferHandle vertexBuffer,
     else
         bgfx::setScissor(UINT16_MAX);
 
-    bgfx::submit(d_currentViewId, d_program);
 }
 
 BgfxRenderer::BgfxRenderer(const Sizef& displaySize, bgfx::ViewId viewIdBase,
                            uint16_t viewIdCount, const char* shaderRoot) :
     d_displaySize(displaySize), d_displayDPI(96, 96), d_defaultTarget(0),
-    d_program(BGFX_INVALID_HANDLE), d_textureSampler(BGFX_INVALID_HANDLE),
+    d_program(BGFX_INVALID_HANDLE), d_instancedProgram(BGFX_INVALID_HANDLE),
+    d_quadBuffer(BGFX_INVALID_HANDLE), d_textureSampler(BGFX_INVALID_HANDLE),
     d_whiteTexture(BGFX_INVALID_HANDLE), d_viewIdBase(viewIdBase),
     d_viewIdCount(viewIdCount), d_currentViewId(viewIdBase),
     d_shaderRoot(shaderRoot ? shaderRoot : "")
@@ -365,6 +390,25 @@ void BgfxRenderer::initialiseResources()
     if (!bgfx::isValid(d_program))
         CEGUI_THROW(RendererException("bgfx failed to link the CEGUI shader program."));
 
+    if (bgfx::getCaps()->supported & BGFX_CAPS_INSTANCING)
+    {
+        vs = loadShader("vs_cegui_instanced.bin");
+        fs = loadShader("fs_cegui.bin");
+        if (!bgfx::isValid(vs) || !bgfx::isValid(fs))
+        {
+            if (bgfx::isValid(vs)) bgfx::destroy(vs);
+            if (bgfx::isValid(fs)) bgfx::destroy(fs);
+            CEGUI_THROW(RendererException("Unable to load CEGUI instancing shaders."));
+        }
+        d_instancedProgram = bgfx::createProgram(vs, fs, true);
+        const float indices[] = {0, 1, 2, 3, 4, 5};
+        bgfx::VertexLayout layout;
+        layout.begin().add(bgfx::Attrib::Position, 1, bgfx::AttribType::Float).end();
+        d_quadBuffer = bgfx::createVertexBuffer(bgfx::copy(indices, sizeof(indices)), layout);
+        if (!bgfx::isValid(d_instancedProgram) || !bgfx::isValid(d_quadBuffer))
+            CEGUI_THROW(RendererException("Unable to create CEGUI instanced quad resources."));
+    }
+
     d_textureSampler = bgfx::createUniform("s_texture", bgfx::UniformType::Sampler);
     if (!bgfx::isValid(d_textureSampler))
     {
@@ -388,6 +432,10 @@ void BgfxRenderer::destroyResources()
     if (bgfx::isValid(d_whiteTexture)) bgfx::destroy(d_whiteTexture);
     if (bgfx::isValid(d_textureSampler)) bgfx::destroy(d_textureSampler);
     if (bgfx::isValid(d_program)) bgfx::destroy(d_program);
+    if (bgfx::isValid(d_instancedProgram)) bgfx::destroy(d_instancedProgram);
+    if (bgfx::isValid(d_quadBuffer)) bgfx::destroy(d_quadBuffer);
+    d_instancedProgram = BGFX_INVALID_HANDLE;
+    d_quadBuffer = BGFX_INVALID_HANDLE;
     d_whiteTexture = BGFX_INVALID_HANDLE;
     d_textureSampler = BGFX_INVALID_HANDLE;
     d_program = BGFX_INVALID_HANDLE;

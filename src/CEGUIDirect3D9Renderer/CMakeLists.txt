@@ -18,7 +18,7 @@ target_include_directories(CEGUIDirect3D9Renderer
 
 target_include_directories(CEGUIDirect3D9Renderer
     PRIVATE
-        $<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/src/CEGUIBase>
+        $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/src/CEGUIBase>
 )
 
 target_link_libraries(CEGUIDirect3D9Renderer
